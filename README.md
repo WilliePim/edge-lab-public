@@ -8,6 +8,9 @@ as evidence for it, builds the data from primary sources, and publishes the verd
 this repository **did not find an edge**, and that is the point: each one shows where a number that looked like an
 effect came from, and why it did not survive a fair comparison.
 
+This is the public half of the project. The studies whose results held up, and the operational work built on them,
+live in a private version of the repository.
+
 What is here:
 
 - **a Form 4 insider-purchase filter** (`form4_scanner/`) that keeps only genuine open-market purchases and hands a
@@ -73,7 +76,8 @@ negative against peers. "IPOs that never traded below the offer price keep winni
 strong IPO lost to comparable companies over the following year, and the positive mean was carried by a few very large
 winners (t 1.07).
 
-Other studies and all operational work are kept private.
+**What is not in this repo.** The studies that did find an edge, and everything built to use them, are in a private
+version of this repository. What is published here is what was tested and could not be confirmed.
 
 ---
 
