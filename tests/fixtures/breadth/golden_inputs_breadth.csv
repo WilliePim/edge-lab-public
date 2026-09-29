@@ -1,0 +1,13 @@
+week_start,issuers_with_open_market_buy,issuers_total,transactions,median_buy_usd,golden
+2022-04-04,58,1403,,,"no (context only, not from the fixtures)"
+2022-04-11,63,708,,,"no (context only, not from the fixtures)"
+2022-04-18,64,784,,,"no (context only, not from the fixtures)"
+2022-04-25,108,704,246,202750,yes
+2022-05-02,157,1221,408,152250,yes
+2022-05-09,300,1146,804,125370,yes
+2022-05-16,287,1491,629,97960,yes
+2022-05-23,199,1266,,,"no (context only, not from the fixtures)"
+2022-05-30,128,1336,,,"no (context only, not from the fixtures)"
+2022-06-06,132,1181,,,"no (context only, not from the fixtures)"
+2022-06-13,230,1339,,,"no (context only, not from the fixtures)"
+2022-06-20,77,770,,,"no (context only, not from the fixtures)"

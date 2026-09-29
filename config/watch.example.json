@@ -1,0 +1,36 @@
+{
+  "_nota": "Sorveglianza di nomi singoli, fuori dall'universo dello scanner. Le forme S-8 e S-8 POS sono ESCLUSE apposta: sono piani per i dipendenti, non rivendite, e su un emittente con piani frequenti da sole riempirebbero la lista.",
+  "watches": [
+    {
+      "id": "esempio-rivendita",
+      "cik": "0000000000",
+      "ticker": "TICK",
+      "name": "Nome Emittente",
+      "kind": "filings",
+      "forms": [
+        "S-1",
+        "S-1/A",
+        "S-3",
+        "S-3/A",
+        "S-3ASR",
+        "S-3MEF",
+        "424B3",
+        "424B4",
+        "424B5",
+        "424B7",
+        "POS AM"
+      ],
+      "note": "a cosa serve questa sorveglianza"
+    },
+    {
+      "id": "esempio-acquisti",
+      "cik": "0000000000",
+      "ticker": "TICK",
+      "name": "Nome Emittente",
+      "kind": "form4_buys",
+      "roles": "management",
+      "min_value": 0,
+      "note": "roles: management = director o officer e NON 10% owner; any = tutti"
+    }
+  ]
+}

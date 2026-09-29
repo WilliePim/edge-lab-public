@@ -1,0 +1,212 @@
+{
+ "IWM_2015-03-31": {
+  "righe": {
+   "VERIFICATA": 916,
+   "NESSUN_PREZZO_YAHOO": 1024,
+   "PREZZO_DIVERSO": 41,
+   "NESSUN_CANDIDATO": 19,
+   "VERIFICATA_SENZA_SPLIT": 2
+  },
+  "quota_valore_verificato": 0.5336
+ },
+ "IWM_2015-06-30": {
+  "righe": {
+   "VERIFICATA": 929,
+   "NESSUN_PREZZO_YAHOO": 985,
+   "PREZZO_DIVERSO": 44,
+   "NESSUN_CANDIDATO": 20,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.5203
+ },
+ "IWM_2016-03-31": {
+  "righe": {
+   "VERIFICATA": 971,
+   "NESSUN_PREZZO_YAHOO": 932,
+   "PREZZO_DIVERSO": 39,
+   "NESSUN_CANDIDATO": 20,
+   "VERIFICATA_SENZA_SPLIT": 2
+  },
+  "quota_valore_verificato": 0.5695
+ },
+ "IWM_2016-06-30": {
+  "righe": {
+   "VERIFICATA": 1027,
+   "NESSUN_PREZZO_YAHOO": 916,
+   "PREZZO_DIVERSO": 39,
+   "NESSUN_CANDIDATO": 27,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.5607
+ },
+ "IWM_2017-03-31": {
+  "righe": {
+   "VERIFICATA": 1057,
+   "NESSUN_PREZZO_YAHOO": 839,
+   "PREZZO_DIVERSO": 36,
+   "NESSUN_CANDIDATO": 27,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.6017
+ },
+ "IWM_2017-06-30": {
+  "righe": {
+   "VERIFICATA": 1096,
+   "NESSUN_PREZZO_YAHOO": 851,
+   "PREZZO_DIVERSO": 41,
+   "NESSUN_CANDIDATO": 23,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.6075
+ },
+ "IWM_2018-03-31": {
+  "righe": {
+   "VERIFICATA": 1135,
+   "NESSUN_PREZZO_YAHOO": 788,
+   "PREZZO_DIVERSO": 41,
+   "NESSUN_CANDIDATO": 20,
+   "VERIFICATA_SENZA_SPLIT": 2
+  },
+  "quota_valore_verificato": 0.6399
+ },
+ "IWM_2018-06-30": {
+  "righe": {
+   "VERIFICATA": 1186,
+   "NESSUN_PREZZO_YAHOO": 779,
+   "PREZZO_DIVERSO": 36,
+   "NESSUN_CANDIDATO": 21,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.6385
+ },
+ "IWM_2019-03-31": {
+  "righe": {
+   "VERIFICATA": 1224,
+   "NESSUN_PREZZO_YAHOO": 720,
+   "PREZZO_DIVERSO": 37,
+   "NESSUN_CANDIDATO": 19,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.6889
+ },
+ "IWM_2020-03-31": {
+  "righe": {
+   "VERIFICATA": 1292,
+   "NESSUN_PREZZO_YAHOO": 631,
+   "PREZZO_DIVERSO": 35,
+   "NESSUN_CANDIDATO": 21,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.7322
+ },
+ "IWM_2020-06-30": {
+  "righe": {
+   "NESSUN_PREZZO_YAHOO": 608,
+   "NESSUN_CANDIDATO": 20,
+   "VERIFICATA": 1354,
+   "PREZZO_DIVERSO": 35,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.7262
+ },
+ "IWM_2021-03-31": {
+  "righe": {
+   "VERIFICATA": 1419,
+   "NESSUN_PREZZO_YAHOO": 579,
+   "PREZZO_DIVERSO": 36,
+   "NESSUN_CANDIDATO": 21,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.7623
+ },
+ "IWM_2021-06-30": {
+  "righe": {
+   "VERIFICATA": 1400,
+   "NESSUN_PREZZO_YAHOO": 546,
+   "PREZZO_DIVERSO": 29,
+   "NESSUN_CANDIDATO": 18,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.7509
+ },
+ "IWM_2022-03-31": {
+  "righe": {
+   "VERIFICATA": 1468,
+   "NESSUN_PREZZO_YAHOO": 505,
+   "PREZZO_DIVERSO": 25,
+   "NESSUN_CANDIDATO": 16,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.785
+ },
+ "IWM_2022-06-30": {
+  "righe": {
+   "VERIFICATA": 1470,
+   "NESSUN_PREZZO_YAHOO": 476,
+   "PREZZO_DIVERSO": 29,
+   "NESSUN_CANDIDATO": 15,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.7822
+ },
+ "IWM_2023-03-31": {
+  "righe": {
+   "VERIFICATA": 1478,
+   "NESSUN_PREZZO_YAHOO": 401,
+   "NESSUN_CANDIDATO": 15,
+   "PREZZO_DIVERSO": 27,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.8232
+ },
+ "IWM_2023-06-30": {
+  "righe": {
+   "VERIFICATA": 1598,
+   "NESSUN_PREZZO_YAHOO": 375,
+   "NESSUN_CANDIDATO": 13,
+   "PREZZO_DIVERSO": 24,
+   "VERIFICATA_SENZA_SPLIT": 2
+  },
+  "quota_valore_verificato": 0.8287
+ },
+ "IWM_2024-03-31": {
+  "righe": {
+   "VERIFICATA": 1609,
+   "NESSUN_PREZZO_YAHOO": 303,
+   "NESSUN_CANDIDATO": 12,
+   "PREZZO_DIVERSO": 22,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.8697
+ },
+ "IWM_2024-06-30": {
+  "righe": {
+   "VERIFICATA": 1608,
+   "NESSUN_PREZZO_YAHOO": 278,
+   "NESSUN_CANDIDATO": 12,
+   "PREZZO_DIVERSO": 22,
+   "VERIFICATA_SENZA_SPLIT": 1
+  },
+  "quota_valore_verificato": 0.8796
+ },
+ "IWM_2025-03-31": {
+  "righe": {
+   "VERIFICATA": 1716,
+   "NESSUN_PREZZO_YAHOO": 204,
+   "NESSUN_CANDIDATO": 11,
+   "PREZZO_DIVERSO": 17,
+   "VERIFICATA_SENZA_SPLIT": 2
+  },
+  "quota_valore_verificato": 0.9064
+ },
+ "IWM_2025-06-30": {
+  "righe": {
+   "VERIFICATA": 1889,
+   "NESSUN_PREZZO_YAHOO": 192,
+   "NESSUN_CANDIDATO": 13,
+   "PREZZO_DIVERSO": 20,
+   "VERIFICATA_SENZA_SPLIT": 2
+  },
+  "quota_valore_verificato": 0.9169
+ }
+}

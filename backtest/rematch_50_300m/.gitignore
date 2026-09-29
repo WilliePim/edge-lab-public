@@ -1,0 +1,7 @@
+# CSV per evento del ri-test: rigenerabili da tools/ e dal codice di questa
+# directory, e troppo grandi per la storia git. Report markdown e SVG restano tracciati.
+*.csv
+__pycache__/
+
+# Rigenerabile dalla cache con `survival.py popolazione`; impronta nel report del passo 2.
+step2_prep/popolazione.jsonl

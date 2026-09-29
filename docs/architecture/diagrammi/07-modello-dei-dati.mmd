@@ -1,0 +1,111 @@
+---
+title: I dati che lo scanner conserva
+config:
+  theme: base
+  themeVariables:
+    fontSize: "14px"
+    primaryColor: "#EEF2FF"
+    primaryBorderColor: "#6366F1"
+    primaryTextColor: "#1E1B4B"
+    lineColor: "#64748B"
+    tertiaryColor: "#EDE9FE"
+    attributeBackgroundColorOdd: "#F5F3FF"
+    attributeBackgroundColorEven: "#EDE9FE"
+---
+erDiagram
+    SOCIETA ||--o{ OSSERVAZIONE : "è valutata in"
+    SOCIETA ||--o{ VERDETTO : "riceve"
+    SOCIETA ||--o{ SORVEGLIANZA : "è sorvegliata da"
+    SOCIETA ||--o| FIGLIA_SPINOFF : "può essere"
+    SOCIETA ||--o| VEICOLO_MANUALE : "può essere segnata come"
+    SOCIETA ||--o{ RIGA_TABELLA : "compare in"
+    GIRO ||--o{ OSSERVAZIONE : "produce"
+    GIRO ||--o{ SETTIMANA : "riconta"
+    GIRO ||--|| ULTIMO_GIRO : "riassunto in"
+    OSSERVAZIONE ||--|{ ACQUISTO : "contiene"
+    DEPOSITO_SEC ||--o{ ACQUISTO : "riporta"
+    INSIDER ||--o{ ACQUISTO : "esegue"
+    DEPOSITO_SEC ||--o| DEPOSITO_GIA_MOSTRATO : "segnato come"
+    SORVEGLIANZA ||--o{ AVVISO_GIA_DATO : "ha prodotto"
+    DEPOSITO_SEC ||--o{ AVVISO_GIA_DATO : "citato in"
+    VERDETTO |o--o| VERDETTO : "sostituisce"
+
+    SOCIETA {
+        string cik "codice SEC della società"
+    }
+    GIRO {
+        string run_date PK "giorno del giro"
+        string observed_at PK "istante del giro"
+        string scanner_git_sha "versione del codice"
+        int window_days "finestra in giorni"
+        json funnel "quanti casi a ogni passo"
+        json index_mancanti "giorni senza indice, per motivo"
+    }
+    OSSERVAZIONE {
+        string issuer_cik PK "la società"
+        string run_date PK "il giro"
+        bool blocked "bloccata dalla diluizione"
+        int score_v3 "punteggio da 0 a 4"
+        bool v3_terreno "vuoto se manca l'indice spin-off"
+        json context "valore di borsa, diluizione, date"
+    }
+    ACQUISTO {
+        string accession_number PK "il deposito"
+        int txn_index PK "la riga nel deposito"
+        string owner_cik PK "chi compra"
+        string transaction_date "quando"
+        float value "quanti dollari"
+        string cmp_label "profilo di chi compra"
+        bool is_10b5_1 "sempre falso"
+    }
+    SETTIMANA {
+        string week_start PK "lunedì della settimana"
+        string run_date PK "il giro che la conta"
+        int issuers_buying "società con acquisti"
+        float total_buy_usd "dollari comprati"
+    }
+    ULTIMO_GIRO {
+        string run_date "sovrascritto a ogni giro"
+        string status "sempre ok"
+        int new "società nuove"
+        int repeat "società ripetute"
+    }
+    DEPOSITO_GIA_MOSTRATO {
+        string accession PK "deposito già visto"
+        string first_seen "primo giorno mostrato"
+    }
+    VERDETTO {
+        string id PK "identità da data, società, tesi"
+        string date "giorno del verdetto"
+        string verdict "vendi, tieni, compra, compra forte"
+        string thesis "la tesi"
+        json invalidation "cosa lo smentirebbe"
+        string supersedes FK "verdetto sostituito"
+    }
+    SORVEGLIANZA {
+        string id PK "nome della sorveglianza"
+        string kind "depositi o acquisti"
+    }
+    AVVISO_GIA_DATO {
+        string watch_id PK "la sorveglianza"
+        string accession PK "il deposito segnalato"
+    }
+    FIGLIA_SPINOFF {
+        string cik PK "la società nata dallo spin-off"
+        string date_distribution "giorno della separazione"
+    }
+    VEICOLO_MANUALE {
+        string chiave PK "codice SEC o nome"
+        bool externally_managed "gestito da terzi"
+    }
+    RIGA_TABELLA {
+        string cik "la società"
+        int score_v3 "punteggio"
+        string dilution "giudizio di diluizione"
+    }
+    DEPOSITO_SEC {
+        string accession PK "esiste solo come valore"
+    }
+    INSIDER {
+        string owner_cik PK "esiste solo come valore"
+    }

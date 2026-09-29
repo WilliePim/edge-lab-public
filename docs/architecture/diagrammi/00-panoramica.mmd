@@ -1,0 +1,72 @@
+---
+title: Il sistema in un colpo d'occhio
+config:
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    lineColor: "#64748B"
+    clusterBkg: "#F5F3FF"
+    clusterBorder: "#A78BFA"
+  flowchart:
+    curve: basis
+    padding: 14
+---
+flowchart LR
+    subgraph PIANO["⏰  Avvio"]
+        direction TB
+        P1(["daily.sh, lanciato a mano<br/>o da un pianificatore<br/>del sistema operativo"]):::inizio
+        P2["Lo script di avvio<br/>prepara l'ambiente<br/>e lancia lo scanner"]:::fase
+        P1 --> P2
+    end
+
+    subgraph GIRO["🔎  Giro quotidiano  ·  lo scanner"]
+        direction TB
+        G1["<b>1 · Raccolta</b><br/>legge dalla SEC i moduli Form 4<br/>degli ultimi 60 giorni"]:::fase
+        G2["<b>2 · Selezione</b><br/>tiene solo gli acquisti veri<br/>sul mercato aperto"]:::fase
+        G3["<b>3 · Raggruppamento</b><br/>riunisce gli acquisti<br/>della stessa società"]:::fase
+        G4["<b>4 · Valutazione</b><br/>dimensione, rischio di diluizione,<br/>storia degli insider, punteggio"]:::fase
+        G5["<b>5 · Scrittura</b><br/>archivio, rapporti,<br/>tabella del giorno"]:::fase
+        G1 --> G2 --> G3 --> G4 --> G5
+    end
+
+    subgraph DISCO["📦  Cosa resta su disco"]
+        direction TB
+        U1[("Archivio storico<br/>una riga per società valutata")]:::archivio
+        U2[("Rapporti da leggere<br/>giornaliero · spin-off · verdetti")]:::archivio
+        U3[("Tabella CSV<br/>del giorno")]:::archivio
+        U4[("Registro dei verdetti<br/>decisioni dell'operatore")]:::archivio
+    end
+
+    subgraph FUORI["🌐  Servizi esterni"]
+        direction TB
+        X1(["SEC · EDGAR"]):::esterno
+        X2(["Yahoo Finance"]):::esterno
+        X3(["Anthropic<br/>solo se acceso"]):::esterno
+        X4(["Archivio prezzi<br/>di market-data"]):::esterno
+    end
+
+    subgraph MANO["🖐  Lavori lanciati a mano"]
+        direction TB
+        M1["Registrare<br/>un verdetto"]:::mano
+        M2["Studi di ricerca<br/>pre-registrati"]:::mano
+        M3["Raccolte storiche<br/>e misure"]:::mano
+    end
+
+    P2 ==> G1
+    G1 <-.-> X1
+    G4 <-.-> X2
+    G5 -. "colonna «emissione»" .-> X3
+    G5 --> U1 & U2 & U3
+    G5 -. "a fine giro" .-> N(["Notifica<br/>sul desktop"]):::inizio
+    M1 --> U4
+    U4 -. "letto ogni giorno" .-> G5
+    M2 <-.-> X1
+    M2 <-.-> X4
+    M3 <-.-> X1
+    M3 --> U5[("Dati storici<br/>raccolti")]:::archivio
+
+    classDef inizio fill:#BFDBFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    classDef fase fill:#E0E7FF,stroke:#6366F1,color:#312E81,stroke-width:2px
+    classDef archivio fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:2px
+    classDef esterno fill:#FDE2E4,stroke:#BE185D,color:#831843,stroke-width:2px
+    classDef mano fill:#FED7AA,stroke:#EA580C,color:#7C2D12,stroke-width:2px

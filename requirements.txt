@@ -1,0 +1,22 @@
+# Core -- required
+requests>=2.31
+lxml>=5.0
+
+# Required by the statistics in tools/ (t-stat, bootstrap, OLS with CR1) and by the
+# published backtests that import them, and so by their tests. Verified with 2.5.2.
+numpy>=2.0
+
+# Optional -- market data (capitalisation band, price context). Without it the
+# scanner still runs: every cap is unknown, so the band gate lets everything through.
+yfinance>=0.2.40
+
+# Optional -- enables edgar_llm/, the structured extraction from filing text.
+# Without it the scanner runs identically: the extraction column reads UNKNOWN
+# and nothing else changes (edgar_llm/docs/adr/004-mai-un-cancello.md).
+anthropic>=1.0
+
+# Optional -- prezzi EODHD per i backtest nuovi (dal Russell in poi), solo tramite
+# market_data.api. Il package sta in questo repo (market-data/), non su PyPI:
+#   .venv/Scripts/python.exe -m pip install -e ./market-data[archivio]
+# L'extra `archivio` porta duckdb, pyarrow, pandas ed exchange_calendars, dipendenze facoltative: lo
+# scanner gira anche senza. I backtest pre-registrati restano sui prezzi Yahoo congelati.

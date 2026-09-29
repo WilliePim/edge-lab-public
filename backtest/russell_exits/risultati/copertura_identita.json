@@ -1,0 +1,321 @@
+[
+ {
+  "anno": 2015,
+  "istantanea_marzo": "2015-03-31",
+  "istantanea_dopo": "2015-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 182,
+    "identita_risolta": 42,
+    "quota": 0.231
+   },
+   "peer": {
+    "totale": 1817,
+    "identita_risolta": 874,
+    "quota": 0.481
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 182,
+    "identita_risolta": 162,
+    "quota": 0.89
+   },
+   "peer": {
+    "totale": 1817,
+    "identita_risolta": 1693,
+    "quota": 0.932
+   }
+  }
+ },
+ {
+  "anno": 2016,
+  "istantanea_marzo": "2016-03-31",
+  "istantanea_dopo": "2016-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 155,
+    "identita_risolta": 36,
+    "quota": 0.232
+   },
+   "peer": {
+    "totale": 1804,
+    "identita_risolta": 935,
+    "quota": 0.518
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 155,
+    "identita_risolta": 147,
+    "quota": 0.948
+   },
+   "peer": {
+    "totale": 1804,
+    "identita_risolta": 1711,
+    "quota": 0.948
+   }
+  }
+ },
+ {
+  "anno": 2017,
+  "istantanea_marzo": "2017-03-31",
+  "istantanea_dopo": "2017-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 144,
+    "identita_risolta": 46,
+    "quota": 0.319
+   },
+   "peer": {
+    "totale": 1805,
+    "identita_risolta": 1007,
+    "quota": 0.558
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 144,
+    "identita_risolta": 137,
+    "quota": 0.951
+   },
+   "peer": {
+    "totale": 1805,
+    "identita_risolta": 1715,
+    "quota": 0.95
+   }
+  }
+ },
+ {
+  "anno": 2018,
+  "istantanea_marzo": "2018-03-31",
+  "istantanea_dopo": "2018-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 136,
+    "identita_risolta": 39,
+    "quota": 0.287
+   },
+   "peer": {
+    "totale": 1839,
+    "identita_risolta": 1094,
+    "quota": 0.595
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 136,
+    "identita_risolta": 129,
+    "quota": 0.949
+   },
+   "peer": {
+    "totale": 1839,
+    "identita_risolta": 1761,
+    "quota": 0.958
+   }
+  }
+ },
+ {
+  "anno": 2019,
+  "istantanea_marzo": "2019-03-31",
+  "istantanea_dopo": "2019-09-30",
+  "yahoo": {
+   "casi": {
+    "totale": 266,
+    "identita_risolta": 106,
+    "quota": 0.398
+   },
+   "peer": {
+    "totale": 1724,
+    "identita_risolta": 1114,
+    "quota": 0.646
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 266,
+    "identita_risolta": 246,
+    "quota": 0.925
+   },
+   "peer": {
+    "totale": 1724,
+    "identita_risolta": 1664,
+    "quota": 0.965
+   }
+  }
+ },
+ {
+  "anno": 2020,
+  "istantanea_marzo": "2020-03-31",
+  "istantanea_dopo": "2020-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 164,
+    "identita_risolta": 69,
+    "quota": 0.421
+   },
+   "peer": {
+    "totale": 1731,
+    "identita_risolta": 1172,
+    "quota": 0.677
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 164,
+    "identita_risolta": 156,
+    "quota": 0.951
+   },
+   "peer": {
+    "totale": 1731,
+    "identita_risolta": 1664,
+    "quota": 0.961
+   }
+  }
+ },
+ {
+  "anno": 2021,
+  "istantanea_marzo": "2021-03-31",
+  "istantanea_dopo": "2021-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 297,
+    "identita_risolta": 170,
+    "quota": 0.572
+   },
+   "peer": {
+    "totale": 1674,
+    "identita_risolta": 1194,
+    "quota": 0.713
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 297,
+    "identita_risolta": 280,
+    "quota": 0.943
+   },
+   "peer": {
+    "totale": 1674,
+    "identita_risolta": 1608,
+    "quota": 0.961
+   }
+  }
+ },
+ {
+  "anno": 2022,
+  "istantanea_marzo": "2022-03-31",
+  "istantanea_dopo": "2022-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 302,
+    "identita_risolta": 180,
+    "quota": 0.596
+   },
+   "peer": {
+    "totale": 1640,
+    "identita_risolta": 1237,
+    "quota": 0.754
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 302,
+    "identita_risolta": 287,
+    "quota": 0.95
+   },
+   "peer": {
+    "totale": 1640,
+    "identita_risolta": 1582,
+    "quota": 0.965
+   }
+  }
+ },
+ {
+  "anno": 2023,
+  "istantanea_marzo": "2023-03-31",
+  "istantanea_dopo": "2023-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 186,
+    "identita_risolta": 92,
+    "quota": 0.495
+   },
+   "peer": {
+    "totale": 1655,
+    "identita_risolta": 1323,
+    "quota": 0.799
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 186,
+    "identita_risolta": 171,
+    "quota": 0.919
+   },
+   "peer": {
+    "totale": 1655,
+    "identita_risolta": 1591,
+    "quota": 0.961
+   }
+  }
+ },
+ {
+  "anno": 2024,
+  "istantanea_marzo": "2024-03-31",
+  "istantanea_dopo": "2024-09-30",
+  "yahoo": {
+   "casi": {
+    "totale": 181,
+    "identita_risolta": 95,
+    "quota": 0.525
+   },
+   "peer": {
+    "totale": 1674,
+    "identita_risolta": 1437,
+    "quota": 0.858
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 181,
+    "identita_risolta": 170,
+    "quota": 0.939
+   },
+   "peer": {
+    "totale": 1674,
+    "identita_risolta": 1618,
+    "quota": 0.967
+   }
+  }
+ },
+ {
+  "anno": 2025,
+  "istantanea_marzo": "2025-03-31",
+  "istantanea_dopo": "2025-06-30",
+  "yahoo": {
+   "casi": {
+    "totale": 169,
+    "identita_risolta": 125,
+    "quota": 0.74
+   },
+   "peer": {
+    "totale": 1682,
+    "identita_risolta": 1508,
+    "quota": 0.897
+   }
+  },
+  "eodhd": {
+   "casi": {
+    "totale": 169,
+    "identita_risolta": 162,
+    "quota": 0.959
+   },
+   "peer": {
+    "totale": 1682,
+    "identita_risolta": 1607,
+    "quota": 0.955
+   }
+  }
+ }
+]

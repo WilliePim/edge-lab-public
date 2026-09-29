@@ -1,0 +1,13 @@
+{
+  "_comment": "Confirmed management structure for BDCs and REITs you have actually read. The scanner detects the vehicle CLASS reliably -- N-54A for a BDC, SIC 6798 for a REIT -- but cannot detect whether management is external: that lives in 10-K prose, and the tell that would identify it mechanically (no employees) is not a tagged fact. Until a CIK appears below, its flag says 'external mgmt inferred, unverified'. Keyed by bare CIK.",
+  "_schema": "{cik: {externally_managed: bool, sponsor: str}}",
+  "_updated_on": "2026-08-23",
+
+  "_candidates_not_yet_confirmed": {
+    "_note": "Flagged as vehicles by the 2026-08-22 scan. Promote a CIK into the block below once you have read its 10-K -- deliberately NOT pre-filled, because asserting a management structure nobody verified is the thing this module exists to avoid.",
+    "1843162": "LIEN -- Chicago Atlantic BDC, Inc.",
+    "1867949": "REFI -- Chicago Atlantic Real Estate Finance, Inc.",
+    "2058442": "XRN -- Chiron Real Estate Inc.",
+    "1666291": "CMTG -- Claros Mortgage Trust, Inc."
+  }
+}

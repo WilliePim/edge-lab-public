@@ -1,0 +1,1373 @@
+{
+ "fondi": {
+  "IWM": {
+   "cik": 1100663,
+   "seriesId": "S000004344",
+   "classId": "C000012074",
+   "symbol": "IWM"
+  },
+  "IWB": {
+   "cik": 1100663,
+   "seriesId": "S000004347",
+   "classId": "C000012077",
+   "symbol": "IWB"
+  }
+ },
+ "depositi": {
+  "IWM": [
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-06-042678",
+    "depositato": "2006-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506042678/0001193125-06-042678-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-06-126674",
+    "depositato": "2006-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506126674/0001193125-06-126674-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-06-181552",
+    "depositato": "2006-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506181552/0001193125-06-181552-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-06-247657",
+    "depositato": "2006-12-06",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506247657/0001193125-06-247657-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-07-043993",
+    "depositato": "2007-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507043993/0001193125-07-043993-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-07-132441",
+    "depositato": "2007-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507132441/0001193125-07-132441-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-07-191793",
+    "depositato": "2007-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507191793/0001193125-07-191793-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-07-261280",
+    "depositato": "2007-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507261280/0001193125-07-261280-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-08-043324",
+    "depositato": "2008-02-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508043324/0001193125-08-043324-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-08-130182",
+    "depositato": "2008-06-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508130182/0001193125-08-130182-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-08-187556",
+    "depositato": "2008-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508187556/0001193125-08-187556-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-08-248904",
+    "depositato": "2008-12-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508248904/0001193125-08-248904-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-09-040696",
+    "depositato": "2009-02-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509040696/0001193125-09-040696-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-09-126206",
+    "depositato": "2009-06-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509126206/0001193125-09-126206-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-09-183934",
+    "depositato": "2009-08-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509183934/0001193125-09-183934-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-09-248357",
+    "depositato": "2009-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509248357/0001193125-09-248357-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-10-044578",
+    "depositato": "2010-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510044578/0001193125-10-044578-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-10-133919",
+    "depositato": "2010-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510133919/0001193125-10-133919-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-10-199353",
+    "depositato": "2010-08-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510199353/0001193125-10-199353-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-10-277292",
+    "depositato": "2010-12-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510277292/0001193125-10-277292-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-11-052046",
+    "depositato": "2011-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511052046/0001193125-11-052046-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-11-162711",
+    "depositato": "2011-06-10",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511162711/0001193125-11-162711-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-11-235651",
+    "depositato": "2011-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511235651/0001193125-11-235651-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-11-336349",
+    "depositato": "2011-12-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511336349/0001193125-11-336349-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-12-088646",
+    "depositato": "2012-02-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512088646/0001193125-12-088646-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-12-264907",
+    "depositato": "2012-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512264907/0001193125-12-264907-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-12-373715",
+    "depositato": "2012-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512373715/0001193125-12-373715-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-12-494940",
+    "depositato": "2012-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512494940/0001193125-12-494940-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-13-086998",
+    "depositato": "2013-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513086998/0001193125-13-086998-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-13-251330",
+    "depositato": "2013-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513251330/0001193125-13-251330-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-13-351768",
+    "depositato": "2013-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513351768/0001193125-13-351768-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-13-466531",
+    "depositato": "2013-12-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513466531/0001193125-13-466531-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-14-076476",
+    "depositato": "2014-02-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514076476/0001193125-14-076476-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-14-230537",
+    "depositato": "2014-06-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514230537/0001193125-14-230537-index.htm",
+    "periodo": "2014-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-14-327134",
+    "depositato": "2014-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514327134/0001193125-14-327134-index.htm",
+    "periodo": "2014-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-14-434445",
+    "depositato": "2014-12-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514434445/0001193125-14-434445-index.htm",
+    "periodo": "2014-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-15-065725",
+    "depositato": "2015-02-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515065725/0001193125-15-065725-index.htm",
+    "periodo": "2014-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-15-216083",
+    "depositato": "2015-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515216083/0001193125-15-216083-index.htm",
+    "periodo": "2015-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-15-306363",
+    "depositato": "2015-08-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515306363/0001193125-15-306363-index.htm",
+    "periodo": "2015-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-15-396474",
+    "depositato": "2015-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515396474/0001193125-15-396474-index.htm",
+    "periodo": "2015-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-16-480933",
+    "depositato": "2016-02-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516480933/0001193125-16-480933-index.htm",
+    "periodo": "2015-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-16-613829",
+    "depositato": "2016-06-06",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516613829/0001193125-16-613829-index.htm",
+    "periodo": "2016-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-16-695276",
+    "depositato": "2016-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516695276/0001193125-16-695276-index.htm",
+    "periodo": "2016-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-16-788378",
+    "depositato": "2016-12-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516788378/0001193125-16-788378-index.htm",
+    "periodo": "2016-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-17-065125",
+    "depositato": "2017-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517065125/0001193125-17-065125-index.htm",
+    "periodo": "2016-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-17-194722",
+    "depositato": "2017-06-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517194722/0001193125-17-194722-index.htm",
+    "periodo": "2017-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-17-271743",
+    "depositato": "2017-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517271743/0001193125-17-271743-index.htm",
+    "periodo": "2017-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-17-359934",
+    "depositato": "2017-12-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517359934/0001193125-17-359934-index.htm",
+    "periodo": "2017-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-18-063612",
+    "depositato": "2018-02-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518063612/0001193125-18-063612-index.htm",
+    "periodo": "2017-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-18-186572",
+    "depositato": "2018-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518186572/0001193125-18-186572-index.htm",
+    "periodo": "2018-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-18-261300",
+    "depositato": "2018-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518261300/0001193125-18-261300-index.htm",
+    "periodo": "2018-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-18-344229",
+    "depositato": "2018-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518344229/0001193125-18-344229-index.htm",
+    "periodo": "2018-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-19-059323",
+    "depositato": "2019-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519059323/0001193125-19-059323-index.htm",
+    "periodo": "2018-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-19-167652",
+    "depositato": "2019-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519167652/0001193125-19-167652-index.htm",
+    "periodo": "2019-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-19-177690",
+    "depositato": "2019-11-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272419177690/0001752724-19-177690-index.htm",
+    "periodo": "2019-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-19-306805",
+    "depositato": "2019-12-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519306805/0001193125-19-306805-index.htm",
+    "periodo": "2019-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-038661",
+    "depositato": "2020-02-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420038661/0001752724-20-038661-index.htm",
+    "periodo": "2019-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-112053",
+    "depositato": "2020-06-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420112053/0001752724-20-112053-index.htm",
+    "periodo": "2020-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-20-160176",
+    "depositato": "2020-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312520160176/0001193125-20-160176-index.htm",
+    "periodo": "2020-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-176935",
+    "depositato": "2020-08-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420176935/0001752724-20-176935-index.htm",
+    "periodo": "2020-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-247680",
+    "depositato": "2020-11-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420247680/0001752724-20-247680-index.htm",
+    "periodo": "2020-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-20-310029",
+    "depositato": "2020-12-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312520310029/0001193125-20-310029-index.htm",
+    "periodo": "2020-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-040718",
+    "depositato": "2021-02-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421040718/0001752724-21-040718-index.htm",
+    "periodo": "2020-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-116355",
+    "depositato": "2021-05-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421116355/0001752724-21-116355-index.htm",
+    "periodo": "2021-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-21-182096",
+    "depositato": "2021-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312521182096/0001193125-21-182096-index.htm",
+    "periodo": "2021-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-186233",
+    "depositato": "2021-08-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421186233/0001752724-21-186233-index.htm",
+    "periodo": "2021-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-255836",
+    "depositato": "2021-11-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421255836/0001752724-21-255836-index.htm",
+    "periodo": "2021-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-21-347575",
+    "depositato": "2021-12-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312521347575/0001193125-21-347575-index.htm",
+    "periodo": "2021-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-046410",
+    "depositato": "2022-02-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422046410/0001752724-22-046410-index.htm",
+    "periodo": "2021-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-122853",
+    "depositato": "2022-05-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422122853/0001752724-22-122853-index.htm",
+    "periodo": "2022-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-22-166889",
+    "depositato": "2022-06-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312522166889/0001193125-22-166889-index.htm",
+    "periodo": "2022-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-193728",
+    "depositato": "2022-08-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422193728/0001752724-22-193728-index.htm",
+    "periodo": "2022-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-268676",
+    "depositato": "2022-11-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422268676/0001752724-22-268676-index.htm",
+    "periodo": "2022-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001727644-22-000113",
+    "depositato": "2022-12-02",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000172764422000113/0001727644-22-000113-index.htm",
+    "periodo": "2022-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-039260",
+    "depositato": "2023-02-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423039260/0001752724-23-039260-index.htm",
+    "periodo": "2022-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-123227",
+    "depositato": "2023-05-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423123227/0001752724-23-123227-index.htm",
+    "periodo": "2023-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001727644-23-000045",
+    "depositato": "2023-06-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000172764423000045/0001727644-23-000045-index.htm",
+    "periodo": "2023-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001727644-23-000040",
+    "depositato": "2023-06-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000172764423000040/0001727644-23-000040-index.htm",
+    "periodo": "2023-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-191317",
+    "depositato": "2023-08-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423191317/0001752724-23-191317-index.htm",
+    "periodo": "2023-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-264256",
+    "depositato": "2023-11-22",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423264256/0001752724-23-264256-index.htm",
+    "periodo": "2023-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001968732-23-000020",
+    "depositato": "2023-12-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000196873223000020/0001968732-23-000020-index.htm",
+    "periodo": "2023-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-043096",
+    "depositato": "2024-02-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424043096/0001752724-24-043096-index.htm",
+    "periodo": "2023-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-123298",
+    "depositato": "2024-05-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424123298/0001752724-24-123298-index.htm",
+    "periodo": "2024-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001968732-24-000035",
+    "depositato": "2024-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000196873224000035/0001968732-24-000035-index.htm",
+    "periodo": "2024-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-194120",
+    "depositato": "2024-08-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424194120/0001752724-24-194120-index.htm",
+    "periodo": "2024-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-269957",
+    "depositato": "2024-11-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424269957/0001752724-24-269957-index.htm",
+    "periodo": "2024-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001398344-24-022640",
+    "depositato": "2024-12-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000139834424022640/0001398344-24-022640-index.htm",
+    "periodo": "2024-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-25-043851",
+    "depositato": "2025-02-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425043851/0001752724-25-043851-index.htm",
+    "periodo": "2024-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-25-119784",
+    "depositato": "2025-05-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425119784/0001752724-25-119784-index.htm",
+    "periodo": "2025-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001968732-25-000049",
+    "depositato": "2025-06-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000196873225000049/0001968732-25-000049-index.htm",
+    "periodo": "2025-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-25-210405",
+    "depositato": "2025-08-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425210405/0001752724-25-210405-index.htm",
+    "periodo": "2025-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0002071691-25-007652",
+    "depositato": "2025-11-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000207169125007652/0002071691-25-007652-index.htm",
+    "periodo": "2025-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001100663-25-000038",
+    "depositato": "2025-12-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000110066325000038/0001100663-25-000038-index.htm",
+    "periodo": "2025-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0002071691-26-004226",
+    "depositato": "2026-02-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000207169126004226/0002071691-26-004226-index.htm",
+    "periodo": "2025-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0002071691-26-012507",
+    "depositato": "2026-05-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000207169126012507/0002071691-26-012507-index.htm",
+    "periodo": "2026-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001100663-26-000037",
+    "depositato": "2026-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000110066326000037/0001100663-26-000037-index.htm",
+    "periodo": "2026-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0002071691-26-019749",
+    "depositato": "2026-08-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000207169126019749/0002071691-26-019749-index.htm",
+    "periodo": "2026-06-30"
+   }
+  ],
+  "IWB": [
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-06-042678",
+    "depositato": "2006-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506042678/0001193125-06-042678-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-06-126674",
+    "depositato": "2006-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506126674/0001193125-06-126674-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-06-181552",
+    "depositato": "2006-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506181552/0001193125-06-181552-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-06-247657",
+    "depositato": "2006-12-06",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312506247657/0001193125-06-247657-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-07-043993",
+    "depositato": "2007-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507043993/0001193125-07-043993-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-07-132441",
+    "depositato": "2007-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507132441/0001193125-07-132441-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-07-191793",
+    "depositato": "2007-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507191793/0001193125-07-191793-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-07-261280",
+    "depositato": "2007-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312507261280/0001193125-07-261280-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-08-043324",
+    "depositato": "2008-02-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508043324/0001193125-08-043324-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-08-130182",
+    "depositato": "2008-06-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508130182/0001193125-08-130182-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-08-187556",
+    "depositato": "2008-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508187556/0001193125-08-187556-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-08-248904",
+    "depositato": "2008-12-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312508248904/0001193125-08-248904-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-09-040696",
+    "depositato": "2009-02-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509040696/0001193125-09-040696-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-09-126206",
+    "depositato": "2009-06-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509126206/0001193125-09-126206-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-09-183934",
+    "depositato": "2009-08-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509183934/0001193125-09-183934-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-09-248357",
+    "depositato": "2009-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312509248357/0001193125-09-248357-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-10-044578",
+    "depositato": "2010-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510044578/0001193125-10-044578-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-10-133919",
+    "depositato": "2010-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510133919/0001193125-10-133919-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-10-199353",
+    "depositato": "2010-08-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510199353/0001193125-10-199353-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-10-277292",
+    "depositato": "2010-12-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312510277292/0001193125-10-277292-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-11-052046",
+    "depositato": "2011-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511052046/0001193125-11-052046-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-11-162711",
+    "depositato": "2011-06-10",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511162711/0001193125-11-162711-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-11-235651",
+    "depositato": "2011-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511235651/0001193125-11-235651-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-11-336349",
+    "depositato": "2011-12-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312511336349/0001193125-11-336349-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-12-088646",
+    "depositato": "2012-02-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512088646/0001193125-12-088646-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-12-264907",
+    "depositato": "2012-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512264907/0001193125-12-264907-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-12-373715",
+    "depositato": "2012-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512373715/0001193125-12-373715-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-12-494940",
+    "depositato": "2012-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312512494940/0001193125-12-494940-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-13-086998",
+    "depositato": "2013-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513086998/0001193125-13-086998-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-13-251330",
+    "depositato": "2013-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513251330/0001193125-13-251330-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-13-351768",
+    "depositato": "2013-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513351768/0001193125-13-351768-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-13-466531",
+    "depositato": "2013-12-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312513466531/0001193125-13-466531-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-14-076476",
+    "depositato": "2014-02-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514076476/0001193125-14-076476-index.htm",
+    "periodo": null
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-14-230537",
+    "depositato": "2014-06-09",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514230537/0001193125-14-230537-index.htm",
+    "periodo": "2014-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-14-327134",
+    "depositato": "2014-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514327134/0001193125-14-327134-index.htm",
+    "periodo": "2014-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-14-434445",
+    "depositato": "2014-12-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312514434445/0001193125-14-434445-index.htm",
+    "periodo": "2014-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-15-065725",
+    "depositato": "2015-02-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515065725/0001193125-15-065725-index.htm",
+    "periodo": "2014-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-15-216083",
+    "depositato": "2015-06-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515216083/0001193125-15-216083-index.htm",
+    "periodo": "2015-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-15-306363",
+    "depositato": "2015-08-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515306363/0001193125-15-306363-index.htm",
+    "periodo": "2015-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-15-396474",
+    "depositato": "2015-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515396474/0001193125-15-396474-index.htm",
+    "periodo": "2015-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-16-480933",
+    "depositato": "2016-02-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516480933/0001193125-16-480933-index.htm",
+    "periodo": "2015-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-16-613829",
+    "depositato": "2016-06-06",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516613829/0001193125-16-613829-index.htm",
+    "periodo": "2016-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-16-695276",
+    "depositato": "2016-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516695276/0001193125-16-695276-index.htm",
+    "periodo": "2016-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-16-788378",
+    "depositato": "2016-12-08",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516788378/0001193125-16-788378-index.htm",
+    "periodo": "2016-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-17-065125",
+    "depositato": "2017-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517065125/0001193125-17-065125-index.htm",
+    "periodo": "2016-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-17-194722",
+    "depositato": "2017-06-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517194722/0001193125-17-194722-index.htm",
+    "periodo": "2017-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-17-271743",
+    "depositato": "2017-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517271743/0001193125-17-271743-index.htm",
+    "periodo": "2017-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-17-359934",
+    "depositato": "2017-12-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517359934/0001193125-17-359934-index.htm",
+    "periodo": "2017-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-18-063612",
+    "depositato": "2018-02-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518063612/0001193125-18-063612-index.htm",
+    "periodo": "2017-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-18-186572",
+    "depositato": "2018-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518186572/0001193125-18-186572-index.htm",
+    "periodo": "2018-03-31"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-18-261300",
+    "depositato": "2018-08-29",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518261300/0001193125-18-261300-index.htm",
+    "periodo": "2018-06-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-18-344229",
+    "depositato": "2018-12-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518344229/0001193125-18-344229-index.htm",
+    "periodo": "2018-09-30"
+   },
+   {
+    "tipo": "N-Q",
+    "accession": "0001193125-19-059323",
+    "depositato": "2019-03-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519059323/0001193125-19-059323-index.htm",
+    "periodo": "2018-12-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-19-167652",
+    "depositato": "2019-06-07",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519167652/0001193125-19-167652-index.htm",
+    "periodo": "2019-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-19-177695",
+    "depositato": "2019-11-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272419177695/0001752724-19-177695-index.htm",
+    "periodo": "2019-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-19-306805",
+    "depositato": "2019-12-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519306805/0001193125-19-306805-index.htm",
+    "periodo": "2019-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-038715",
+    "depositato": "2020-02-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420038715/0001752724-20-038715-index.htm",
+    "periodo": "2019-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-112063",
+    "depositato": "2020-06-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420112063/0001752724-20-112063-index.htm",
+    "periodo": "2020-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-20-160176",
+    "depositato": "2020-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312520160176/0001193125-20-160176-index.htm",
+    "periodo": "2020-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-176948",
+    "depositato": "2020-08-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420176948/0001752724-20-176948-index.htm",
+    "periodo": "2020-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-20-247751",
+    "depositato": "2020-11-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420247751/0001752724-20-247751-index.htm",
+    "periodo": "2020-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-20-310029",
+    "depositato": "2020-12-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312520310029/0001193125-20-310029-index.htm",
+    "periodo": "2020-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-040717",
+    "depositato": "2021-02-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421040717/0001752724-21-040717-index.htm",
+    "periodo": "2020-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-116413",
+    "depositato": "2021-05-27",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421116413/0001752724-21-116413-index.htm",
+    "periodo": "2021-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-21-182096",
+    "depositato": "2021-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312521182096/0001193125-21-182096-index.htm",
+    "periodo": "2021-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-186108",
+    "depositato": "2021-08-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421186108/0001752724-21-186108-index.htm",
+    "periodo": "2021-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-21-255902",
+    "depositato": "2021-11-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421255902/0001752724-21-255902-index.htm",
+    "periodo": "2021-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001193125-21-347575",
+    "depositato": "2021-12-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312521347575/0001193125-21-347575-index.htm",
+    "periodo": "2021-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-046365",
+    "depositato": "2022-02-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422046365/0001752724-22-046365-index.htm",
+    "periodo": "2021-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-122790",
+    "depositato": "2022-05-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422122790/0001752724-22-122790-index.htm",
+    "periodo": "2022-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001193125-22-166889",
+    "depositato": "2022-06-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000119312522166889/0001193125-22-166889-index.htm",
+    "periodo": "2022-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-193681",
+    "depositato": "2022-08-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422193681/0001752724-22-193681-index.htm",
+    "periodo": "2022-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-22-269712",
+    "depositato": "2022-11-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422269712/0001752724-22-269712-index.htm",
+    "periodo": "2022-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001004726-22-000287",
+    "depositato": "2022-12-02",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472622000287/0001004726-22-000287-index.htm",
+    "periodo": "2022-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-039564",
+    "depositato": "2023-02-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423039564/0001752724-23-039564-index.htm",
+    "periodo": "2022-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-114943",
+    "depositato": "2023-05-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423114943/0001752724-23-114943-index.htm",
+    "periodo": "2023-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001004726-23-000287",
+    "depositato": "2023-06-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472623000287/0001004726-23-000287-index.htm",
+    "periodo": "2023-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-192398",
+    "depositato": "2023-08-28",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423192398/0001752724-23-192398-index.htm",
+    "periodo": "2023-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-23-265165",
+    "depositato": "2023-11-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423265165/0001752724-23-265165-index.htm",
+    "periodo": "2023-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001004726-23-000460",
+    "depositato": "2023-12-01",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472623000460/0001004726-23-000460-index.htm",
+    "periodo": "2023-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-034803",
+    "depositato": "2024-02-23",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424034803/0001752724-24-034803-index.htm",
+    "periodo": "2023-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-118351",
+    "depositato": "2024-05-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424118351/0001752724-24-118351-index.htm",
+    "periodo": "2024-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001004726-24-000106",
+    "depositato": "2024-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472624000106/0001004726-24-000106-index.htm",
+    "periodo": "2024-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-189684",
+    "depositato": "2024-08-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424189684/0001752724-24-189684-index.htm",
+    "periodo": "2024-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-24-268869",
+    "depositato": "2024-11-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424268869/0001752724-24-268869-index.htm",
+    "periodo": "2024-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001398344-24-022628",
+    "depositato": "2024-12-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000139834424022628/0001398344-24-022628-index.htm",
+    "periodo": "2024-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-25-034052",
+    "depositato": "2025-02-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425034052/0001752724-25-034052-index.htm",
+    "periodo": "2024-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-25-118607",
+    "depositato": "2025-05-23",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425118607/0001752724-25-118607-index.htm",
+    "periodo": "2025-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001004726-25-000075",
+    "depositato": "2025-06-05",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472625000075/0001004726-25-000075-index.htm",
+    "periodo": "2025-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001752724-25-204367",
+    "depositato": "2025-08-26",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425204367/0001752724-25-204367-index.htm",
+    "periodo": "2025-06-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001004726-25-002043",
+    "depositato": "2025-11-25",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472625002043/0001004726-25-002043-index.htm",
+    "periodo": "2025-09-30"
+   },
+   {
+    "tipo": "N-CSRS",
+    "accession": "0001100663-25-000039",
+    "depositato": "2025-12-03",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000110066325000039/0001100663-25-000039-index.htm",
+    "periodo": "2025-09-30"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001004726-26-000805",
+    "depositato": "2026-02-23",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472626000805/0001004726-26-000805-index.htm",
+    "periodo": "2025-12-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001004726-26-003726",
+    "depositato": "2026-05-22",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472626003726/0001004726-26-003726-index.htm",
+    "periodo": "2026-03-31"
+   },
+   {
+    "tipo": "N-CSR",
+    "accession": "0001100663-26-000038",
+    "depositato": "2026-06-04",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000110066326000038/0001100663-26-000038-index.htm",
+    "periodo": "2026-03-31"
+   },
+   {
+    "tipo": "NPORT-P",
+    "accession": "0001004726-26-007016",
+    "depositato": "2026-08-24",
+    "href": "https://www.sec.gov/Archives/edgar/data/1100663/000100472626007016/0001004726-26-007016-index.htm",
+    "periodo": "2026-06-30"
+   }
+  ]
+ }
+}

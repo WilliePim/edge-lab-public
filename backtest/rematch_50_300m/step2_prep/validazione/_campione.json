@@ -1,0 +1,316 @@
+{
+ "seed": 20260915,
+ "cella_P": 38,
+ "integrati_da_altre_celle": 2,
+ "emittenti": [
+  {
+   "cik": "1038222",
+   "nome": "Reis, Inc.",
+   "documenti": [
+    "0001354457-18-000411",
+    "0001193125-18-299948"
+   ]
+  },
+  {
+   "cik": "1059790",
+   "nome": "POZEN INC /NC",
+   "documenti": [
+    "0001354457-16-000285",
+    "0001104659-16-094245"
+   ]
+  },
+  {
+   "cik": "1082038",
+   "nome": "DURECT CORP",
+   "documenti": [
+    "0001354457-25-000885",
+    "0001193125-25-200904"
+   ]
+  },
+  {
+   "cik": "1095315",
+   "nome": "PFSWEB INC",
+   "documenti": [
+    "0001354457-23-000788",
+    "0001095315-23-000070"
+   ]
+  },
+  {
+   "cik": "1100441",
+   "nome": "RTI SURGICAL, INC.",
+   "documenti": [
+    "0001354457-19-000120",
+    "0001193125-19-069904"
+   ]
+  },
+  {
+   "cik": "1103021",
+   "nome": "BIODELIVERY SCIENCES INTERNATIONAL INC",
+   "documenti": [
+    "0001354457-22-000194",
+    "0001104659-22-036625"
+   ]
+  },
+  {
+   "cik": "1109546",
+   "nome": "PACIFIC MERCANTILE BANCORP",
+   "documenti": [
+    "0001354457-21-001175",
+    "0001109546-21-000031"
+   ]
+  },
+  {
+   "cik": "1130591",
+   "nome": "XENOPORT INC",
+   "documenti": [
+    "0001354457-16-000427",
+    "0001193125-16-641668"
+   ]
+  },
+  {
+   "cik": "1263762",
+   "nome": "SELECT BANCORP, INC.",
+   "documenti": [
+    "0001354457-21-001169",
+    "0001104659-21-127040"
+   ]
+  },
+  {
+   "cik": "1302350",
+   "nome": "JMP GROUP LLC",
+   "documenti": [
+    "0001354457-21-001447",
+    "0001437749-21-026773"
+   ]
+  },
+  {
+   "cik": "1338042",
+   "nome": "Aegerion Pharmaceuticals, Inc.",
+   "documenti": [
+    "0001354457-16-000559",
+    "0001104659-16-159620"
+   ]
+  },
+  {
+   "cik": "1371446",
+   "nome": "FBR & Co.",
+   "documenti": [
+    "0001354457-17-000111",
+    "0001193125-17-191215"
+   ]
+  },
+  {
+   "cik": "1373525",
+   "nome": "FIRST CAPITAL BANCORP, INC.",
+   "documenti": [
+    "0001354457-15-000258",
+    "0001193125-16-419876"
+   ]
+  },
+  {
+   "cik": "1374536",
+   "nome": "Medytox Solutions, Inc.",
+   "documenti": [
+    "0001019687-15-003964"
+   ]
+  },
+  {
+   "cik": "1411303",
+   "nome": "Cape Bancorp, Inc.",
+   "documenti": [
+    "0001354457-16-000364",
+    "0001193125-16-572720"
+   ]
+  },
+  {
+   "cik": "1438731",
+   "nome": "ALJ REGIONAL HOLDINGS INC",
+   "documenti": [
+    "0001193125-22-236508",
+    "0001564590-22-014465"
+   ]
+  },
+  {
+   "cik": "1501756",
+   "nome": "Adverum Biotechnologies, Inc.",
+   "documenti": [
+    "0001354457-25-001236",
+    "0001193125-25-312722"
+   ]
+  },
+  {
+   "cik": "1536035",
+   "nome": "Roundy's, Inc.",
+   "documenti": [
+    "0000876661-15-000655",
+    "0001193125-15-407048"
+   ]
+  },
+  {
+   "cik": "1548309",
+   "nome": "Sears Hometown Stores, Inc.",
+   "documenti": [
+    "0001354457-19-000543",
+    "0001193125-19-272543"
+   ]
+  },
+  {
+   "cik": "1567892",
+   "nome": "Keenova Therapeutics plc",
+   "documenti": [
+    "0001143313-23-000058",
+    "0001104659-23-095504"
+   ]
+  },
+  {
+   "cik": "1622577",
+   "nome": "Arowana Inc.",
+   "documenti": [
+    "0001354457-16-000595",
+    "0001437749-16-043944"
+   ]
+  },
+  {
+   "cik": "1637736",
+   "nome": "ELECTRAMECCANICA VEHICLES CORP.",
+   "documenti": [
+    "0001354457-24-000204",
+    "0001140361-24-015266"
+   ]
+  },
+  {
+   "cik": "1640455",
+   "nome": "Jounce Therapeutics, Inc.",
+   "documenti": [
+    "0001354457-23-000336",
+    "0001640455-23-000093"
+   ]
+  },
+  {
+   "cik": "1661920",
+   "nome": "Lonestar Resources US Inc.",
+   "documenti": [
+    "0001354457-20-000637",
+    "0001193125-20-293233"
+   ]
+  },
+  {
+   "cik": "1662244",
+   "nome": "Cyteir Therapeutics, Inc.",
+   "documenti": [
+    "0001193125-24-069610",
+    "0000950170-24-028044"
+   ]
+  },
+  {
+   "cik": "1667489",
+   "nome": "Liberated Syndication Inc.",
+   "documenti": [
+    "0000950170-22-002619"
+   ]
+  },
+  {
+   "cik": "1682325",
+   "nome": "GTY Technology Holdings Inc.",
+   "documenti": [
+    "0001354457-22-000383",
+    "0001104659-22-077924"
+   ]
+  },
+  {
+   "cik": "1717452",
+   "nome": "Odonate Therapeutics, Inc.",
+   "documenti": [
+    "0001354457-22-000075",
+    "0001564590-22-000598"
+   ]
+  },
+  {
+   "cik": "1725206",
+   "nome": "Union Acquisition Corp.",
+   "documenti": [
+    "0001206774-19-000838",
+    "0001206774-19-000837"
+   ]
+  },
+  {
+   "cik": "1745317",
+   "nome": "Velodyne Lidar, Inc.",
+   "documenti": [
+    "0001354457-23-000085",
+    "0001193125-23-033024"
+   ]
+  },
+  {
+   "cik": "1750019",
+   "nome": "TCR2 THERAPEUTICS INC.",
+   "documenti": [
+    "0001354457-23-000372",
+    "0001104659-23-067031"
+   ]
+  },
+  {
+   "cik": "1766146",
+   "nome": "Union Acquisition Corp. II",
+   "documenti": [
+    "0001354457-21-001094",
+    "0001213900-21-051405"
+   ]
+  },
+  {
+   "cik": "275119",
+   "nome": "BAYLAKE CORP",
+   "documenti": [
+    "0001354457-16-000366",
+    "0001571049-16-014632"
+   ]
+  },
+  {
+   "cik": "855874",
+   "nome": "COMMUNITY FINANCIAL CORP /MD/",
+   "documenti": [
+    "0001354457-23-000446",
+    "0001104659-23-077421"
+   ]
+  },
+  {
+   "cik": "881790",
+   "nome": "HF FINANCIAL CORP",
+   "documenti": [
+    "0001354457-16-000373",
+    "0001104659-16-121138"
+   ]
+  },
+  {
+   "cik": "918581",
+   "nome": "CMTSU Liquidation, Inc.",
+   "documenti": [
+    "0000876661-17-000248",
+    "0000918581-17-000061"
+   ]
+  },
+  {
+   "cik": "99359",
+   "nome": "BREEZE-EASTERN LLC",
+   "documenti": [
+    "0001143313-16-000072",
+    "0001260221-16-000036"
+   ]
+  },
+  {
+   "cik": "1901305",
+   "nome": "Forza X1, Inc.",
+   "documenti": [
+    "0001354457-25-000094",
+    "0001731122-24-001873"
+   ]
+  },
+  {
+   "cik": "806888",
+   "nome": "RESPONSE BIOMEDICAL CORP",
+   "documenti": [
+    "0001437749-16-042848"
+   ]
+  }
+ ]
+}

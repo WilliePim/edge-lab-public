@@ -1,0 +1,78 @@
+---
+title: Come si giudica una società
+config:
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    lineColor: "#64748B"
+    clusterBkg: "#F5F3FF"
+    clusterBorder: "#A78BFA"
+  flowchart:
+    curve: basis
+    padding: 14
+---
+flowchart TD
+    IN(["Una società con acquisti di insider"]):::inizio
+
+    subgraph C1["Cancello 1 · Dimensione"]
+        D1{"Si conosce il<br/>valore di borsa?"}:::decisione
+        D2{"È fra 50 milioni<br/>e 2 miliardi di dollari?"}:::decisione
+        D1 -- sì --> D2
+    end
+    IN --> D1
+    D1 -- "no: passa<br/>senza controllo" --> K1
+    D2 -- no --> OUT1(["Esclusa"]):::stop
+    D2 -- sì --> K1
+
+    subgraph C2["Cancello 2 · Rischio di diluizione"]
+        K1{"Il controllo<br/>riesce?"}:::decisione
+        K2{"Un collocamento di nuove azioni<br/>entro 75 giorni DOPO l'acquisto?"}:::decisione
+        K3{"Un collocamento<br/>nei 5 giorni PRIMA?"}:::decisione
+        K4{"Azioni cresciute di almeno<br/>il 25% in un anno?"}:::decisione
+        K5{"Segnali più deboli?<br/>collocamento più tardi, crescita ≥ 10%,<br/>programma di emissione aperto"}:::decisione
+        K1 -- sì --> K2
+        K2 -- no --> K3
+        K3 -- no --> K4
+        K4 -- no --> K5
+    end
+    K1 -- "no: nessun giudizio" --> I1
+    K2 -- sì --> BL["BLOCKED: solo un flag per default<br/>(veto spento finché non è validato;<br/>fermata solo con EDGE_LAB_DILUTION_VETO=1)"]:::stop
+    K3 -- sì --> BL
+    K4 -- sì --> BL
+    K5 -- sì --> AT["Attenzione"]:::nota
+    K5 -- no --> OK["Via libera, non applicabile<br/>o sconosciuto"]:::ok
+    BL -. "resta nell'archivio,<br/>sparisce da rapporti e tabella" .-> I1
+    AT --> I1
+    OK --> I1
+
+    subgraph C3["Profilo di chi compra · ultimi 3 anni di acquisti"]
+        I1{"Che storia ha<br/>l'acquirente?"}:::decisione
+        I2["Nuovo sulla scena<br/>meno di un anno di depositi"]:::fase
+        I3["Mai comprato prima"]:::fase
+        I4["Compra di rado"]:::fase
+        I5["Compra sempre<br/>nello stesso mese"]:::fase
+        I6["Opportunista"]:::fase
+        I1 --> I2 & I3 & I4 & I5 & I6
+    end
+
+    subgraph C4["Solo etichette · non escludono nessuno"]
+        L1["Banca:<br/>qualità dei prestiti"]:::nota
+        L2["Veicolo gestito da terzi:<br/>BDC o REIT"]:::nota
+    end
+    I2 & I3 & I4 & I5 & I6 --> L1 --> L2
+
+    subgraph C5["Punteggio · quattro domande sì/no, un punto ciascuna"]
+        P1["Almeno due gruppi di acquirenti opportunisti<br/>e almeno due acquisti in 30 giorni?"]:::fase
+        P2["Ha comprato un amministratore indipendente?"]:::fase
+        P3["Nessun socio sopra il 10% fra gli acquirenti?"]:::fase
+        P4["Il primo acquisto cade entro 90 giorni<br/>da uno spin-off?"]:::fase
+    end
+    L2 --> P1 & P2 & P3 & P4
+    P1 & P2 & P3 & P4 --> SC(["Punteggio da 0 a 4<br/>serve solo a ordinare, nessuna soglia"]):::ok
+
+    classDef inizio fill:#BFDBFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    classDef fase fill:#E0E7FF,stroke:#6366F1,color:#312E81,stroke-width:2px
+    classDef decisione fill:#FDE68A,stroke:#D97706,color:#78350F,stroke-width:2px
+    classDef nota fill:#E2E8F0,stroke:#94A3B8,color:#1E293B,stroke-width:2px
+    classDef stop fill:#FECACA,stroke:#DC2626,color:#7F1D1D,stroke-width:2px
+    classDef ok fill:#BBF7D0,stroke:#16A34A,color:#14532D,stroke-width:2px

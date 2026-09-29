@@ -1,0 +1,187 @@
+{
+ "1011509_2023-05-10_2023-08-09": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.0401549457166847,
+  "verifica": "non_verificabile"
+ },
+ "101594_2019-11-14_2020-03-30": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.09999994032450639,
+  "verifica": "non_verificabile"
+ },
+ "1069878_2018-05-07_2018-07-30": {
+  "categoria": "pulito_avanti",
+  "rapporto": 2.0,
+  "verifica": "non_verificabile"
+ },
+ "1095981_2026-03-12_2026-05-15": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.03999993409636923,
+  "verifica": "non_verificabile"
+ },
+ "1099369_2019-07-15_2019-11-18": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.2000002035850084,
+  "verifica": "non_verificabile"
+ },
+ "1123494_2026-03-13_2026-05-12": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.09999322844954066,
+  "verifica": "non_verificabile"
+ },
+ "1163370_2025-07-28_2025-10-27": {
+  "categoria": "pulito_avanti",
+  "rapporto": 4.0,
+  "verifica": "non_verificabile"
+ },
+ "1218683_2025-11-14_2026-03-31": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.04999999719554264,
+  "verifica": "non_verificabile"
+ },
+ "1270436_2017-08-04_2017-11-03": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.09999985824351879,
+  "verifica": "non_verificabile"
+ },
+ "1346022_2025-01-13_2025-04-14": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.0500000038668243,
+  "verifica": "non_verificabile"
+ },
+ "1356093_2022-11-14_2023-03-30": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.3333333333333333,
+  "verifica": "confermato"
+ },
+ "1357459_2024-03-26_2024-05-13": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.06666627835460097,
+  "verifica": "non_verificabile"
+ },
+ "1410428_2023-08-14_2023-11-14": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.049999989959981436,
+  "verifica": "non_verificabile"
+ },
+ "1412486_2022-08-15_2022-11-14": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.08354451158829987,
+  "verifica": "confermato"
+ },
+ "1433607_2020-03-10_2021-03-08": {
+  "categoria": "pulito_avanti",
+  "rapporto": 49.959992974375986,
+  "verifica": "non_verificabile"
+ },
+ "1448558_2020-05-19_2020-10-13": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.05000028065133562,
+  "verifica": "confermato"
+ },
+ "1462223_2023-08-14_2023-11-20": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.06666665028440025,
+  "verifica": "non_verificabile"
+ },
+ "1467761_2023-03-31_2023-11-13": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.03999998619050254,
+  "verifica": "non_verificabile"
+ },
+ "1487198_2016-12-12_2017-03-09": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.08333333030870879,
+  "verifica": "non_verificabile"
+ },
+ "1546296_2024-11-14_2025-03-31": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.09999997405145751,
+  "verifica": "non_verificabile"
+ },
+ "1571934_2024-04-01_2024-05-15": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.039995980015646554,
+  "verifica": "non_verificabile"
+ },
+ "1604191_2025-08-14_2025-11-19": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.3333271631400506,
+  "verifica": "non_verificabile"
+ },
+ "1621221_2026-02-24_2026-03-17": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.3333333333333333,
+  "verifica": "non_verificabile"
+ },
+ "1695295_2024-11-07_2025-03-05": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.09999621348390778,
+  "verifica": "non_verificabile"
+ },
+ "1705843_2023-05-01_2024-05-09": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.20000129536484051,
+  "verifica": "non_verificabile"
+ },
+ "1817004_2024-08-14_2025-08-14": {
+  "categoria": "pulito_avanti",
+  "rapporto": 49.913931404935624,
+  "verifica": "non_verificabile"
+ },
+ "1824403_2021-05-24_2021-11-09": {
+  "categoria": "pulito_avanti",
+  "rapporto": 7.958232214775955,
+  "verifica": "non_verificabile"
+ },
+ "1853816_2024-05-15_2024-08-07": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.0666519115507118,
+  "verifica": "non_verificabile"
+ },
+ "737207_2022-08-15_2022-11-14": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.049999976716012424,
+  "verifica": "non_verificabile"
+ },
+ "792966_2017-07-26_2017-10-25": {
+  "categoria": "pulito_avanti",
+  "rapporto": 1.9825653414892497,
+  "verifica": "non_verificabile"
+ },
+ "797465_2021-08-06_2021-11-12": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.08330667093265078,
+  "verifica": "non_verificabile"
+ },
+ "894158_2024-08-13_2024-11-12": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.039999835802903276,
+  "verifica": "non_verificabile"
+ },
+ "90498_2017-11-06_2018-02-28": {
+  "categoria": "pulito_avanti",
+  "rapporto": 1.999967369314103,
+  "verifica": "confermato"
+ },
+ "910521_2024-08-01_2024-10-31": {
+  "categoria": "pulito_avanti",
+  "rapporto": 5.999843707263705,
+  "verifica": "non_verificabile"
+ },
+ "914139_2015-11-09_2016-03-30": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.0999999969130541,
+  "verifica": "non_verificabile"
+ },
+ "925741_2024-05-14_2024-08-13": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.06666663582482234,
+  "verifica": "confermato"
+ },
+ "926423_2023-09-14_2023-12-14": {
+  "categoria": "pulito_reverse",
+  "rapporto": 0.1019297736506094,
+  "verifica": "non_verificabile"
+ }
+}

@@ -1,0 +1,79 @@
+.venv/
+__pycache__/
+*.pyc
+.edgar_cache/
+# Scan output, by directory rather than by extension. `*.csv` used to be the
+# rule, and it was so broad that it silently swallowed the golden test
+# inputs -- 126 assertions that could not run on a fresh clone -- until an
+# `!tests/**/*.csv` exception was bolted on to take it back. A rule that has to
+# be retracted was saying more than it meant.
+out/
+logs/
+
+# Hand-maintained and personal: comp figures and the 13F filer list. vehicles.json
+# is NOT here -- it ships as a template and carries only public facts.
+config/comp.json
+config/watchlist.json
+config/watch.json
+
+# scratch dei messaggi di commit, mai da tracciare
+*.tmp
+
+# The append-only archive and the shared signal queue. Ignored BY DIRECTORY, the
+# same lesson `out/` and `logs/` already record: a rule broad enough to need an
+# exception was saying more than it meant.
+#
+# It is ignored rather than tracked because it is data, not code -- it grows
+# every run, it is measured in hundreds of MB a year, and a git history of it
+# would be a history of appends, which the file already is. Losing it would be
+# irrecoverable, so it wants a backup, not version control.
+state/
+
+# Backfill: zip SEC e prezzi scaricati. Dati, non codice: si riscaricano.
+state/backfill/zips/
+state/backfill/prices/
+#  Ridondanti sotto `state/`, elencati perché sono i tre che qualcuno
+#  proverebbe a committare: sales.jsonl è 240 MB di vendite estratte dagli
+#  ZIP, shares/ è lo store XBRL delle azioni (8.098 CIK, 46 MB), research/ è
+#  scratch. Tutti e tre si rigenerano dagli strumenti in tools/.
+state/backfill/sales.jsonl
+state/backfill/shares/
+state/research/
+
+# Il CSV per evento del backtest event-time: 11 MB, 72.190 righe, si rigenera
+# con un comando. Il report e la curva restano tracciati.
+reports/backtest-event-time-*.csv
+
+# Cache delle estrazioni LLM: come .edgar_cache/, sono dati che si
+# ripagano, non codice. La chiave include prompt e modello -- edgar_llm/docs/adr/005.
+.llm_cache/
+
+# I segreti. `.env` alla RADICE e' il posto giusto: sta sopra edgar_llm/, che e'
+# il perimetro pubblicato, quindi la chiave non sta mai dentro la directory che
+# viene pubblicata e non c'e' da fidarsi di una riga di questo file. Le due
+# righe sotto sono comunque qui, perche' costano niente e un errore di
+# collocazione non deve costare una chiave.
+.env
+edgar_llm/.env
+
+# pytest scrive qui quando gira su edgar_llm/ (rootdir = quella directory)
+.pytest_cache/
+
+# I tre referti che la pipeline riscrive a ogni giro: la lista giornaliera, le
+# finestre spin-off e il mensile dei verdetti. Sotto `reports/` restano tracciati
+# i documenti scritti a mano (backtest, piani); questi no, perche' sono output.
+# `reports/verdicts_YYYY-MM.md` misura il registro dei verdetti, non e' una copia
+# da versionare.
+reports/daily_*.md
+reports/spinoffs/
+reports/verdicts_*.md
+
+# Dati personali o costruiti in locale, mai nel repository: il registro dei
+# verdetti (input dell'operatore) e l'indice degli spin-off (lo costruisce
+# tools/spinoffs.py da EDGAR; senza, `terreno` vale None).
+data/verdicts.jsonl
+data/spinoffs_index.json
+
+# I metadati di un'installazione in sviluppo (pip install -e ./market-data crea
+# market-data/market_data.egg-info/): si rigenerano, non sono codice.
+*.egg-info/

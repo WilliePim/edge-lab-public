@@ -1,0 +1,228 @@
+{
+ "seed": 20260915,
+ "toccati": 387,
+ "estratti": [
+  {
+   "id": "1011509_2023-05-10_2023-08-09",
+   "cik": "1011509",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1011509/000110465923066093/tm2317253d1_ex99-1.htm",
+   "risultati": 8
+  },
+  {
+   "id": "101594_2019-11-14_2020-03-30",
+   "cik": "101594",
+   "documento": "https://www.sec.gov/Archives/edgar/data/101594/000149315219019477/form8-k.htm",
+   "risultati": 4
+  },
+  {
+   "id": "1069878_2018-05-07_2018-07-30",
+   "cik": "1069878",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1069878/000119312518231658/d604955d10q.htm",
+   "risultati": 5
+  },
+  {
+   "id": "1095981_2026-03-12_2026-05-15",
+   "cik": "1095981",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1095981/000119312526140267/pstv-ex99_1.htm",
+   "risultati": 9
+  },
+  {
+   "id": "1099369_2019-07-15_2019-11-18",
+   "cik": "1099369",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1099369/000106299319003682/form8k.htm",
+   "risultati": 2
+  },
+  {
+   "id": "1123494_2026-03-13_2026-05-12",
+   "cik": "1123494",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1123494/000117184326001384/f8k_030526.htm",
+   "risultati": 10
+  },
+  {
+   "id": "1163370_2025-07-28_2025-10-27",
+   "cik": "1163370",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1163370/000116337025000034/exhibit991stocksplit801.htm",
+   "risultati": 6
+  },
+  {
+   "id": "1218683_2025-11-14_2026-03-31",
+   "cik": "1218683",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1218683/000121390025112368/ea026625901ex99-1_mawson.htm",
+   "risultati": 9
+  },
+  {
+   "id": "1270436_2017-08-04_2017-11-03",
+   "cik": "1270436",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1270436/000110465917053140/a17-20809_1ex99d1.htm",
+   "risultati": 5
+  },
+  {
+   "id": "1346022_2025-01-13_2025-04-14",
+   "cik": "1346022",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1346022/000106299325007396/form10q.htm",
+   "risultati": 1
+  },
+  {
+   "id": "1356093_2022-11-14_2023-03-30",
+   "cik": "1356093",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1356093/000143774923007818/crex20230322_8k.htm",
+   "risultati": 8
+  },
+  {
+   "id": "1357459_2024-03-26_2024-05-13",
+   "cik": "1357459",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1357459/000149315224013336/form8-k.htm",
+   "risultati": 9
+  },
+  {
+   "id": "1410428_2023-08-14_2023-11-14",
+   "cik": "1410428",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1410428/000110465923104093/tm2327010d1_ex99-1.htm",
+   "risultati": 4
+  },
+  {
+   "id": "1412486_2022-08-15_2022-11-14",
+   "cik": "1412486",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1412486/000149315222027442/form8-k.htm",
+   "risultati": 2
+  },
+  {
+   "id": "1433607_2020-03-10_2021-03-08",
+   "cik": "1433607",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1433607/000149315220016998/ex10-1.htm",
+   "risultati": 6
+  },
+  {
+   "id": "1448558_2020-05-19_2020-10-13",
+   "cik": "1448558",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1448558/000144586620001060/grwc_ex99z1.htm",
+   "risultati": 8
+  },
+  {
+   "id": "1462223_2023-08-14_2023-11-20",
+   "cik": "1462223",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1462223/000165495423011277/rcrt_ex991.htm",
+   "risultati": 9
+  },
+  {
+   "id": "1467761_2023-03-31_2023-11-13",
+   "cik": "1467761",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1467761/000149315223010286/ex99-1.htm",
+   "risultati": 9
+  },
+  {
+   "id": "1487198_2016-12-12_2017-03-09",
+   "cik": "1487198",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1487198/000155335017000248/aspu_ex3z1.htm",
+   "risultati": 2
+  },
+  {
+   "id": "1546296_2024-11-14_2025-03-31",
+   "cik": "1546296",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1546296/000143774925006670/ipdn20250307_8k.htm",
+   "risultati": 9
+  },
+  {
+   "id": "1571934_2024-04-01_2024-05-15",
+   "cik": "1571934",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1571934/000110465924043683/tm2411084d1_ex99-1.htm",
+   "risultati": 6
+  },
+  {
+   "id": "1604191_2025-08-14_2025-11-19",
+   "cik": "1604191",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1604191/000110465925079322/tm2523661d1_8k.htm",
+   "risultati": 13
+  },
+  {
+   "id": "1621221_2026-02-24_2026-03-17",
+   "cik": "1621221",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1621221/000164033426000395/artl_ex991.htm",
+   "risultati": 16
+  },
+  {
+   "id": "1695295_2024-11-07_2025-03-05",
+   "cik": "1695295",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1695295/000162828025006029/hyfm-pressreleasereversest.htm",
+   "risultati": 8
+  },
+  {
+   "id": "1705843_2023-05-01_2024-05-09",
+   "cik": "1705843",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1705843/000119312523112965/d496483dex991.htm",
+   "risultati": 27
+  },
+  {
+   "id": "1817004_2024-08-14_2025-08-14",
+   "cik": "1817004",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1817004/000149315224029071/ex99-1.htm",
+   "risultati": 36
+  },
+  {
+   "id": "1824403_2021-05-24_2021-11-09",
+   "cik": "1824403",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1824403/000110465921097058/tm2122538d2_ex10-7.htm",
+   "risultati": 1
+  },
+  {
+   "id": "1853816_2024-05-15_2024-08-07",
+   "cik": "1853816",
+   "documento": "https://www.sec.gov/Archives/edgar/data/1853816/000165495424006133/drma_8k.htm",
+   "risultati": 8
+  },
+  {
+   "id": "737207_2022-08-15_2022-11-14",
+   "cik": "737207",
+   "documento": "https://www.sec.gov/Archives/edgar/data/737207/000149315222027804/form8-k.htm",
+   "risultati": 3
+  },
+  {
+   "id": "792966_2017-07-26_2017-10-25",
+   "cik": "792966",
+   "documento": "https://www.sec.gov/Archives/edgar/data/792966/000119312517261978/d445267dex99.htm",
+   "risultati": 5
+  },
+  {
+   "id": "797465_2021-08-06_2021-11-12",
+   "cik": "797465",
+   "documento": "https://www.sec.gov/Archives/edgar/data/797465/000143774921017183/stly20210715_8k.htm",
+   "risultati": 5
+  },
+  {
+   "id": "894158_2024-08-13_2024-11-12",
+   "cik": "894158",
+   "documento": "https://www.sec.gov/Archives/edgar/data/894158/000110465924092644/tm2422579d1_8k.htm",
+   "risultati": 8
+  },
+  {
+   "id": "90498_2017-11-06_2018-02-28",
+   "cik": "90498",
+   "documento": "https://www.sec.gov/Archives/edgar/data/90498/000117184318000964/exh_991.htm",
+   "risultati": 5
+  },
+  {
+   "id": "910521_2024-08-01_2024-10-31",
+   "cik": "910521",
+   "documento": "https://www.sec.gov/Archives/edgar/data/910521/000091052124000021/deckers-exh991pressrelease.htm",
+   "risultati": 10
+  },
+  {
+   "id": "914139_2015-11-09_2016-03-30",
+   "cik": "914139",
+   "documento": "https://www.sec.gov/Archives/edgar/data/914139/000139834416011339/fp0018758_ex991.htm",
+   "risultati": 7
+  },
+  {
+   "id": "925741_2024-05-14_2024-08-13",
+   "cik": "925741",
+   "documento": "https://www.sec.gov/Archives/edgar/data/925741/000143774924017856/ex_677889.htm",
+   "risultati": 10
+  },
+  {
+   "id": "926423_2023-09-14_2023-12-14",
+   "cik": "926423",
+   "documento": "https://www.sec.gov/Archives/edgar/data/926423/000143774923028215/mind20231013_8ka.htm",
+   "risultati": 10
+  }
+ ]
+}

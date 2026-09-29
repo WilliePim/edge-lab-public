@@ -1,0 +1,36 @@
+{
+ "seme": 20260923,
+ "campi": {
+  "prezzo": {
+   "estratti": 27,
+   "giusti": 27,
+   "non_trovati": 0,
+   "non_determinabili": 3
+  },
+  "data": {
+   "estratti": 30,
+   "giusti": 29,
+   "non_trovati": 0,
+   "non_determinabili": 0
+  },
+  "lockup": {
+   "estratti": 25,
+   "giusti": 24,
+   "non_trovati": 3,
+   "non_determinabili": 2
+  },
+  "offerte": {
+   "estratti": 26,
+   "giusti": 24,
+   "non_trovati": 3,
+   "non_determinabili": 1
+  },
+  "dopo": {
+   "estratti": 27,
+   "giusti": 25,
+   "non_trovati": 2,
+   "non_determinabili": 1
+  }
+ },
+ "sotto_90": []
+}

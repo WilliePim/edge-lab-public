@@ -1,0 +1,191 @@
+{
+ "IWM_2015-03-31": {
+  "righe": {
+   "VERIFICATA": 1858,
+   "NESSUN_PREZZO_EODHD": 52,
+   "PREZZO_DIVERSO": 73,
+   "NESSUN_CANDIDATO": 19
+  },
+  "quota_valore_verificato": 0.9367
+ },
+ "IWM_2015-06-30": {
+  "righe": {
+   "VERIFICATA": 1843,
+   "PREZZO_DIVERSO": 67,
+   "NESSUN_CANDIDATO": 20,
+   "NESSUN_PREZZO_EODHD": 49
+  },
+  "quota_valore_verificato": 0.9354
+ },
+ "IWM_2016-03-31": {
+  "righe": {
+   "VERIFICATA": 1863,
+   "PREZZO_DIVERSO": 37,
+   "NESSUN_CANDIDATO": 20,
+   "NESSUN_PREZZO_EODHD": 44
+  },
+  "quota_valore_verificato": 0.945
+ },
+ "IWM_2016-06-30": {
+  "righe": {
+   "VERIFICATA": 1900,
+   "PREZZO_DIVERSO": 36,
+   "NESSUN_PREZZO_EODHD": 47,
+   "NESSUN_CANDIDATO": 27
+  },
+  "quota_valore_verificato": 0.9431
+ },
+ "IWM_2017-03-31": {
+  "righe": {
+   "VERIFICATA": 1859,
+   "PREZZO_DIVERSO": 34,
+   "NESSUN_CANDIDATO": 27,
+   "NESSUN_PREZZO_EODHD": 40
+  },
+  "quota_valore_verificato": 0.9504
+ },
+ "IWM_2017-06-30": {
+  "righe": {
+   "VERIFICATA": 1915,
+   "PREZZO_DIVERSO": 35,
+   "NESSUN_CANDIDATO": 23,
+   "NESSUN_PREZZO_EODHD": 39
+  },
+  "quota_valore_verificato": 0.9552
+ },
+ "IWM_2018-03-31": {
+  "righe": {
+   "VERIFICATA": 1899,
+   "PREZZO_DIVERSO": 32,
+   "NESSUN_CANDIDATO": 20,
+   "NESSUN_PREZZO_EODHD": 35
+  },
+  "quota_valore_verificato": 0.9587
+ },
+ "IWM_2018-06-30": {
+  "righe": {
+   "VERIFICATA": 1936,
+   "PREZZO_DIVERSO": 34,
+   "NESSUN_PREZZO_EODHD": 32,
+   "NESSUN_CANDIDATO": 21
+  },
+  "quota_valore_verificato": 0.9613
+ },
+ "IWM_2019-03-31": {
+  "righe": {
+   "VERIFICATA": 1918,
+   "PREZZO_DIVERSO": 34,
+   "NESSUN_PREZZO_EODHD": 30,
+   "NESSUN_CANDIDATO": 19
+  },
+  "quota_valore_verificato": 0.9655
+ },
+ "IWM_2020-03-31": {
+  "righe": {
+   "VERIFICATA": 1897,
+   "PREZZO_DIVERSO": 32,
+   "NESSUN_PREZZO_EODHD": 30,
+   "NESSUN_CANDIDATO": 21
+  },
+  "quota_valore_verificato": 0.9675
+ },
+ "IWM_2020-06-30": {
+  "righe": {
+   "VERIFICATA": 1930,
+   "NESSUN_CANDIDATO": 20,
+   "NESSUN_PREZZO_EODHD": 33,
+   "PREZZO_DIVERSO": 35
+  },
+  "quota_valore_verificato": 0.967
+ },
+ "IWM_2021-03-31": {
+  "righe": {
+   "VERIFICATA": 1966,
+   "NESSUN_PREZZO_EODHD": 39,
+   "NESSUN_CANDIDATO": 21,
+   "PREZZO_DIVERSO": 30
+  },
+  "quota_valore_verificato": 0.9711
+ },
+ "IWM_2021-06-30": {
+  "righe": {
+   "VERIFICATA": 1909,
+   "NESSUN_PREZZO_EODHD": 36,
+   "NESSUN_CANDIDATO": 18,
+   "PREZZO_DIVERSO": 31
+  },
+  "quota_valore_verificato": 0.9682
+ },
+ "IWM_2022-03-31": {
+  "righe": {
+   "VERIFICATA": 1936,
+   "NESSUN_PREZZO_EODHD": 37,
+   "NESSUN_CANDIDATO": 16,
+   "PREZZO_DIVERSO": 26
+  },
+  "quota_valore_verificato": 0.9735
+ },
+ "IWM_2022-06-30": {
+  "righe": {
+   "VERIFICATA": 1905,
+   "NESSUN_CANDIDATO": 15,
+   "NESSUN_PREZZO_EODHD": 46,
+   "PREZZO_DIVERSO": 25
+  },
+  "quota_valore_verificato": 0.9724
+ },
+ "IWM_2023-03-31": {
+  "righe": {
+   "VERIFICATA": 1836,
+   "NESSUN_CANDIDATO": 15,
+   "PREZZO_DIVERSO": 25,
+   "NESSUN_PREZZO_EODHD": 46
+  },
+  "quota_valore_verificato": 0.9674
+ },
+ "IWM_2023-06-30": {
+  "righe": {
+   "VERIFICATA": 1935,
+   "NESSUN_CANDIDATO": 13,
+   "PREZZO_DIVERSO": 16,
+   "NESSUN_PREZZO_EODHD": 48
+  },
+  "quota_valore_verificato": 0.9698
+ },
+ "IWM_2024-03-31": {
+  "righe": {
+   "VERIFICATA": 1871,
+   "NESSUN_CANDIDATO": 12,
+   "PREZZO_DIVERSO": 18,
+   "NESSUN_PREZZO_EODHD": 46
+  },
+  "quota_valore_verificato": 0.9705
+ },
+ "IWM_2024-06-30": {
+  "righe": {
+   "VERIFICATA": 1849,
+   "NESSUN_CANDIDATO": 12,
+   "NESSUN_PREZZO_EODHD": 46,
+   "PREZZO_DIVERSO": 14
+  },
+  "quota_valore_verificato": 0.9701
+ },
+ "IWM_2025-03-31": {
+  "righe": {
+   "VERIFICATA": 1858,
+   "PREZZO_DIVERSO": 12,
+   "NESSUN_PREZZO_EODHD": 69,
+   "NESSUN_CANDIDATO": 11
+  },
+  "quota_valore_verificato": 0.9651
+ },
+ "IWM_2025-06-30": {
+  "righe": {
+   "VERIFICATA": 1989,
+   "NESSUN_PREZZO_EODHD": 97,
+   "NESSUN_CANDIDATO": 13,
+   "PREZZO_DIVERSO": 17
+  },
+  "quota_valore_verificato": 0.9556
+ }
+}

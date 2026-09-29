@@ -1,0 +1,53 @@
+---
+title: Come si chiede un documento alla SEC
+config:
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    lineColor: "#64748B"
+    clusterBkg: "#F5F3FF"
+    clusterBorder: "#A78BFA"
+  flowchart:
+    curve: basis
+    padding: 14
+---
+flowchart TD
+    Q(["Serve un documento della SEC"]):::inizio
+    Q --> C{"C'è già una copia<br/>nella cache su disco?"}:::decisione
+    C -- sì --> U(["Si usa la copia<br/>nessuna richiesta in rete"]):::ok
+    C -- "no, oppure è l'indice di oggi<br/>che non si conserva" --> W
+
+    subgraph T["Fino a 3 tentativi"]
+        W["Si aspetta almeno 0,15 secondi<br/>dalla richiesta precedente"]:::fase
+        W --> R["Si chiede alla SEC<br/>presentandosi con nome ed email"]:::fase
+        R --> E{"Com'è andata?"}:::decisione
+        E -- "rete caduta" --> P1["Pausa breve"]:::nota
+        E -- "troppe richieste, accesso negato<br/>o servizio occupato" --> P2["Pausa di 2, 4, 6 secondi"]:::nota
+        P1 --> A{"Restano<br/>tentativi?"}:::decisione
+        P2 --> A
+        A -- sì --> W
+    end
+
+    E -- "tutto bene" --> S[("Si salva una copia compressa<br/>nella cache")]:::archivio
+    S --> OK(["Si usa il documento"]):::ok
+    E -- "il documento non esiste" --> N0(["Nessun dato<br/>non conta come errore"]):::nota
+    E -- "altro errore del server" --> F["Errore contato<br/>senza riprovare"]:::stop
+    A -- no --> F2["Errore contato"]:::stop
+    F --> N1(["Nessun dato"]):::stop
+    F2 --> N1
+
+    subgraph D["Chi aveva chiesto decide cosa fare del «nessun dato»"]
+        D1["Indice del giorno mancante:<br/>il giorno si annota come «senza indice»"]:::nota
+        D2["Form 4 mancante:<br/>il modulo si salta"]:::nota
+        D3["Storia della società mancante:<br/>giudizio «sconosciuto», nessun blocco"]:::nota
+    end
+    N0 --> D
+    N1 --> D
+
+    classDef inizio fill:#BFDBFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    classDef fase fill:#E0E7FF,stroke:#6366F1,color:#312E81,stroke-width:2px
+    classDef decisione fill:#FDE68A,stroke:#D97706,color:#78350F,stroke-width:2px
+    classDef nota fill:#E2E8F0,stroke:#94A3B8,color:#1E293B,stroke-width:2px
+    classDef stop fill:#FECACA,stroke:#DC2626,color:#7F1D1D,stroke-width:2px
+    classDef ok fill:#BBF7D0,stroke:#16A34A,color:#14532D,stroke-width:2px
+    classDef archivio fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:2px

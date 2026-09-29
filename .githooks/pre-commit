@@ -1,0 +1,8 @@
+#!/bin/sh
+# Protezioni dei dati di mercato e della chiave API: vedi .githooks/guard.py.
+# Attivazione (una volta per clone, la fa setup.sh): git config core.hooksPath .githooks
+ROOT="$(git rev-parse --show-toplevel)"
+PY="$ROOT/.venv/Scripts/python.exe"
+[ -x "$PY" ] || PY="$ROOT/.venv/bin/python"
+[ -x "$PY" ] || PY=python
+exec "$PY" "$ROOT/.githooks/guard.py"

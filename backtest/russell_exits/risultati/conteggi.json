@@ -1,0 +1,1228 @@
+{
+ "anni": {
+  "2015": {
+   "stato": "ok",
+   "date": {
+    "k": "2015-05-29",
+    "p": "2015-06-12",
+    "r": "2015-06-26"
+   },
+   "conteggi": {
+    "rimasti": 1787,
+    "uscite verso il basso": 183,
+    "uscite verso l'alto (in IWB)": 30,
+    "uscite dopo esclusioni e filtri": 25,
+    "uscite con identit\u00e0 verificata (EODHD)": 162,
+    "uscite dopo gli eventi societari della fase 1": 132,
+    "uscite con prezzi e volumi sufficienti": 107,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 411,
+    "uscite con almeno 3 peer": 25,
+    "falsi eventi (placebo)": 25
+   },
+   "esclusioni_uscite": {
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 7,
+    "filtri": 82,
+    "acquisita, in fusione o delistata nel trimestre": 30,
+    "identit\u00e0: NESSUN_CANDIDATO": 2,
+    "prezzi e volumi insufficienti": 25,
+    "identit\u00e0: PREZZO_DIVERSO": 12
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1105,
+    "prezzi e volumi insufficienti": 118,
+    "identit\u00e0: PREZZO_DIVERSO": 60,
+    "identit\u00e0: NESSUN_CANDIDATO": 17,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 45,
+    "acquisita, in fusione o delistata nel trimestre": 31
+   },
+   "filtri_uscite": {
+    "f1": {
+     "passa": 46,
+     "non verificabile": 37,
+     "non passa": 24
+    },
+    "f2": {
+     "passa": 69,
+     "non passa": 22,
+     "non verificabile": 16
+    },
+    "f3": {
+     "passa": 78,
+     "non passa": 16,
+     "non verificabile": 13
+    },
+    "f4": {
+     "passa": 105,
+     "non passa": 2
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 815,
+     "non verificabile": 538,
+     "non passa": 163
+    },
+    "f2": {
+     "non verificabile": 276,
+     "passa": 1054,
+     "non passa": 186
+    },
+    "f3": {
+     "passa": 1058,
+     "non verificabile": 182,
+     "non passa": 276
+    },
+    "f4": {
+     "passa": 1485,
+     "non passa": 31
+    }
+   }
+  },
+  "2016": {
+   "stato": "ok",
+   "date": {
+    "k": "2016-05-27",
+    "p": "2016-06-10",
+    "r": "2016-06-24"
+   },
+   "conteggi": {
+    "rimasti": 1771,
+    "uscite verso l'alto (in IWB)": 35,
+    "uscite verso il basso": 156,
+    "uscite dopo esclusioni e filtri": 10,
+    "uscite con identit\u00e0 verificata (EODHD)": 148,
+    "uscite dopo gli eventi societari della fase 1": 119,
+    "uscite con prezzi e volumi sufficienti": 87,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 379,
+    "uscite con almeno 3 peer": 10,
+    "falsi eventi (placebo)": 10
+   },
+   "esclusioni_uscite": {
+    "identit\u00e0: PREZZO_DIVERSO": 6,
+    "prezzi e volumi insufficienti": 32,
+    "filtri": 77,
+    "acquisita, in fusione o delistata nel trimestre": 29,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 2
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1121,
+    "prezzi e volumi insufficienti": 128,
+    "acquisita, in fusione o delistata nel trimestre": 51,
+    "identit\u00e0: PREZZO_DIVERSO": 30,
+    "identit\u00e0: NESSUN_CANDIDATO": 20,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 42
+   },
+   "filtri_uscite": {
+    "f1": {
+     "non verificabile": 33,
+     "non passa": 27,
+     "passa": 27
+    },
+    "f2": {
+     "passa": 44,
+     "non verificabile": 19,
+     "non passa": 24
+    },
+    "f3": {
+     "passa": 55,
+     "non verificabile": 13,
+     "non passa": 19
+    },
+    "f4": {
+     "passa": 86,
+     "non passa": 1
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "non passa": 141,
+     "passa": 790,
+     "non verificabile": 569
+    },
+    "f2": {
+     "non verificabile": 296,
+     "non passa": 224,
+     "passa": 980
+    },
+    "f3": {
+     "passa": 1093,
+     "non verificabile": 181,
+     "non passa": 226
+    },
+    "f4": {
+     "passa": 1478,
+     "non passa": 22
+    }
+   }
+  },
+  "2017": {
+   "stato": "ok",
+   "date": {
+    "k": "2017-05-12",
+    "p": "2017-06-09",
+    "r": "2017-06-23"
+   },
+   "conteggi": {
+    "rimasti": 1778,
+    "uscite verso l'alto (in IWB)": 30,
+    "uscite verso il basso": 145,
+    "uscite dopo esclusioni e filtri": 5,
+    "uscite con identit\u00e0 verificata (EODHD)": 137,
+    "uscite dopo gli eventi societari della fase 1": 96,
+    "uscite con prezzi e volumi sufficienti": 71,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 375,
+    "uscite con almeno 3 peer": 5,
+    "falsi eventi (placebo)": 5
+   },
+   "esclusioni_uscite": {
+    "acquisita, in fusione o delistata nel trimestre": 41,
+    "filtri": 66,
+    "prezzi e volumi insufficienti": 25,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 6,
+    "identit\u00e0: NESSUN_CANDIDATO": 1,
+    "identit\u00e0: PREZZO_DIVERSO": 1
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1168,
+    "acquisita, in fusione o delistata nel trimestre": 34,
+    "prezzi e volumi insufficienti": 115,
+    "identit\u00e0: PREZZO_DIVERSO": 31,
+    "identit\u00e0: NESSUN_CANDIDATO": 21,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 34
+   },
+   "filtri_uscite": {
+    "f1": {
+     "non verificabile": 35,
+     "non passa": 23,
+     "passa": 13
+    },
+    "f2": {
+     "passa": 45,
+     "non passa": 10,
+     "non verificabile": 16
+    },
+    "f3": {
+     "passa": 41,
+     "non passa": 19,
+     "non verificabile": 11
+    },
+    "f4": {
+     "passa": 71
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 801,
+     "non verificabile": 599,
+     "non passa": 143
+    },
+    "f2": {
+     "non verificabile": 306,
+     "passa": 1023,
+     "non passa": 214
+    },
+    "f3": {
+     "passa": 1056,
+     "non passa": 292,
+     "non verificabile": 195
+    },
+    "f4": {
+     "passa": 1522,
+     "non passa": 21
+    }
+   }
+  },
+  "2018": {
+   "stato": "ok",
+   "date": {
+    "k": "2018-05-11",
+    "p": "2018-06-08",
+    "r": "2018-06-22"
+   },
+   "conteggi": {
+    "rimasti": 1792,
+    "uscite verso l'alto (in IWB)": 49,
+    "uscite verso il basso": 138,
+    "uscite dopo esclusioni e filtri": 11,
+    "uscite con identit\u00e0 verificata (EODHD)": 131,
+    "uscite dopo gli eventi societari della fase 1": 104,
+    "uscite con prezzi e volumi sufficienti": 83,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 447,
+    "uscite con almeno 3 peer": 11,
+    "falsi eventi (placebo)": 11
+   },
+   "esclusioni_uscite": {
+    "filtri": 72,
+    "acquisita, in fusione o delistata nel trimestre": 27,
+    "identit\u00e0: PREZZO_DIVERSO": 1,
+    "prezzi e volumi insufficienti": 21,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 4,
+    "identit\u00e0: NESSUN_CANDIDATO": 2
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1107,
+    "acquisita, in fusione o delistata nel trimestre": 34,
+    "prezzi e volumi insufficienti": 129,
+    "identit\u00e0: PREZZO_DIVERSO": 30,
+    "identit\u00e0: NESSUN_CANDIDATO": 16,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 29
+   },
+   "filtri_uscite": {
+    "f1": {
+     "passa": 36,
+     "non passa": 31,
+     "non verificabile": 16
+    },
+    "f2": {
+     "non verificabile": 20,
+     "passa": 45,
+     "non passa": 18
+    },
+    "f3": {
+     "passa": 48,
+     "non passa": 20,
+     "non verificabile": 15
+    },
+    "f4": {
+     "passa": 83
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 990,
+     "non verificabile": 360,
+     "non passa": 204
+    },
+    "f2": {
+     "non verificabile": 334,
+     "passa": 977,
+     "non passa": 243
+    },
+    "f3": {
+     "passa": 1061,
+     "non verificabile": 193,
+     "non passa": 300
+    },
+    "f4": {
+     "passa": 1525,
+     "non passa": 29
+    }
+   }
+  },
+  "2019": {
+   "stato": "ok",
+   "date": {
+    "k": "2019-05-10",
+    "p": "2019-06-07",
+    "r": "2019-06-28"
+   },
+   "conteggi": {
+    "rimasti": 1686,
+    "uscite verso il basso": 270,
+    "uscite verso l'alto (in IWB)": 36,
+    "uscite dopo esclusioni e filtri": 35,
+    "uscite con identit\u00e0 verificata (EODHD)": 250,
+    "uscite dopo gli eventi societari della fase 1": 188,
+    "uscite con prezzi e volumi sufficienti": 153,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 499,
+    "uscite con almeno 3 peer": 35,
+    "falsi eventi (placebo)": 35
+   },
+   "esclusioni_uscite": {
+    "acquisita, in fusione o delistata nel trimestre": 62,
+    "filtri": 117,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 6,
+    "identit\u00e0: NESSUN_CANDIDATO": 6,
+    "prezzi e volumi insufficienti": 35,
+    "identit\u00e0: PREZZO_DIVERSO": 8,
+    "SPAC (SIC 6770)": 1
+   },
+   "esclusioni_rimasti": {
+    "filtri": 973,
+    "acquisita, in fusione o delistata nel trimestre": 37,
+    "prezzi e volumi insufficienti": 117,
+    "identit\u00e0: PREZZO_DIVERSO": 25,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 24,
+    "identit\u00e0: NESSUN_CANDIDATO": 11
+   },
+   "filtri_uscite": {
+    "f1": {
+     "passa": 98,
+     "non passa": 44,
+     "non verificabile": 10
+    },
+    "f2": {
+     "non passa": 32,
+     "non verificabile": 38,
+     "passa": 82
+    },
+    "f3": {
+     "passa": 102,
+     "non passa": 35,
+     "non verificabile": 15
+    },
+    "f4": {
+     "passa": 149,
+     "non passa": 3
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 1125,
+     "non verificabile": 94,
+     "non passa": 253
+    },
+    "f2": {
+     "non verificabile": 326,
+     "passa": 931,
+     "non passa": 215
+    },
+    "f3": {
+     "passa": 980,
+     "non verificabile": 184,
+     "non passa": 308
+    },
+    "f4": {
+     "passa": 1454,
+     "non passa": 18
+    }
+   }
+  },
+  "2020": {
+   "stato": "ok",
+   "date": {
+    "k": "2020-05-08",
+    "p": "2020-06-05",
+    "r": "2020-06-26"
+   },
+   "conteggi": {
+    "rimasti": 1693,
+    "uscite verso il basso": 164,
+    "uscite verso l'alto (in IWB)": 113,
+    "uscite dopo esclusioni e filtri": 26,
+    "uscite con identit\u00e0 verificata (EODHD)": 156,
+    "uscite dopo gli eventi societari della fase 1": 128,
+    "uscite con prezzi e volumi sufficienti": 106,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 532,
+    "uscite con almeno 3 peer": 26,
+    "falsi eventi (placebo)": 26
+   },
+   "esclusioni_uscite": {
+    "acquisita, in fusione o delistata nel trimestre": 28,
+    "filtri": 80,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 4,
+    "identit\u00e0: PREZZO_DIVERSO": 3,
+    "prezzi e volumi insufficienti": 22,
+    "identit\u00e0: NESSUN_CANDIDATO": 1
+   },
+   "esclusioni_rimasti": {
+    "filtri": 951,
+    "prezzi e volumi insufficienti": 120,
+    "identit\u00e0: PREZZO_DIVERSO": 24,
+    "acquisita, in fusione o delistata nel trimestre": 23,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 25,
+    "identit\u00e0: NESSUN_CANDIDATO": 18
+   },
+   "filtri_uscite": {
+    "f1": {
+     "passa": 77,
+     "non passa": 26,
+     "non verificabile": 3
+    },
+    "f2": {
+     "passa": 51,
+     "non verificabile": 27,
+     "non passa": 28
+    },
+    "f3": {
+     "passa": 82,
+     "non verificabile": 8,
+     "non passa": 16
+    },
+    "f4": {
+     "passa": 106
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "non passa": 296,
+     "passa": 1149,
+     "non verificabile": 38
+    },
+    "f2": {
+     "passa": 923,
+     "non passa": 210,
+     "non verificabile": 350
+    },
+    "f3": {
+     "passa": 1017,
+     "non verificabile": 185,
+     "non passa": 281
+    },
+    "f4": {
+     "passa": 1467,
+     "non passa": 16
+    }
+   }
+  },
+  "2021": {
+   "stato": "ok",
+   "date": {
+    "k": "2021-05-07",
+    "p": "2021-06-04",
+    "r": "2021-06-25"
+   },
+   "conteggi": {
+    "rimasti": 1638,
+    "uscite verso il basso": 297,
+    "uscite verso l'alto (in IWB)": 111,
+    "uscite dopo esclusioni e filtri": 64,
+    "uscite con identit\u00e0 verificata (EODHD)": 280,
+    "uscite dopo gli eventi societari della fase 1": 255,
+    "uscite con prezzi e volumi sufficienti": 207,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 490,
+    "uscite con almeno 3 peer": 64,
+    "falsi eventi (placebo)": 64
+   },
+   "esclusioni_uscite": {
+    "filtri": 143,
+    "prezzi e volumi insufficienti": 48,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 8,
+    "acquisita, in fusione o delistata nel trimestre": 25,
+    "identit\u00e0: NESSUN_CANDIDATO": 4,
+    "identit\u00e0: PREZZO_DIVERSO": 5
+   },
+   "esclusioni_rimasti": {
+    "filtri": 907,
+    "prezzi e volumi insufficienti": 127,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 29,
+    "acquisita, in fusione o delistata nel trimestre": 48,
+    "identit\u00e0: NESSUN_CANDIDATO": 15,
+    "identit\u00e0: PREZZO_DIVERSO": 22
+   },
+   "filtri_uscite": {
+    "f1": {
+     "passa": 126,
+     "non passa": 78,
+     "non verificabile": 3
+    },
+    "f2": {
+     "non verificabile": 48,
+     "passa": 147,
+     "non passa": 12
+    },
+    "f3": {
+     "passa": 130,
+     "non passa": 60,
+     "non verificabile": 17
+    },
+    "f4": {
+     "passa": 203,
+     "non passa": 4
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 1065,
+     "non passa": 301,
+     "non verificabile": 31
+    },
+    "f2": {
+     "non verificabile": 311,
+     "non passa": 194,
+     "passa": 892
+    },
+    "f3": {
+     "non passa": 305,
+     "passa": 901,
+     "non verificabile": 191
+    },
+    "f4": {
+     "passa": 1382,
+     "non passa": 15
+    }
+   }
+  },
+  "2022": {
+   "stato": "ok",
+   "date": {
+    "k": "2022-05-06",
+    "p": "2022-06-03",
+    "r": "2022-06-24"
+   },
+   "conteggi": {
+    "uscite verso il basso": 304,
+    "uscite verso l'alto (in IWB)": 90,
+    "rimasti": 1612,
+    "uscite dopo esclusioni e filtri": 26,
+    "uscite con identit\u00e0 verificata (EODHD)": 289,
+    "uscite dopo gli eventi societari della fase 1": 267,
+    "uscite con prezzi e volumi sufficienti": 207,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 468,
+    "uscite con almeno 3 peer": 26,
+    "falsi eventi (placebo)": 26
+   },
+   "esclusioni_uscite": {
+    "filtri": 181,
+    "prezzi e volumi insufficienti": 60,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 5,
+    "identit\u00e0: PREZZO_DIVERSO": 9,
+    "acquisita, in fusione o delistata nel trimestre": 22,
+    "identit\u00e0: NESSUN_CANDIDATO": 1
+   },
+   "esclusioni_rimasti": {
+    "prezzi e volumi insufficienti": 95,
+    "filtri": 957,
+    "identit\u00e0: NESSUN_CANDIDATO": 13,
+    "acquisita, in fusione o delistata nel trimestre": 33,
+    "identit\u00e0: PREZZO_DIVERSO": 14,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 31,
+    "SPAC (SIC 6770)": 1
+   },
+   "filtri_uscite": {
+    "f1": {
+     "non passa": 152,
+     "passa": 49,
+     "non verificabile": 6
+    },
+    "f2": {
+     "non verificabile": 24,
+     "passa": 168,
+     "non passa": 15
+    },
+    "f3": {
+     "non passa": 54,
+     "passa": 124,
+     "non verificabile": 29
+    },
+    "f4": {
+     "passa": 206,
+     "non passa": 1
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 1053,
+     "non passa": 344,
+     "non verificabile": 28
+    },
+    "f2": {
+     "passa": 907,
+     "non verificabile": 325,
+     "non passa": 193
+    },
+    "f3": {
+     "non verificabile": 223,
+     "passa": 951,
+     "non passa": 251
+    },
+    "f4": {
+     "passa": 1399,
+     "non passa": 26
+    }
+   }
+  },
+  "2023": {
+   "stato": "ok",
+   "date": {
+    "k": "2023-04-28",
+    "p": "2023-05-19",
+    "r": "2023-06-23"
+   },
+   "conteggi": {
+    "rimasti": 1704,
+    "uscite verso il basso": 185,
+    "uscite verso l'alto (in IWB)": 21,
+    "uscite dopo esclusioni e filtri": 9,
+    "uscite con identit\u00e0 verificata (EODHD)": 170,
+    "uscite dopo gli eventi societari della fase 1": 140,
+    "uscite con prezzi e volumi sufficienti": 114,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 492,
+    "uscite con almeno 3 peer": 9,
+    "falsi eventi (placebo)": 9
+   },
+   "esclusioni_uscite": {
+    "filtri": 104,
+    "prezzi e volumi insufficienti": 26,
+    "acquisita, in fusione o delistata nel trimestre": 30,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 6,
+    "identit\u00e0: PREZZO_DIVERSO": 7,
+    "identit\u00e0: NESSUN_CANDIDATO": 2,
+    "SPAC (SIC 6770)": 1
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1051,
+    "prezzi e volumi insufficienti": 72,
+    "identit\u00e0: NESSUN_CANDIDATO": 12,
+    "identit\u00e0: PREZZO_DIVERSO": 14,
+    "acquisita, in fusione o delistata nel trimestre": 27,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 36
+   },
+   "filtri_uscite": {
+    "f1": {
+     "non passa": 74,
+     "passa": 36,
+     "non verificabile": 3
+    },
+    "f2": {
+     "passa": 69,
+     "non verificabile": 21,
+     "non passa": 23
+    },
+    "f3": {
+     "non passa": 32,
+     "passa": 60,
+     "non verificabile": 21
+    },
+    "f4": {
+     "passa": 111,
+     "non passa": 2
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 1096,
+     "non passa": 401,
+     "non verificabile": 46
+    },
+    "f2": {
+     "passa": 930,
+     "non passa": 217,
+     "non verificabile": 396
+    },
+    "f3": {
+     "passa": 1129,
+     "non passa": 217,
+     "non verificabile": 197
+    },
+    "f4": {
+     "passa": 1524,
+     "non passa": 19
+    }
+   }
+  },
+  "2024": {
+   "stato": "ok",
+   "date": {
+    "k": "2024-04-30",
+    "p": "2024-05-24",
+    "r": "2024-06-28"
+   },
+   "conteggi": {
+    "rimasti": 1726,
+    "uscite verso il basso": 181,
+    "uscite verso l'alto (in IWB)": 26,
+    "uscite dopo esclusioni e filtri": 11,
+    "uscite con identit\u00e0 verificata (EODHD)": 170,
+    "uscite dopo gli eventi societari della fase 1": 115,
+    "uscite con prezzi e volumi sufficienti": 94,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 535,
+    "uscite con almeno 3 peer": 11,
+    "falsi eventi (placebo)": 11
+   },
+   "esclusioni_uscite": {
+    "prezzi e volumi insufficienti": 21,
+    "identit\u00e0: NESSUN_CANDIDATO": 2,
+    "filtri": 83,
+    "acquisita, in fusione o delistata nel trimestre": 55,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 5,
+    "identit\u00e0: PREZZO_DIVERSO": 4
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1016,
+    "prezzi e volumi insufficienti": 54,
+    "acquisita, in fusione o delistata nel trimestre": 66,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 37,
+    "identit\u00e0: NESSUN_CANDIDATO": 9,
+    "identit\u00e0: PREZZO_DIVERSO": 9
+   },
+   "filtri_uscite": {
+    "f1": {
+     "non passa": 64,
+     "passa": 30
+    },
+    "f2": {
+     "passa": 61,
+     "non passa": 15,
+     "non verificabile": 18
+    },
+    "f3": {
+     "passa": 45,
+     "non passa": 31,
+     "non verificabile": 18
+    },
+    "f4": {
+     "passa": 93,
+     "non passa": 1
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "passa": 1161,
+     "non passa": 335,
+     "non verificabile": 55
+    },
+    "f2": {
+     "passa": 952,
+     "non passa": 206,
+     "non verificabile": 393
+    },
+    "f3": {
+     "passa": 1099,
+     "non passa": 242,
+     "non verificabile": 210
+    },
+    "f4": {
+     "passa": 1528,
+     "non passa": 23
+    }
+   }
+  },
+  "2025": {
+   "stato": "ok",
+   "date": {
+    "k": "2025-04-30",
+    "p": "2025-05-23",
+    "r": "2025-06-27"
+   },
+   "conteggi": {
+    "rimasti": 1752,
+    "uscite verso il basso": 165,
+    "uscite verso l'alto (in IWB)": 18,
+    "uscite dopo esclusioni e filtri": 12,
+    "uscite con identit\u00e0 verificata (EODHD)": 158,
+    "uscite dopo gli eventi societari della fase 1": 133,
+    "uscite con prezzi e volumi sufficienti": 119,
+    "rimasti dopo esclusioni e filtri (universo dei peer)": 546,
+    "uscite con almeno 3 peer": 12,
+    "falsi eventi (placebo)": 12
+   },
+   "esclusioni_uscite": {
+    "filtri": 107,
+    "acquisita, in fusione o delistata nel trimestre": 25,
+    "prezzi e volumi insufficienti": 14,
+    "identit\u00e0: PREZZO_DIVERSO": 1,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 6
+   },
+   "esclusioni_rimasti": {
+    "filtri": 1065,
+    "acquisita, in fusione o delistata nel trimestre": 36,
+    "identit\u00e0: NESSUN_PREZZO_EODHD": 58,
+    "prezzi e volumi insufficienti": 29,
+    "identit\u00e0: PREZZO_DIVERSO": 8,
+    "identit\u00e0: NESSUN_CANDIDATO": 10
+   },
+   "filtri_uscite": {
+    "f1": {
+     "non passa": 89,
+     "passa": 29,
+     "non verificabile": 1
+    },
+    "f2": {
+     "passa": 88,
+     "non passa": 16,
+     "non verificabile": 15
+    },
+    "f3": {
+     "non passa": 38,
+     "passa": 69,
+     "non verificabile": 12
+    },
+    "f4": {
+     "passa": 117,
+     "non passa": 2
+    }
+   },
+   "filtri_rimasti": {
+    "f1": {
+     "non passa": 315,
+     "passa": 1241,
+     "non verificabile": 55
+    },
+    "f2": {
+     "passa": 988,
+     "non passa": 217,
+     "non verificabile": 406
+    },
+    "f3": {
+     "passa": 1088,
+     "non passa": 305,
+     "non verificabile": 218
+    },
+    "f4": {
+     "passa": 1588,
+     "non passa": 23
+    }
+   }
+  }
+ },
+ "ingressi": {
+  "B1": {
+   "conteggi": {
+    "in mezzo": 151,
+    "primo giorno possibile": 49,
+    "forzato al limite": 34
+   },
+   "mediana_sedute": 20.0,
+   "minimo": 10,
+   "massimo": 60,
+   "quartili": [
+    11.8,
+    20.0,
+    35.5
+   ],
+   "limiti": [
+    10,
+    60
+   ],
+   "quota_estremi": 0.3547008547008547
+  },
+  "B2": {
+   "conteggi": {
+    "in mezzo": 157,
+    "primo giorno possibile": 62,
+    "forzato al limite": 15
+   },
+   "mediana_sedute": 33.0,
+   "minimo": 20,
+   "massimo": 126,
+   "quartili": [
+    20.0,
+    33.0,
+    62.2
+   ],
+   "limiti": [
+    20,
+    126
+   ],
+   "quota_estremi": 0.32905982905982906
+  },
+  "B3": {
+   "conteggi": {
+    "in mezzo": 153,
+    "forzato al limite": 26,
+    "primo giorno possibile": 55
+   },
+   "mediana_sedute": 62.0,
+   "minimo": 40,
+   "massimo": 189,
+   "quartili": [
+    42.0,
+    62.0,
+    98.2
+   ],
+   "limiti": [
+    40,
+    189
+   ],
+   "quota_estremi": 0.34615384615384615
+  }
+ },
+ "disponibili": {
+  "A x 63": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "A x 126": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "A x 252": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B1 x 63": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B1 x 126": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B1 x 252": {
+   "casi": 231,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B2 x 63": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B2 x 126": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B2 x 252": {
+   "casi": 231,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B3 x 63": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B3 x 126": {
+   "casi": 233,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "B3 x 252": {
+   "casi": 229,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "C x 63": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "C x 126": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "C x 252": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "dicembre: anticipo": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "dicembre: vendita": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "dicembre: coda": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  },
+  "dicembre: recupero": {
+   "casi": 234,
+   "anni": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ]
+  }
+ },
+ "chiamate_edgar": 2103
+}

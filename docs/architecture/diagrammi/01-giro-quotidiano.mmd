@@ -1,0 +1,74 @@
+---
+title: Il giro quotidiano, dall'avvio alla notifica
+config:
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    lineColor: "#64748B"
+    clusterBkg: "#F5F3FF"
+    clusterBorder: "#A78BFA"
+  flowchart:
+    curve: basis
+    padding: 14
+---
+flowchart TD
+    subgraph F1["1 · Avvio"]
+        A1(["Il pianificatore lancia lo scanner<br/>con il nome e l'email per la SEC"]):::inizio
+        A2{"Nome ed email<br/>ci sono?"}:::decisione
+        A1 --> A2
+    end
+    A2 -- no --> X1(["Si ferma subito"]):::stop
+
+    subgraph F2["2 · Raccolta dei moduli"]
+        R1["Si scorre ogni giorno lavorativo<br/>degli ultimi 60 giorni"]:::fase
+        R2{"Quel giorno<br/>la SEC era aperta?"}:::decisione
+        R3{"L'indice dei depositi<br/>del giorno si legge?"}:::decisione
+        R4["Il giorno si annota<br/>come «senza indice»"]:::nota
+        R5["Si scaricano i Form 4<br/>elencati nell'indice"]:::fase
+        R6{"Il modulo<br/>si trova?"}:::decisione
+        R7["Il modulo si salta"]:::nota
+        R8["Si tengono solo gli acquisti veri:<br/>sul mercato aperto, non da piano programmato,<br/>di almeno 25.000 dollari"]:::fase
+        R1 --> R2
+        R2 -- no --> R4
+        R2 -- sì --> R3
+        R3 -- no --> R4
+        R3 -- sì --> R5 --> R6
+        R6 -- no --> R7
+        R6 -- sì --> R8
+    end
+    A2 -- sì --> R1
+
+    subgraph F3["3 · Valutazione"]
+        V1["Gli acquisti si riuniscono per società<br/>e si controlla il simbolo di borsa"]:::fase
+        V2[["Ogni società passa i cancelli<br/>e riceve un punteggio<br/><i>vedi diagramma 02</i>"]]:::fase
+        V1 --> V2
+    end
+    R4 --> V1
+    R7 --> V1
+    R8 --> V1
+    F2 -.-> X2(["Giro fallito"]):::stop
+    F3 -. "un errore imprevisto in raccolta<br/>o valutazione fa fallire il giro" .-> X2
+
+    subgraph F4["4 · Scrittura dei risultati"]
+        S1["Si aggiunge il giro<br/>all'archivio storico"]:::fase
+        S2["Si scrivono i rapporti del giorno<br/><i>vedi diagramma 04</i>"]:::fase
+        S3["Si scrive la tabella CSV<br/>delle società non bloccate"]:::fase
+        S1 --> S2 --> S3
+        S1 -. "se fallisce: avviso a schermo,<br/>il giro prosegue" .-> S2
+        S2 -. "se fallisce: avviso a schermo,<br/>il giro prosegue" .-> S3
+    end
+    V2 --> S1
+
+    subgraph F5["5 · Chiusura"]
+        C1["Riepilogo a schermo"]:::fase
+        C2(["Notifica sul desktop<br/>anche in caso di errore"]):::inizio
+        C1 --> C2
+    end
+    S3 --> C1
+    X2 --> C2
+
+    classDef inizio fill:#BFDBFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    classDef fase fill:#E0E7FF,stroke:#6366F1,color:#312E81,stroke-width:2px
+    classDef decisione fill:#FDE68A,stroke:#D97706,color:#78350F,stroke-width:2px
+    classDef nota fill:#E2E8F0,stroke:#94A3B8,color:#1E293B,stroke-width:2px
+    classDef stop fill:#FECACA,stroke:#DC2626,color:#7F1D1D,stroke-width:2px

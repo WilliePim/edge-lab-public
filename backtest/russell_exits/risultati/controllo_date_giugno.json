@@ -1,0 +1,92 @@
+{
+ "2015": {
+  "ricostituzione": "2015-06-26",
+  "sedute_dopo": 2,
+  "deposito": "2015-08-28",
+  "modulo": "N-Q",
+  "entrate": 189,
+  "uscite_basso": 182,
+  "residue": 3
+ },
+ "2016": {
+  "ricostituzione": "2016-06-24",
+  "sedute_dopo": 4,
+  "deposito": "2016-08-29",
+  "modulo": "N-Q",
+  "entrate": 240,
+  "uscite_basso": 155,
+  "residue": 2
+ },
+ "2017": {
+  "ricostituzione": "2017-06-23",
+  "sedute_dopo": 5,
+  "deposito": "2017-08-29",
+  "modulo": "N-Q",
+  "entrate": 228,
+  "uscite_basso": 144,
+  "residue": 1
+ },
+ "2018": {
+  "ricostituzione": "2018-06-22",
+  "sedute_dopo": 5,
+  "deposito": "2018-08-29",
+  "modulo": "N-Q",
+  "entrate": 226,
+  "uscite_basso": 136,
+  "residue": 1
+ },
+ "2020": {
+  "ricostituzione": "2020-06-26",
+  "sedute_dopo": 2,
+  "deposito": "2020-08-27",
+  "modulo": "NPORT-P",
+  "entrate": 230,
+  "uscite_basso": 164,
+  "residue": 0
+ },
+ "2021": {
+  "ricostituzione": "2021-06-25",
+  "sedute_dopo": 3,
+  "deposito": "2021-08-26",
+  "modulo": "NPORT-P",
+  "entrate": 275,
+  "uscite_basso": 297,
+  "residue": 3
+ },
+ "2022": {
+  "ricostituzione": "2022-06-24",
+  "sedute_dopo": 4,
+  "deposito": "2022-08-25",
+  "modulo": "NPORT-P",
+  "entrate": 285,
+  "uscite_basso": 302,
+  "residue": 7
+ },
+ "2023": {
+  "ricostituzione": "2023-06-23",
+  "sedute_dopo": 5,
+  "deposito": "2023-08-25",
+  "modulo": "NPORT-P",
+  "entrate": 278,
+  "uscite_basso": 186,
+  "residue": 12
+ },
+ "2024": {
+  "ricostituzione": "2024-06-28",
+  "sedute_dopo": 0,
+  "deposito": "2024-08-27",
+  "modulo": "NPORT-P",
+  "entrate": 17,
+  "uscite_basso": 31,
+  "residue": 6
+ },
+ "2025": {
+  "ricostituzione": "2025-06-27",
+  "sedute_dopo": 1,
+  "deposito": "2025-08-28",
+  "modulo": "NPORT-P",
+  "entrate": 229,
+  "uscite_basso": 169,
+  "residue": 111
+ }
+}

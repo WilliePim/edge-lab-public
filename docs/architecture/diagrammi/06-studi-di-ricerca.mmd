@@ -1,0 +1,76 @@
+---
+title: Come si svolge uno studio di ricerca
+config:
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    lineColor: "#64748B"
+    clusterBkg: "#F5F3FF"
+    clusterBorder: "#A78BFA"
+  flowchart:
+    curve: basis
+    padding: 14
+---
+flowchart TD
+    subgraph P0["0 · Prima di tutto"]
+        A(["Direttiva dell'utente"]):::inizio --> B["Pre-registrazione:<br/>domande, regole, soglie, verdetti possibili"]:::fase
+    end
+
+    subgraph P1["1 · Dati, con limiti dichiarati"]
+        D1["SEC documento per documento<br/>con un tetto di chiamate"]:::fase
+        D2{"Almeno 8 GB<br/>liberi su disco?"}:::decisione
+        D3["Archivi SEC in blocco<br/>bilanci e depositi di tutte le società"]:::fase
+        D4["Prezzi dall'archivio di market-data<br/>gli studi più vecchi: Yahoo"]:::fase
+        D2 -- sì --> D3
+    end
+    D2 -- no --> X1(["Ci si ferma<br/>e lo si dice"]):::stop
+
+    subgraph P2["2 · Costruzione del campione"]
+        C1["Universo dei casi"]:::fase
+        C2["Lettura dei documenti<br/>con regole fisse, nessun LLM"]:::fase
+        C3{"Verifica a mano su 30 casi:<br/>precisione almeno 90%?"}:::decisione
+        C4["Classificazione dei casi<br/>e date di ingresso"]:::fase
+        C5["Filtri di qualità<br/>solo con dati noti a quella data"]:::fase
+        C6["Società simili da confrontare"]:::fase
+        C1 --> C2 --> C3
+        C3 -- sì --> C4 --> C5 --> C6
+    end
+    C3 -- no --> X2(["Ci si ferma"]):::stop
+
+    subgraph P3["3 · Fermata 1"]
+        F1["Conteggi, coperture, casi per cella<br/><b>nessun rendimento guardato</b>"]:::nota
+        F2{"L'utente<br/>conferma?"}:::decisione
+        F3["Addendum datato con le decisioni<br/>da qui le regole non cambiano"]:::fase
+        F1 --> F2
+        F2 -- sì --> F3
+    end
+    F2 -- "decisioni da prendere" --> F1
+
+    subgraph P4["4 · Calcolo"]
+        R1["Rendimento extra contro le società simili"]:::fase
+        R2["Controlli: placebo, base di coorte,<br/>sotto-periodi, sensibilità"]:::fase
+        R1 --> R2
+    end
+
+    subgraph P5["5 · Fermata 2"]
+        Z1{"Criteri pre-registrati"}:::decisione
+        Z2(["Regge"]):::ok
+        Z3(["Inconclusivo"]):::nota
+        Z4(["Non regge"]):::stop
+        Z1 --> Z2 & Z3 & Z4
+        Z5["Referto: una pagina in italiano<br/>e un'appendice con tutti i numeri"]:::fase
+        Z2 & Z3 & Z4 --> Z5
+    end
+
+    B --> D1 & D2 & D4
+    D1 & D3 & D4 --> C1
+    C6 --> F1
+    F3 --> R1
+    R2 --> Z1
+
+    classDef inizio fill:#BFDBFE,stroke:#2563EB,color:#1E3A8A,stroke-width:2px
+    classDef fase fill:#E0E7FF,stroke:#6366F1,color:#312E81,stroke-width:2px
+    classDef decisione fill:#FDE68A,stroke:#D97706,color:#78350F,stroke-width:2px
+    classDef nota fill:#E2E8F0,stroke:#94A3B8,color:#1E293B,stroke-width:2px
+    classDef stop fill:#FECACA,stroke:#DC2626,color:#7F1D1D,stroke-width:2px
+    classDef ok fill:#BBF7D0,stroke:#16A34A,color:#14532D,stroke-width:2px

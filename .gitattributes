@@ -1,0 +1,3 @@
+# I .cmd li legge cmd.exe, che con le terminazioni LF sbaglia etichette e
+# blocchi: sempre CRLF nella copia di lavoro, qualunque sia core.autocrlf.
+*.cmd text eol=crlf

@@ -1,0 +1,75 @@
+---
+title: Come nascono i rapporti del giorno
+config:
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    actorBkg: "#EEF2FF"
+    actorBorder: "#6366F1"
+    actorTextColor: "#1E1B4B"
+    noteBkgColor: "#FEF3C7"
+    noteBorderColor: "#D97706"
+    signalColor: "#475569"
+    signalTextColor: "#0F172A"
+  sequence:
+    mirrorActors: false
+    showSequenceNumbers: true
+---
+sequenceDiagram
+    participant G as Giro
+    participant R as Rapporto
+    participant V as Registro verdetti
+    participant S as Sorveglianza
+    participant L as Estrattore LLM
+    participant SEC as SEC
+    participant A as Anthropic
+    participant D as File su disco
+
+    rect rgb(238, 242, 255)
+    Note over G,D: 1 · Chi è nuovo oggi
+    G->>R: consegna le società valutate
+    R->>V: quali verdetti sono in vigore?
+    V->>D: legge il registro dei verdetti
+    R->>D: legge l'elenco dei depositi già mostrati
+    Note over R: nuove = con almeno un deposito mai visto<br/>ripetute = tutte le altre<br/>le società bloccate non si mostrano
+    end
+
+    rect rgb(255, 247, 237)
+    Note over G,D: 2 · Colonna «emissione», solo se accesa e solo per le nuove
+    alt interruttore spento, libreria assente o chiave mancante
+        R-->>R: colonna vuota «—»
+    else acceso
+        loop per ogni società nuova
+            R->>L: qual è l'ultima emissione di azioni?
+            L->>SEC: cerca l'ultimo prospetto o 8-K degli ultimi 540 giorni
+            L->>SEC: scarica il documento e ne ritaglia le parti utili
+            alt risposta già in cache
+                L-->>L: riusa la risposta salvata
+            else prima volta
+                L->>A: chiede i campi con uno schema obbligato
+                A-->>L: risposta strutturata
+                L->>D: salva la risposta grezza
+            end
+            L-->>R: tipo di emissione con la sua affidabilità,<br/>oppure «sconosciuto»
+        end
+    end
+    end
+
+    rect rgb(236, 253, 245)
+    Note over G,D: 3 · Sorveglianza dei nomi scelti a mano
+    R->>S: controlla i nomi dell'elenco di sorveglianza
+    S->>SEC: nuovi depositi o nuovi acquisti?
+    S->>D: scarta quelli già segnalati, annota i nuovi
+    Note over R,S: se qualcosa va storto diventa una riga del rapporto,<br/>il rapporto si scrive comunque
+    end
+
+    rect rgb(237, 233, 254)
+    Note over G,D: 4 · Scrittura
+    R->>D: rapporto del giorno
+    R->>D: annota come visti i depositi mostrati oggi
+    G->>R: rapporto sugli spin-off aperti
+    R->>D: sorveglianza spin-off e una scheda per figlia con acquisti
+    G->>R: rapporto mensile dei verdetti con i prezzi di oggi
+    R->>D: rapporto dei verdetti del mese
+    G->>D: stato dell'ultimo giro, per la notifica
+    end

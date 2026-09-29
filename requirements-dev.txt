@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# pytest serve solo a edgar_llm/, dove c'e' (marker per i test che chiamano
+# davvero l'API). Le suite del pacchetto sono script piatti su tests/harness.py
+# e girano con ./test.sh, senza pytest.
+pytest>=8.0
