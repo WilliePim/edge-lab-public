@@ -1,7 +1,10 @@
 # market-data
 
 Archivio locale dei prezzi scaricati da **EOD Historical Data** (EODHD) e **unico punto di accesso** per gli altri
-package: `market_data.api`. Nessun altro codice legge i file dell'archivio.
+package: `market_data.api`. Nessun altro codice legge i file dell'archivio. Dalla stessa porta passano le serie
+pubbliche della Fed (FRED, versioni storiche ALFRED, excess bond premium, curva GSW) e i file in blocco della SEC
+(bilanci XBRL e depositi), e tre controlli di qualità dei prezzi che si chiedono in modo esplicito e non cambiano mai
+il comportamento di default.
 
 I dati **non stanno nel repo**: licenza EODHD per uso personale, senza ridistribuzione. Vivono in `MARKET_DATA_DIR`,
 una cartella fuori da qualsiasi repo git (la configurazione rifiuta il contrario).
@@ -33,6 +36,7 @@ copia di sicurezza dell'archivio.
 MARKET_DATA_DIR=<percorso assoluto fuori da ogni repo git>
 EODHD_API_KEY=<chiave>
 EDGAR_USER_AGENT=Nome Cognome email@dominio      # solo per i controlli con EDGAR
+FRED_API_KEY=<chiave>                            # solo per le versioni storiche ALFRED (api.fred con al_giorno)
 ```
 
 Il client usa il 90% dei limiti del piano (`EODHD_DAILY_LIMIT`, `EODHD_MINUTE_LIMIT`: 100.000 al giorno, 1.000 al minuto).
@@ -93,6 +97,27 @@ api.flags("ICON_old.US")                            # periodi segnalati; `esclud
 api.liquidity("ICON_old.US")                        # quota di barre senza prezzo, e il segno oltre il 20%
 ```
 
+Qualità dei prezzi, **solo su richiesta** (senza l'argomento niente cambia; niente si scrive nell'archivio):
+
+```python
+api.prices("AAA.US", verifica_salti="azioni")       # rientra la storia prima di un crollo vero (docs/adr/010)
+api.salti_classificati("AAA.US")                    # split vero / movimento vero / non determinabile, con le azioni SEC
+api.prices("BBB.US", barre_isolate="scarta")        # senza le barre che vanno e tornano (docs/adr/011)
+api.barre_isolate("BBB.US")                         # quali barre toglie, con la barra prima e la barra dopo
+api.salti_di_livello("CCC.US", barre_isolate="scarta") # chiusure che salgono di 5 volte e restano (docs/adr/012)
+```
+
+Serie della Fed e file in blocco della SEC:
+
+```python
+api.fred("UNRATE", inizio="1990-01-01")             # FRED, CSV pubblico senza chiave: la serie come è oggi
+api.fred("UNRATE", al_giorno="2015-06-30")          # ALFRED: la serie come si leggeva quel giorno; serve FRED_API_KEY
+api.ebp(); api.gsw(inizio="2020-01-01")             # excess bond premium e curva GSW dai file della Fed (docs/adr/008)
+api.sec_azioni(320193)                              # azioni in circolazione depositate alla SEC, con la data di deposito
+api.sec_bilancio(320193, ["Revenues", "Assets"])    # voci di bilancio XBRL; file in blocco, senza rete (docs/adr/009)
+api.sec_societa(320193); api.sec_depositi(320193, ["8-K"])      # testata (SIC di oggi) e depositi
+```
+
 In SQL, con le viste già pronte:
 
 ```python
@@ -120,6 +145,11 @@ Viste: `prezzi`, `prezzi_puliti`, `dividendi`, `split`, `cambi`, `tesoro`, `iden
     qualita/qualita.json          risultati dei controlli della fase 4
     edgar_cache/                  risposte EDGAR dei controlli
     verifiche.jsonl               periodi segnalati verificati con un'altra fonte (a mano)
+  fred/
+    raw/<AAAA-MM-GG>/...          download delle serie della Fed, datati e mai sovrascritti; la chiave non compare mai
+    manifest/grezzo.jsonl
+  sec_bulk/                       companyfacts.zip, submissions.zip, manifest.json: file in blocco della SEC messi a
+                                  mano (un'istantanea, nessun aggiornamento automatico); cache/ per le letture ripetute
   catalog.duckdb                  viste
 ```
 
@@ -142,5 +172,6 @@ Solo dati finti, nessuna chiamata reale:
 
 ## Decisioni
 
-`docs/adr/`. I resoconti delle fasi 0-2 e l'inventario dell'archivio non sono in questo repository: riportano
+`docs/adr/` (001-007: archivio e controlli; 008: serie della Fed; 009: file in blocco della SEC; 010-012: le tre
+opzioni di qualità dei prezzi). I resoconti delle fasi 0-2 e l'inventario dell'archivio non sono in questo repository: riportano
 misure per singolo titolo derivate dai dati EODHD, che la licenza non permette di ridistribuire.

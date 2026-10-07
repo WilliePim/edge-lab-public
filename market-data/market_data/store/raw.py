@@ -1,7 +1,10 @@
 """Livello grezzo: risposte API così come arrivano, compresse, mai modificate. Una cartella per giorno di download.
 
-    <archivio>/eodhd/raw/<AAAA-MM-GG>/<endpoint>__<impronta dei parametri>.<json|csv>.gz
-    <archivio>/eodhd/manifest/grezzo.jsonl     una riga per file
+    <archivio>/<fornitore>/raw/<AAAA-MM-GG>/<endpoint>__<impronta dei parametri>.<json|csv>.gz
+    <archivio>/<fornitore>/manifest/grezzo.jsonl     una riga per file
+
+Il fornitore è `eodhd` (predefinito) o `fred` (serie della Fed: FRED, ALFRED, EBP, curva GSW — `market_data/fred.py`,
+docs/adr/008). Stessa forma per tutti e due: una cartella e un manifest per fornitore.
 
 Riga del manifest: file (relativo all'archivio), endpoint, parametri (senza chiave), scaricato (UTC), stato HTTP, byte,
 sha256 del corpo non compresso, righe (lunghezza della lista JSON, o righe CSV senza intestazione; None se non si sa).
@@ -23,9 +26,11 @@ from pathlib import Path
 from market_data import registri
 from market_data.eodhd.client import oscura
 
+SEGRETI = ("api_token", "api_key")          # EODHD, FRED: mai nel manifest, mai nella chiave, mai nel nome del file
+
 
 def _chiave(endpoint: str, params: dict) -> str:
-    p = {k: v for k, v in params.items() if k != "api_token"}
+    p = {k: v for k, v in params.items() if k not in SEGRETI}
     return endpoint.strip("/") + "?" + urllib.parse.urlencode(sorted(p.items()))
 
 
@@ -45,9 +50,10 @@ def _righe(corpo: bytes, fmt: str) -> int | None:
 
 
 class Grezzo:
-    def __init__(self, archivio: Path):
+    def __init__(self, archivio: Path, fornitore: str = "eodhd"):
         self.archivio = archivio
-        self.manifest = archivio / "eodhd" / "manifest" / "grezzo.jsonl"
+        self.fornitore = fornitore
+        self.manifest = archivio / fornitore / "manifest" / "grezzo.jsonl"
         self.manifest.parent.mkdir(parents=True, exist_ok=True)
         self._ok: dict[str, dict] = {}
         self._storia: dict[str, list[dict]] = {}
@@ -73,7 +79,7 @@ class Grezzo:
         chiave = _chiave(endpoint, params)
         impronta = hashlib.sha256(chiave.encode()).hexdigest()[:16]
         nome = re.sub(r"[^A-Za-z0-9._-]+", "_", endpoint.strip("/"))[:120]
-        cartella = Path("eodhd") / "raw" / adesso.date().isoformat()
+        cartella = Path(self.fornitore) / "raw" / adesso.date().isoformat()
         rel = cartella / "{}__{}.{}.gz".format(nome, impronta, fmt)
         n = 2
         while (self.archivio / rel).exists():            # mai sovrascrivere: un nuovo scaricamento è un file nuovo
@@ -85,7 +91,7 @@ class Grezzo:
         tmp.write_bytes(gzip.compress(corpo))
         os.replace(tmp, dest)
         voce = {"chiave": oscura(chiave), "file": rel.as_posix(), "endpoint": endpoint,
-                "parametri": {k: v for k, v in params.items() if k != "api_token"},
+                "parametri": {k: v for k, v in params.items() if k not in SEGRETI},
                 "scaricato": adesso.isoformat(timespec="seconds"), "stato": stato, "byte": len(corpo),
                 "sha256": hashlib.sha256(corpo).hexdigest(), "righe": _righe(corpo, fmt) if stato == 200 else None}
         registri.appendi(self.manifest, voce)

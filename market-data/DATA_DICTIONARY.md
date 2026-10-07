@@ -159,6 +159,45 @@ Vista: una riga per titolo con la quota di barre senza prezzo. Descritta sotto, 
 `code`, `exchange`, `controllo`, `from_date`, `to_date`, `source` (la fonte, per esempio «IWM 2015-09-30»), `note`. Un
 periodo coperto da una verifica torna nei prezzi puliti.
 
+## Bilanci e depositi della SEC (file in blocco, non tabelle dell'archivio dei prezzi)
+
+Due file scaricati dalla SEC il 2026-10-03, in `<MARKET_DATA_DIR>/sec_bulk/` con il loro `manifest.json`: un'istantanea,
+**senza aggiornamento automatico**. Si leggono solo con `market_data.api`, senza rete; se un file manca la funzione si
+ferma con un errore (`market_data.sec.FileMancante`). Decisioni e limiti: `docs/adr/009-file-in-blocco-sec.md`.
+
+### `sec_bilancio(cik, voci)` e `sec_azioni(cik)`
+
+Una riga per fatto XBRL e per deposito che lo riporta (`companyfacts.zip`).
+
+| colonna | significato |
+|---|---|
+| `cik` | codice SEC della società, intero |
+| `voce` | `tassonomia:Voce`, per esempio `us-gaap:Revenues`, `dei:EntityCommonStockSharesOutstanding` |
+| `unita` | unità del fatto (`USD`, `shares`, `USD/shares`, …): arrivano tutte |
+| `inizio`, `fine` | periodo del fatto; `inizio` vuoto per un valore istantaneo (stato patrimoniale, frontespizio) |
+| `valore` | il numero **come depositato**, errori compresi |
+| `depositato` | data di deposito alla SEC (`filed`): è la data da usare per sapere che cosa era noto e quando |
+| `modulo` | 10-K, 10-Q, 20-F, 8-K, … (`form`) |
+| `esercizio`, `periodo` | anno fiscale e periodo **del deposito** che riporta il fatto (`fy`, `fp`), non del fatto |
+| `accn` | numero d'accesso del deposito |
+| `frame` | etichetta di periodo della SEC (`CY2020Q1`), solo sul deposito che la SEC considera di riferimento |
+
+`sec_azioni` restituisce le stesse colonne per le tre voci delle azioni in circolazione: frontespizio
+(`dei:EntityCommonStockSharesOutstanding`), stato patrimoniale (`us-gaap:CommonStockSharesOutstanding`), media
+ponderata del periodo (`us-gaap:WeightedAverageNumberOfSharesOutstandingBasic`).
+
+**Da sapere prima di usarle.** Lo stesso periodo compare una volta per ogni bilancio che lo riporta (comparativi,
+riesposizioni): chi legge sceglie con `depositato`. Mancano i fatti riportati per classe di azioni o per segmento
+(società con più classi: spesso solo la media ponderata, a volte niente). Nei depositi ci sono errori di scala (azioni
+mille o un milione di volte più grandi del vero): il lettore non li corregge. `sec_cik()` dice quali società hanno un file.
+
+### `sec_societa(cik)` e `sec_depositi(cik, moduli)`
+
+Da `submissions.zip`. `sec_societa`: `cik`, `nome`, `sic`, `sic_descrizione`, `tipo`, `categoria`, `stato` (di
+costituzione), `chiusura_esercizio` (MMGG), `ticker`, `borse`, `altri_file` — **sono i dati di oggi**, non di una data.
+`sec_depositi`: `cik`, `accn`, `modulo`, `depositato`, `data_rapporto`, `voci_8k` (le voci di un 8-K, per esempio
+«1.03,9.01»); senza `tutti=True` solo i 1.000 depositi più recenti.
+
 ## Regole d'uso nei backtest (valgono per ogni tabella dei prezzi)
 
 ### Titoli con un salto sospetto (split mancante)
@@ -211,6 +250,66 @@ non verificabili.
 Resta possibile, come prima, verificare un periodo con **un'altra fonte** e rimetterlo nei prezzi puliti scrivendo una
 riga in `verifiche.jsonl` (per esempio il prezzo implicito nelle partecipazioni di IWM o IWB depositate alla SEC:
 valore / azioni a fine trimestre). La verifica va scritta nel backtest: fonte, date confrontate, scarto.
+
+### Verifica dei salti con le azioni in circolazione (opzione, mai il default)
+
+Un `salto_sospetto` non verificato toglie tutta la storia del codice prima del salto. **Conseguenza per chi costruisce
+un universo a una data**: un titolo che *dopo* quella data ha un crollo vero vicino a un rapporto di split non ha una
+chiusura pulita alla data e resta fuori. L'esclusione dipende dal futuro.
+
+`api.prices(..., clean=True, verifica_salti="azioni")` rimette nei prezzi puliti i periodi il cui salto è un **movimento
+vero**: le azioni in circolazione depositate alla SEC prima e dopo il salto sono ferme (entro ±25%, osservazioni entro
+200 giorni dal salto). Se le azioni sono cambiate dell'inverso del salto è uno **split vero** e il periodo resta
+escluso; se non si può dire (**non determinabile**: senza CIK, senza osservazioni, voci in disaccordo) resta escluso.
+`api.salti_classificati()` dà l'elenco, una riga per salto: `exchange`, `code`, `from_date`, `to_date` (il periodo
+segnalato), `data_salto`, `rapporto`, `rapporto_tipico`, `cik`, `esito`, `voce` usata, `azioni_prima`, `fine_prima`,
+`azioni_dopo`, `fine_dopo`, `rapporto_azioni`, `motivo`.
+
+**Senza l'argomento niente cambia**: stessi prezzi puliti di sempre. La classificazione non entra in `verifiche.jsonl`
+e non si salva: si ricalcola. Chi usa l'opzione deve contare e dichiarare i salti non determinabili successivi alla sua
+data, che restano un'esclusione dipendente dal futuro. Regola e numeri: `docs/adr/010-verifica-salti-con-le-azioni.md`.
+
+### Barre isolate (opzione, mai il default)
+
+Una barra la cui `adjusted_close` va oltre il 50% da **entrambe** le barre vicine dello stesso codice, dalla stessa
+parte, con le vicine entro 10 giorni di calendario e la successiva entro il 10% dalla precedente, è una barra che va e
+torna: quasi sempre un prezzo sbagliato (una chiusura che passa da qualche decina di centesimi a centinaia di dollari
+e torna al prezzo di prima il giorno dopo, con una manciata di titoli scambiati). I controlli dell'archivio non la
+segnalano (un `salto_sospetto` è un salto **senza** ritorno).
+
+`api.prices(..., clean=True, barre_isolate="scarta")` la toglie; si combina con `verifica_salti`. La regola è valutata
+sulla serie intera del codice, le date chieste si applicano dopo. `api.barre_isolate(simboli)` elenca le barre che
+l'opzione toglie: `exchange`, `code`, `date`, `close`, `adjusted_close`, `volume`, e la barra prima e la barra dopo
+(`date_prima`, `close_prima`, `adjusted_prima`, `date_dopo`, `close_dopo`, `adjusted_dopo`).
+`api.regola_barre_isolate(giorni, valori, …)` è la regola pura, per contare le varianti.
+
+**Senza l'argomento niente cambia.** Niente si scrive nell'archivio. Limiti da dichiarare da chi la usa: usa la barra
+successiva (correzione a posteriori del dato, non un filtro in tempo reale); la prima e l'ultima barra di una serie non
+sono valutabili; due o più barre sbagliate di fila e i livelli che restano (azioni nuove sullo stesso codice,
+raggruppamenti non rettificati) **non sono presi**; una serie che alterna due livelli viene accorciata, non corretta.
+Regola, varianti e conteggi: `docs/adr/011-barre-isolate.md`.
+
+### Salti di livello non spiegati (elenco, mai il default)
+
+Una chiusura grezza che **sale** a cinque volte o più la barra precedente (entro 10 giorni di calendario), senza uno
+split registrato in quella data con un fattore compatibile (tabella `split` entro ±25%, o nota `split_del_fornitore`),
+e **resta lì** (le 5 barre successive entro il 50% dal nuovo livello): azioni nuove sullo stesso codice dopo una
+riorganizzazione, raggruppamenti non rettificati. Mai un salto che la verifica con le azioni classifica «movimento
+vero».
+
+`api.salti_di_livello(simboli, verifica_salti=None, barre_isolate=None, direzione="rialzi",
+esenta_movimento_vero=True)` li elenca: `exchange`, `code`, `date` (il giorno del salto), `date_prima`, `close_prima`,
+`close`, `rapporto`, `direzione`, `volume`. I valori di default sono la regola adottata; `direzione="entrambe",
+esenta_movimento_vero=False` è la prima versione, simmetrica (anche le chiusure a un quinto o meno), tenuta come
+variante esplicita. Si valuta sulla serie che le opzioni dei prezzi restituiscono: **le barre isolate vanno tolte
+prima** (il ritorno di una barra isolata «persiste»). `api.regola_salti_di_livello(...)` è la regola pura.
+
+**Non toglie niente dai prezzi**: `prices()` non ha un'opzione per questo. Che cosa fare della serie lo decide chi usa
+l'elenco. Limiti: usa le 5 barre successive (correzione a posteriori); meno di 5 barre dopo il salto → non preso; non
+vede gli errori della sola rettifica; prende anche un rialzo vero di cinque volte che non sia un «movimento vero»
+verificato; **prende i raggruppamenti registrati quando nello stesso giorno il prezzo si muove di oltre il 25%** (9
+dei 18 salti contati in un universo di circa 2.000 piccole società USA, 2017-2026). Regola, versioni e conteggi:
+`docs/adr/012-salti-di-livello.md`.
 
 ### Chiusure a zero: barre mancanti, mai rendimenti
 
@@ -297,6 +396,13 @@ Una riga per ogni file salvato nel livello grezzo.
 | `byte` | dimensione della risposta non compressa |
 | `sha256` | impronta della risposta non compressa: se cambia, il dato è cambiato |
 | `righe` | elementi della lista JSON o righe del CSV; vuoto se la risposta non è una lista |
+
+### `fred/manifest/grezzo.jsonl` e `fred/raw/<giorno>/`
+
+Stessa forma del grezzo EODHD, per le serie della Fed lette con `api.fred()` (endpoint `fredgraph/SERIE` e
+`alfred/SERIE`), `api.ebp()` (`ebp`) e `api.gsw()` (`gsw`). Ogni download è un file con la data del giorno, mai
+sovrascritto: per l'EBP, che viene ristimato a ogni aggiornamento, la data del download è la sua versione. La chiave
+FRED non compare mai (docs/adr/008).
 
 ### `eodhd/manifest/aggiornamenti.jsonl`
 

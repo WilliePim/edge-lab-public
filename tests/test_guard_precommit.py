@@ -44,6 +44,20 @@ check("api_token con valore preso", "api_token con un valore" in G.problemi(
 check("EODHD_API_KEY con valore preso", "EODHD_API_KEY con un valore" in G.problemi(
     "x.sh", 50, b"export EODHD_API_KEY=" + b"abcdefgh12", []))
 
+#  chiave FRED: 32 esadecimali, costruita qui perche' il test stesso non ne contenga una
+FRED_FINTA = "0a1b2c3d" * 4
+check("forma di chiave FRED presa",
+      "stringa con la forma di una chiave FRED" in G.problemi("x.py", 50, ("k = '" + FRED_FINTA + "'").encode(), []))
+check("FRED_API_KEY con valore preso", "FRED_API_KEY con un valore" in G.problemi(
+    "x.sh", 50, b"FRED_API_KEY=" + FRED_FINTA.encode(), []))
+check("api_key con valore preso (URL di ALFRED)", "api_key con un valore" in G.problemi(
+    "log.txt", 80, b"https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=" + FRED_FINTA.encode(), []))
+check("FRED_API_KEY vuota ammessa", G.problemi(".env.example", 20, b"FRED_API_KEY=\n", []) == [])
+check("una forma di 31 o 33 esadecimali non e' una chiave FRED",
+      G.problemi("x.py", 80, ("a = '" + FRED_FINTA[:31] + "'\nb = '" + FRED_FINTA + "f'").encode(), []) == [])
+check("sha256 (64 esadecimali) non e' una chiave FRED",
+      G.problemi("x.md", 80, ("impronta " + FRED_FINTA * 2).encode(), []) == [])
+
 #  file UTF-16, come li scrive Out-File di PowerShell 5.1
 testo = ("x = '" + FINTA + "'\n").encode("utf-16")
 check("UTF-16: forma di chiave presa dopo la decodifica",
@@ -52,16 +66,18 @@ check("UTF-16: chiave vera presa dopo la decodifica",
       "contiene la chiave API" in G.problemi("appunti.txt", len(testo), testo, [FINTA.encode()]))
 
 #  chiavi_note legge .env tollerante come la configurazione (BOM, export, spazi attorno a =)
-_prima = os.environ.pop("EODHD_API_KEY", None)
+_prima = {n: os.environ.pop(n, None) for n in ("EODHD_API_KEY", "FRED_API_KEY")}
 try:
     with tempfile.TemporaryDirectory() as d:
-        (Path(d) / ".env").write_text("﻿MARKET_DATA_DIR=x\nexport EODHD_API_KEY = 'valore-lungo-1'\n",
-                                      encoding="utf-8")
+        (Path(d) / ".env").write_text("﻿MARKET_DATA_DIR=x\nexport EODHD_API_KEY = 'valore-lungo-1'\n"
+                                      "FRED_API_KEY=valore-fred-2\n", encoding="utf-8")
         letto = G.chiavi_note(Path(d))
-    check("chiavi_note legge .env come la configurazione", letto == [b"valore-lungo-1"], str(letto))
+    check("chiavi_note legge .env come la configurazione, EODHD e FRED",
+          letto == [b"valore-lungo-1", b"valore-fred-2"], str(letto))
 finally:
-    if _prima is not None:
-        os.environ["EODHD_API_KEY"] = _prima
+    for n, v in _prima.items():
+        if v is not None:
+            os.environ[n] = v
 
 #  il codice normale passa
 testo = b"url = BASE + endpoint + '&' + urlencode({'api_token': self._chiave})\nversion = '1.2.3'\n"

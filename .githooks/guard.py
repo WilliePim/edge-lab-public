@@ -7,7 +7,8 @@ compresi i cambi di tipo (per esempio un collegamento che diventa un file):
 - file `.env` (resta ammesso `.env.example`, che ha solo i nomi);
 - file sopra 5 MB;
 - stringhe che somigliano alla chiave EODHD: la chiave vera letta dall'ambiente o da `.env`, la forma
-  «esadecimale.cifre» delle chiavi EODHD, `api_token=<valore>` ed `EODHD_API_KEY=<valore>`. I file UTF-16 (quelli che
+  «esadecimale.cifre» delle chiavi EODHD, `api_token=<valore>` ed `EODHD_API_KEY=<valore>`; per FRED la chiave vera,
+  la forma «32 esadecimali», `FRED_API_KEY=<valore>` e `api_key=<valore>`. I file UTF-16 (quelli che
   PowerShell 5.1 scrive con `>`) si controllano anche decodificati;
 - sottomoduli e repo annidati (gitlink): bloccati, il loro contenuto non si può controllare da qui.
 
@@ -29,20 +30,25 @@ FORME_CHIAVE = (
      "stringa con la forma di una chiave EODHD"),
     (re.compile(rb"api_token=(?!demo\b)[A-Za-z0-9.]{8,}"), "api_token con un valore"),
     (re.compile(rb"EODHD_API_KEY\s*[=:]\s*['\"]?[A-Za-z0-9.]{8,}"), "EODHD_API_KEY con un valore"),
+    #  FRED: chiave di 32 caratteri esadecimali; nessun file tracciato ne contiene una al 01-10-2026
+    (re.compile(rb"(?<![0-9A-Za-z])[0-9a-fA-F]{32}(?![0-9A-Za-z])"), "stringa con la forma di una chiave FRED"),
+    (re.compile(rb"FRED_API_KEY\s*[=:]\s*['\"]?[A-Za-z0-9]{8,}"), "FRED_API_KEY con un valore"),
+    (re.compile(rb"api_key=[A-Za-z0-9]{8,}"), "api_key con un valore"),
 )
+NOMI_CHIAVE = ("EODHD_API_KEY", "FRED_API_KEY")
 
 
 def chiavi_note(radice: Path) -> list[bytes]:
-    """Valori reali di EODHD_API_KEY (ambiente e `.env` alla radice), per il confronto esatto. Legge `.env` in modo
-    tollerante (BOM, spazi attorno a `=`, `export`), almeno quanto `market_data.config.leggi_env`."""
-    valori = [os.environ.get("EODHD_API_KEY", "")]
+    """Valori reali di EODHD_API_KEY e FRED_API_KEY (ambiente e `.env` alla radice), per il confronto esatto. Legge
+    `.env` in modo tollerante (BOM, spazi attorno a `=`, `export`), almeno quanto `market_data.config.leggi_env`."""
+    valori = [os.environ.get(nome, "") for nome in NOMI_CHIAVE]
     env = radice / ".env"
     if env.is_file():
         for riga in env.read_text(encoding="utf-8-sig", errors="replace").splitlines():
             riga = riga.strip()
             if riga.startswith("export "):
                 riga = riga[len("export "):].strip()
-            if "=" in riga and riga.split("=", 1)[0].strip() == "EODHD_API_KEY":
+            if "=" in riga and riga.split("=", 1)[0].strip() in NOMI_CHIAVE:
                 valori.append(riga.split("=", 1)[1].strip().strip("'\""))
     return [v.encode() for v in valori if len(v) >= 8]
 

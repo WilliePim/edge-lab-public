@@ -9,6 +9,7 @@ Precedenza: variabile già impostata nell'ambiente, poi `.env` alla radice di ed
 | `EODHD_API_KEY` | per scaricare | chiave EOD Historical Data; non compare mai in messaggi, log o manifest |
 | `EODHD_DAILY_LIMIT` | no | chiamate al giorno del piano (100.000) |
 | `EODHD_MINUTE_LIMIT` | no | chiamate al minuto del piano (1.000) |
+| `FRED_API_KEY` | solo per le versioni storiche ALFRED | chiave dell'API FRED (`api.fred(..., al_giorno=...)`); il CSV pubblico di FRED, l'EBP e la curva GSW non la usano |
 | `MARKET_DATA_MEMORIA_QUOTA` | no | quota della RAM che DuckDB puo' usare (0,65) |
 | `MARKET_DATA_MEMORIA_GB` | no | tetto assoluto, se si preferisce ai punti percentuali |
 | `MARKET_DATA_THREADS` | no | thread di DuckDB (meta' dei processori, almeno 2) |
@@ -89,6 +90,16 @@ def chiave_eodhd(env_file: Path | None = None) -> str:
     k = get("EODHD_API_KEY", env_file=env_file)
     if not k:
         raise ConfigError("EODHD_API_KEY non impostata (vedi .env.example)")
+    return k
+
+
+def chiave_fred(env_file: Path | None = None) -> str:
+    """Chiave dell'API FRED: serve solo alle versioni storiche ALFRED. Senza, `api.fred(..., al_giorno=...)` si ferma qui,
+    prima di qualunque richiesta: le versioni non si sostituiscono con i dati di oggi (docs/adr/008)."""
+    k = get("FRED_API_KEY", env_file=env_file)
+    if not k:
+        raise ConfigError("FRED_API_KEY non impostata: serve per le versioni storiche ALFRED (api.fred con al_giorno); "
+                          "vedi .env.example")
     return k
 
 

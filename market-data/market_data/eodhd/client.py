@@ -50,7 +50,8 @@ class Risposta:
 
 
 def oscura(testo: str) -> str:
-    return re.sub(r"(api_token=)[^&\s]+", r"\1***", testo)
+    """Toglie la chiave da un URL o da una chiave del manifest: EODHD (`api_token`) e FRED (`api_key`)."""
+    return re.sub(r"(api_token=|api_key=)[^&\s]+", r"\1***", testo)
 
 
 def trasporto_urllib(url: str) -> tuple[int, bytes]:

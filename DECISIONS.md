@@ -1238,3 +1238,48 @@ chiave c'era già nel `.env` di edge-lab).
 
 **Verifica.** `market_data.config.archivio()` restituisce il percorso configurato leggendo il `.env` di edge-lab
 (`REPO_ROOT` = edge-lab). Letto: uscita di Python con il venv di edge-lab.
+
+## ADR-058 — 2026-10-07 — Debito: la qualità dei prezzi delle piccole società nell'archivio va verificata anche negli studi chiusi
+
+**Contesto.** Lavorando a un backtest su un universo di piccole società USA si sono trovati nei prezzi puliti
+dell'archivio (`api.prices(clean=True)`) due problemi che i controlli esistenti non vedono. (1) **Titoli persi per un
+fatto successivo.** I prezzi puliti tolgono tutta la storia di un codice prima di un `salto_sospetto` non verificato:
+uno studio che sceglie i titoli a una data perde quelli che **dopo** quella data hanno avuto un crollo vero vicino a un
+rapporto di split (la metà, due terzi, tre quarti), e dal 2019 la verifica sui bilanci non è più possibile. (2)
+**Prezzi sbagliati rimasti dentro.** Barre isolate (una chiusura che passa da qualche decina di centesimi a centinaia di dollari e torna al prezzo di prima il giorno dopo, con una manciata di titoli scambiati), serie che cambiano livello
+perché sullo stesso codice proseguono azioni nuove dopo una riorganizzazione o un raggruppamento non rettificato, e
+serie concatenate dopo un cambio di codice che non erano lo stesso titolo (warrant, privilegiate, altre classi). I
+conteggi stanno in `market-data/docs/adr/011-barre-isolate.md` e `012-salti-di-livello.md`; il racconto in
+`docs/method/data-quality.md`.
+
+**Decisione.** In market-data sono nate tre opzioni esplicite, ciascuna con ADR e test: la verifica dei salti con le
+azioni in circolazione depositate alla SEC (ADR 010 di market-data), lo scarto delle barre isolate (ADR 011) e
+l'elenco dei salti di livello non spiegati (ADR 012). **Il default dei prezzi puliti non è cambiato**, perché cambiarlo
+avrebbe cambiato in silenzio i numeri degli studi già chiusi; la prova che il default è identico riga per riga sta in
+ciascuno dei tre ADR. Il prezzo di questa scelta è un debito, registrato qui: **gli studi chiusi non hanno usato
+nessuna delle tre opzioni.**
+
+**Gli studi pubblicati che leggono i prezzi puliti dell'archivio** (elenco meccanico: `grep` di `.prices(` e di
+`clean=` nei sorgenti di `backtest/`; dice chi legge i prezzi puliti, non se ha perso o sbagliato qualcosa):
+
+| studio | dove legge i prezzi puliti |
+|---|---|
+| E2, uscite dal Russell 2000 | `backtest/russell_exits/serie_eodhd.py`; da lì `analisi.py`, `rendimenti.py` |
+| E3, IPO (peer dall'archivio) | `backtest/ipo_e3/peer.py`, `comune.py`; da lì `analisi.py`, `casi.py`, `filtri.py` |
+
+Leggono solo i prezzi grezzi (`clean=False`), quindi fuori dal debito: `backtest/ipo_e3/salti.py`,
+`backtest/russell_exits/verifica_identita_eodhd.py`. Il ri-test sugli insider non legge l'archivio (usa un panel di
+prezzi diverso). Gli studi di eventi su società piccole o in difficoltà sono quelli in cui questi errori sono più
+probabili, e in uno studio di eventi la direzione dell'errore dipende da quando cade la barra rispetto alla finestra:
+**non è nota in anticipo.**
+
+**Stato: aperto.** Nessuno studio chiuso è stato verificato né rieseguito, e nessun effetto è stato stimato. I
+verdetti pubblicati di E2 ed E3 restano quelli registrati, con questa riserva dichiarata.
+
+**Che cosa serve per chiuderlo.** Per ogni studio, sui titoli e sulle finestre che ha usato: i titoli senza chiusura
+pulita alla data di scelta per un salto successivo, classificati con `api.salti_classificati()`; le barre che
+`api.barre_isolate()` scarterebbe dentro le finestre; i salti di `api.salti_di_livello()`; i cambi di codice
+concatenati, dove lo studio ne concatena. Solo conteggi, prima; poi la decisione se rieseguire, che sarebbe una voce
+nuova e datata, mai una riscrittura del verdetto.
+
+**Verifica.** Letto: l'uscita del `grep` sui sorgenti di `backtest/` di questo repo; i tre ADR di market-data citati.
