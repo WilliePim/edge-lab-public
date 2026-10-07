@@ -15,13 +15,13 @@ What is here:
 
 - **a Form 4 insider-purchase filter** (`form4_scanner/`) that keeps only genuine open-market purchases and hands a
   human booleans and the evidence behind them, never a recommendation;
-- **the research infrastructure** around it: an EDGAR client with a disk cache, a point-in-time XBRL layer, a price
-  archive client (`market-data/`), an LLM extraction package that enriches and never decides (`edgar_llm/`), and the
-  statistics tools (`tools/`);
+- **the research infrastructure** around it: an EDGAR client with a disk cache, a point-in-time XBRL layer, a data
+  layer with a single typed entry point for prices, Fed series and SEC bulk filings (`market-data/`), an LLM
+  extraction package that enriches and never decides (`edgar_llm/`), and the statistics tools (`tools/`);
 - **three published studies** (`backtest/`), each with its pre-registration, addenda, decision records, code,
   aggregate results and an English summary page;
-- **the method**: how a study is pre-registered, and how coding agents were used and kept honest
-  ([`docs/method/`](docs/method/)).
+- **the method**: how a study is pre-registered, what happens when the data invalidates a backtest, and how coding
+  agents were used and kept honest ([`docs/method/`](docs/method/)).
 
 ---
 
@@ -30,6 +30,7 @@ What is here:
 - [Published studies](#published-studies)
 - [Method](#method)
 - [Architecture](#architecture)
+- [Data layer and data quality](#data-layer-and-data-quality)
 - [The Form 4 filter](#the-form-4-filter)
 - [Reproducing the tests](#reproducing-the-tests)
 - [Repository layout](#repository-layout)
@@ -90,6 +91,13 @@ version of this repository. What is published here is what was tested and could 
 - **Statistics that do not flatter**: issuer-clustered standard errors (CR1) instead of iid t-statistics on
   overlapping events, yearly means with a t across years so that one busy year cannot carry a result, matched peers,
   and placebo windows that test whether the comparison itself is fair.
+- **When the data invalidates a backtest** ([`docs/method/data-quality.md`](docs/method/data-quality.md)): a case
+  study, drawn from work that is not published here and has no entry in the register of verdicts yet. A
+  pre-registered small-cap backtest ran, a control on extreme one-day returns found vendor price errors inside it,
+  and the run was marked invalid and not recorded. The cleaning rules were written before counting what they remove
+  (one was then changed after its counts, and says so), the default behaviour of the data layer was left unchanged
+  and checked, and the re-run was pre-registered again with a declaration of what had already been seen and a marker
+  for conclusions that depend on the rule that was changed.
 - **Coding agents** ([`docs/method/coding-agents.md`](docs/method/coding-agents.md)): most of the code, tests and
   documents were written by coding agents under standing instructions ([`CLAUDE.md`](CLAUDE.md)). Every rule that
   matters is either checked by code (boundary tests on the syntax tree, a test that every cited code line still holds
@@ -105,6 +113,8 @@ flowchart LR
   SEC[("SEC EDGAR<br/>Form 4, XBRL, filings")]
   YF[("Yahoo prices<br/>yfinance")]
   EOD[("EODHD archive<br/>licensed, outside the repo")]
+  FED[("Federal Reserve<br/>FRED, ALFRED, EBP, GSW")]
+  BULK[("SEC bulk files<br/>companyfacts, submissions")]
   ANT[("Anthropic API<br/>optional")]
   subgraph repo["edge-lab"]
     SC["form4_scanner/<br/>daily filter: facts, not judgements"]
@@ -119,6 +129,8 @@ flowchart LR
   YF --> SC
   YF --> TL
   EOD --> MD
+  FED --> MD
+  BULK --> MD
   ANT --> LLM
   SC -- "optional report column" --> LLM
   TL --> SC
@@ -142,6 +154,44 @@ The boundaries are tested, not just drawn:
   positive fixture for every rule so that a broken pattern cannot pass silently.
 
 More detail, with one diagram per flow (in Italian): [`docs/architecture/overview.md`](docs/architecture/overview.md).
+
+---
+
+## Data layer and data quality
+
+`market-data/` is the only door to the data directory kept outside the repository (price archive, Fed downloads, SEC
+bulk files); everything else imports `market_data.api` and nothing below it (a syntax-tree test enforces this). No
+data are inside: the tests build the archives they read.
+
+- **Prices** from a licensed end-of-day archive: raw responses kept compressed and never overwritten, Parquet
+  partitions, DuckDB views, and a *clean* view that excludes the periods flagged by the quality checks.
+- **Federal Reserve series** (`api.fred`, `api.ebp`, `api.gsw`): FRED as it is today, or, with `al_giorno`, the
+  ALFRED vintage as it was read on a given day. A missing key or a missing vintage is an error, never a silent
+  fallback to today's revised data, because that fallback would be lookahead. Every download is stored with its date.
+- **SEC bulk files** (`api.sec_azioni`, `api.sec_bilancio`, `api.sec_societa`, `api.sec_depositi`): XBRL facts and
+  filings read offline from `companyfacts.zip` and `submissions.zip`, every fact with its filing date. The reader
+  makes no choices: all units, all filings, values as filed, scale errors included. Which observation counts on a
+  given date is a rule of the study that reads it.
+- **Three price-quality options, each explicit and opt-in.** Vendor data for small caps contain errors of specific
+  shapes that ordinary checks miss, and each option answers one of them:
+  `verifica_salti="azioni"` uses the shares outstanding filed with the SEC before and after a suspicious jump to tell
+  a real crash from a split the vendor missed, so that a later crash no longer removes a company from a universe
+  formed earlier; `barre_isolate="scarta"` drops a bar that goes and comes back (cents → hundreds of dollars → cents);
+  `api.salti_di_livello()` lists closes that jump to five times the previous one and stay there with no split on
+  record, typically new shares trading under an old code.
+
+The default behaviour never changed: without the argument, `api.prices()` runs the same query as before and returns
+exactly what it returned before, which was checked by fingerprinting its output over a real sample before and after
+each change. The two cleaning rules (isolated bars, level jumps) were each written before counting what they remove;
+the second was then modified after seeing its counts, and the decision record says so and keeps both versions. All
+three use information that arrives after the bar in question (later bars, or shares filed later), so they are
+corrections of the historical record, not real-time filters. The decision records (in Italian) are
+`market-data/docs/adr/008` to `012`, the column-level reference is
+[`market-data/DATA_DICTIONARY.md`](market-data/DATA_DICTIONARY.md), and the story of why the three options exist is in
+[`docs/method/data-quality.md`](docs/method/data-quality.md).
+
+The published studies E2 and E3 were run before these options existed and have not been re-checked with them: an
+open debt, recorded as ADR-058 in [`DECISIONS.md`](DECISIONS.md).
 
 ---
 
@@ -233,6 +283,7 @@ What needs more than the fixtures:
 | run the scanner (`./run.sh`, `./daily.sh`) | network access to SEC EDGAR and a real User-Agent (`"Name email"`); no key |
 | the LLM column and the live `edgar_llm` tests (`pytest -m llm`) | an Anthropic API key (`.env.example`) |
 | download or update the price archive (`market-data/`) | a paid EODHD key; the data live outside the repository and are not redistributable |
+| Fed series and SEC bulk readers (`market-data/`) | network access for FRED, a free FRED key for ALFRED vintages only; the two SEC bulk zips are downloaded by hand |
 | regenerate the E2 and E3 verdicts | the licensed EODHD archive, plus EDGAR downloads |
 | regenerate the insider re-test | the Form 4 corpus and XBRL from EDGAR (public) and a Yahoo price panel, not redistributed |
 | the Fama-French factors | `python data/ff/fetch.py` (Kenneth R. French Data Library) |
@@ -246,12 +297,14 @@ Aggregate results of every study are kept in the repository as documents; per-se
 ```
 form4_scanner/        the Form 4 filter (edgar.py, parse.py, cluster.py, classify.py, dilution.py, flags.py, ...)
 edgar_llm/            LLM extraction from filing text; enriches, never decides; its own ADRs and pytest suite
-market-data/          price archive client and typed API (no data inside); its own ADRs and pytest suite
+market-data/          data layer and typed API (no data inside): price archive client, Fed series (FRED, ALFRED,
+                      EBP, GSW), SEC bulk readers, opt-in price-quality rules; its own ADRs and pytest suite
 tools/                statistics (event-time backtest, matched control, CR1 regression) and backfill tools
 backtest/             pre-registrations, addenda, code, results and STUDY.md pages of the published studies
 reports/              measurement reports (the 2026-09-01 insider reports, rubric measurements, infrastructure notes)
-docs/                 architecture, method, bibliography
+docs/                 architecture, method (pre-registration, data quality, coding agents), bibliography
 DECISIONS.md          decision records of the published studies, renumbered for this repository
+.githooks/            pre-commit guard: blocks data files, .env, files over 5 MB and anything shaped like an API key
 RULES.md              every rule the scanner applies, with the line that implements it
 tests/                offline suites
 config/               vehicles.json (public facts), watch.example.json
