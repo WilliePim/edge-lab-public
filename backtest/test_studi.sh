@@ -14,8 +14,12 @@ export PYTHONIOENCODING=utf-8
 
 failed=0
 names=""
+# In drawdown_alpha i nomi test_f.py, test_g.py e test_g_dati.py sono gli script dei Test F e G (leggono l'archivio e
+# calcolano il referto), non suite: le loro prove sintetiche stanno in tests/ (test_f_curva.py, test_g_*.py).
+SCRIPT_DI_STUDIO="backtest/drawdown_alpha/test_f.py backtest/drawdown_alpha/test_g.py backtest/drawdown_alpha/test_g_dati.py"
 for t in backtest/test_*.py backtest/*/test_*.py; do
   [ -f "$t" ] || continue
+  case " $SCRIPT_DI_STUDIO " in *" $t "*) continue ;; esac
   echo "==> $t"
   if "$PY" "$t" | tail -2; then :; else
     failed=$((failed + 1))

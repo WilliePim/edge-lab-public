@@ -1283,3 +1283,338 @@ concatenati, dove lo studio ne concatena. Solo conteggi, prima; poi la decisione
 nuova e datata, mai una riscrittura del verdetto.
 
 **Verifica.** Letto: l'uscita del `grep` sui sorgenti di `backtest/` di questo repo; i tre ADR di market-data citati.
+
+---
+
+## ADR-059 — 2026-09-30 — Test E chiuso: superato dal Test F (segnali precoci)
+
+**Contesto.** Il Test E del filone drawdown (`backtest/drawdown_alpha/2026-09-23_preregistrazione.md`, sezione «Test E»)
+non è mai stato pre-registrato davvero: cinque righe che rimandano la regola a «una finestra di ritardo derivata dalla
+differenza di lead time osservata nei Test A/B/C stessi». Nessuna regola fissata, nessun verdetto, mai eseguito. Il
+Test F (segnali precoci: credito, curva a breve, permessi, sussidi, petrolio; composito da 0 a 5, verdetto
+pre-registrato) copre la stessa domanda — combinare segnali che anticipano il ribasso — con regole fissate prima.
+
+**Decisione dell'utente.** Il Test E è chiuso come «superato dal Test F». I Test A e B restano com'erano, descrittivi,
+con i loro risultati in `risultati_ab.md`; il Test F ha la sua pre-registrazione e il suo verdetto. Due famiglie di
+segnali del Test F (curva, credito) sono le stesse di A e B, misurate diversamente (near-term forward spread al posto
+di 10a-3m; excess bond premium al posto di BAA10Y).
+
+**Conseguenze.** Il Test F lavora sul branch `feat/early-signals`, creato da `develop`. *(Nota della versione pubblica: tolto il nome di un branch di uno studio non pubblicato.)* Per il verdetto il Test F misura il ribasso dal massimo delle chiusure degli ultimi 12
+mesi, non dal massimo storico della definizione comune del filone (decisione dell'utente: con il massimo storico il
+ribasso del 1980 non è un evento nuovo); il massimo storico resta come colonna descrittiva per il confronto con A-E.
+La regola esatta di inizio di un nuovo evento si fissa alla fermata 1.
+
+**Verifica.** Letto: la sezione «Test E» della pre-registrazione del 23-09 (righe 231-236) e la voce del registro che apriva il filone, che non
+fissano regole per E. *(Nota della versione pubblica: quella voce non è in questa versione.)*
+
+## ADR-060 — 2026-09-30 — Test F: regola degli eventi (massimo a 12 mesi), periodo, recessioni, stato di ogni evento
+
+**Contesto.** ADR-059: il Test F misura il ribasso dal massimo delle chiusure degli ultimi 12 mesi, non dal massimo
+storico della definizione comune del filone, e la regola esatta di inizio di un nuovo evento si fissa alla fermata 1.
+L'utente indica «un nuovo evento solo dopo che l'indice ha fatto un nuovo massimo a 12 mesi dopo il minimo del precedente».
+
+**Decisione (proposta, da confermare).** Regola operativa in `backtest/drawdown_alpha/eventi_f.py`:
+1. **Massimo mobile** M_t = massimo delle chiusure nei 12 mesi di calendario che finiscono in t, t compresa e il giorno
+   t − 1 anno escluso (circa 252 sedute). Serve un anno intero di storia prima di t.
+2. **Inizio**: la prima seduta T con chiusura ≤ 0,85 × M_T mentre nessun evento è aperto. **Massimo dell'evento** = la
+   seduta P della chiusura M_T (la prima, a parità), fissato a T. Nessuna chiusura fra P e T può stare sotto 0,85 × M_T
+   (avrebbe fatto partire l'evento prima), quindi il fondo si cerca da T in poi.
+3. **Chiusura**: la prima seduta R > T con chiusura strettamente superiore a tutte le chiusure dei 12 mesi precedenti
+   (nuovo massimo a 12 mesi). **Fondo** = chiusura minima fra P e R. Senza R entro la fine della serie: evento aperto,
+   fondo provvisorio.
+4. **Niente doppi conteggi**: mentre un evento è aperto non ne parte un altro; a R la chiusura supera tutto l'anno prima,
+   quindi nessuna seduta prima di R può essere il massimo a 12 mesi di una seduta dopo R: il massimo del nuovo evento è
+   sempre ≥ R.
+5. **Periodo 1973-2025**: entra un evento con massimo ≥ 1973-01-01 e data del −15% ≤ 2025-12-31.
+6. **Recessioni NBER** da `USRECM` (FRED; 1 dal mese del picco al mese del minimo compreso, verificato contro la tabella
+   NBER `nber.org/research/data/us-business-cycle-expansions-and-contractions`: 1973-11→1975-03, 1980-01→1980-07,
+   1981-07→1982-11, 1990-07→1991-03, 2001-03→2001-11, 2007-12→2009-06, 2020-02→2020-04). **Inizio = mese del picco
+   NBER**; ribasso da recessione se il mese del massimo è fra inizio − 12 mesi (compreso) e il mese del minimo. Con la
+   convenzione NBER «la recessione inizia il mese dopo il picco» (USREC) l'evento del 2000 (massimo 2000-03-24, picco
+   NBER marzo 2001) uscirebbe per otto giorni: caso al limite segnalato, la scelta spetta all'utente.
+7. **Stato**: *verdetto* se da recessione e massimo ≥ 1975-01-01 (24 mesi interi di tutti e cinque i segnali: l'EBP parte
+   dal gennaio 1973); *descrittivo* se senza recessione o con meno di 24 mesi di dati (1973); *non incluso* fuori dal
+   periodo (1966, 1968, mostrati per contesto). Per il composito a quattro segnali senza EBP la finestra completa parte
+   dal 1970-01-01 (ICSA dal 1967-01-07, media a 52 settimane dal gennaio 1968).
+8. Il **massimo storico** (definizione comune, `episodi.py` non modificato) resta la lista B, affiancata alla A nella
+   pre-registrazione; differenze: A aggiunge 1976-12, 1980-02 (il caso che motiva la regola), 2010-04, 2011-04, e chiude
+   gli eventi prima (nuovo massimo a 12 mesi invece che storico).
+
+**Risultato della lista** (chiusure di `GSPC.INDX`, 24.794 sedute 1927-12-30 → 2026-09-16, `api.prices`): 17 eventi in A
+dal 1966, 13 in B; **6 eventi da recessione per il verdetto** (massimi 1980-02-13, 1980-11-28, 1990-07-16, 2000-03-24 al
+limite, 2007-10-09, 2020-02-19), 1973-01-11 descrittivo per i 24 mesi, 8 senza recessione. Nessun segnale calcolato.
+
+**Verifica.** Letto: l'uscita di `python backtest/drawdown_alpha/eventi_f.py`; le righe di `USRECM` intorno a ogni
+recessione (stesse date della tabella NBER); `api.flags(["GSPC.INDX"])` vuoto e `prices(clean=True)` = `clean=False`.
+
+## ADR-061 — 2026-09-30 — Test F: indice dall'archivio EODHD (`GSPC.INDX` dal 1927), niente Shiller; Russell 2000 tolto
+
+**Contesto.** Il Test F copre il 1973-2025; il calendario dei backtest parte dal 2011 ma l'archivio può avere storia più
+lunga. Robustezza descrittiva chiesta sul Russell 2000 dal 1979.
+
+**Decisione.** L'indice è `GSPC.INDX` letto con `api.prices` (prezzi puliti): **24.794 chiusure dal 1927-12-30 al
+2026-09-16**, nessuna segnalazione dei controlli, nessuna chiusura nulla o zero, puliti = grezzi. Copre il 1972 e i 24
+mesi prima di ogni massimo del periodo: **i dati mensili di Shiller non servono e non si usano**. Le chiusure mensili per
+la regola di Faber sono l'ultima seduta del mese della stessa serie.
+
+**Russell 2000: tolto dal Test F** (decisione dell'utente del 01-10-2026, ADR-066). La robustezza «dal 1979» chiesta
+all'inizio non aveva una fonte verificabile: `RUT.INDX` è nell'archivio con zero barre (EODHD ha risposto 200 con un corpo
+di 2 byte il 2026-09-17, registro `chiamate.jsonl`) e FRED non ha più `RU2000PR`. Nessuna fonte alternativa entra nel test.
+
+**Verifica.** Letto: `api.listings()` (nessuna riga in `INDX` nell'anagrafica: gli indici non stanno nelle liste dei
+titoli, ma i prezzi ci sono), `api.prices("GSPC.INDX", clean=False)` e `clean=True`, `api.flags`, il registro delle
+chiamate per `eod/RUT.INDX`, la risposta di `fredgraph.csv?id=RU2000PR`.
+
+## ADR-062 — 2026-09-30 — Test F, segnale 2: near-term forward spread dalla curva GSW (parametri di Svensson)
+
+**Contesto.** Engstrom e Sharpe, «(Don't Fear) The Yield Curve», FEDS Notes 2018-06-28: «the difference between the
+current implied forward rate (on Treasury bills) six quarters from now and the current yield on a three-month Treasury
+bill», forward «inferred from the yields to maturity on Treasury notes maturing 6 quarters from now and 7 quarters from
+now», dati trimestrali 1972:Q1-2018:Q1, fonte «Federal Reserve Bank of New York; Federal Reserve Board staff estimates».
+«(Don't Fear) The Yield Curve, Reprise», FEDS Notes 2022-03-25: ntfs_t = fwd^6_t − y^1_t, «All Treasury yield data are
+constructed from smoothed zero-coupon yield curves following the procedure of Gurkaynak, Sack, and Wright (2007)».
+Il working paper FEDS 2018-055 (PDF) non si è potuto leggere: nessuna libreria PDF nel venv, nessuna dipendenza nuova.
+
+**Decisione.** Dalla curva GSW (`api.gsw()`, file `feds200628.csv`), con i parametri di Svensson del giorno:
+y(n) = β0 + β1·(1−e^{−n/τ1})/(n/τ1) + β2·[(1−e^{−n/τ1})/(n/τ1) − e^{−n/τ1}] + β3·[(1−e^{−n/τ2})/(n/τ2) − e^{−n/τ2}]
+(zero-coupon, composizione continua, per cento; β3 = 0 e τ2 assente prima del 1980-01-02: Nelson-Siegel).
+**Forward a 3 mesi fra 18 mesi** f = [1,75·y(1,75) − 1,5·y(1,5)] / 0,25; **tasso a 3 mesi** y(0,25) dalla stessa curva;
+**ntfs = f − y(0,25)**, acceso se < 0. Frequenza: valore dell'ultima osservazione disponibile alla fine del mese (ADR-063),
+non media trimestrale.
+> **Superata in parte da ADR-067 (01-10-2026, decisione dell'utente):** il tasso a 3 mesi primario è il buono DTB3
+> convertito nella convenzione della curva; la versione tutta GSW (y(0,25)) resta come confronto descrittivo. Il forward
+> e la formula della curva restano questi.
+
+**Dove replica e dove no.** Replica: la fonte (GSW), la scadenza del forward (6 → 7 trimestri), la forma (differenza fra
+forward e tasso a breve). Non replica: (a) il tasso a 3 mesi da y(0,25) è un'estrapolazione della curva GSW sotto l'anno
+(il file pubblico parte da `SVENY01`; GSW stimano senza i buoni), mentre il Note 2018 parla di «three-month Treasury
+bill»: il confronto descrittivo userà `DTB3` (FRED, dal 1954-01-04) come tasso a breve alternativo; (b) mensile invece di
+trimestrale; (c) le stime «Board staff» del paper possono differire dal file pubblico. Il confronto con i grafici del
+paper si fa alla fermata 2, sulla serie calcolata, non prima.
+
+**Verifica della formula.** La y(n) e la f(n) istantanea ricostruite dai parametri riproducono le colonne del file
+`SVENY01`, `SVENY02`, `SVENF01`, `SVENF02` su 16.286 giorni con scarto massimo 6·10⁻⁵ e 2,3·10⁻⁴ punti percentuali
+(script di prova nello scratchpad, letto l'output). Scadenze nel file: 1-7 anni dal 1961-06-14, 10 dal 1971-08-16, 15 dal
+1971-11-15, 20 dal 1981-07-02, 30 dal 1985-11-25: il forward a 1,5-1,75 anni è dentro la parte stimata dal 1961.
+
+## ADR-063 — 2026-09-30 — Test F: ritardi di pubblicazione per serie (ALFRED dove c'è, altrimenti prudenti e dichiarati)
+
+**Regola generale.** A ogni fine mese t si usano solo dati pubblicati entro t. Le versioni storiche ALFRED sono la
+regola dove esistono; altrove si usa la serie di oggi con un ritardo prudente, e si dichiara che le revisioni non sono
+riprodotte.
+
+| serie | versioni ALFRED | alla fine del mese t si usa | fonte del calendario |
+|---|---|---|---|
+| PERMIT (mensile) | dal 1999-08-17 | il mese t − 1 (il mese t esce il 12° giorno lavorativo di t + 1; agosto 2026 → 17-09-2026); con ALFRED la versione nota il giorno t | Census, `census.gov/construction/soc/schedule.html`; ALFRED «Release Dates» |
+| ICSA (settimanale, sabato) | dal 2009-05-28 | le settimane con sabato ≤ t − 5 giorni (giovedì 8:30 della settimana dopo: ultima osservazione 2026-09-19, versione ALFRED 2026-09-24); con ALFRED la versione nota il giorno t | DOL, versioni ALFRED |
+| WTISPLC (mensile, media dei prezzi spot) | dal 2016-10-13 (prima nessuna) | il mese t − 1 (FRED ha aggiornato agosto 2026 il 2026-09-02); serie di oggi: è una media di prezzi di mercato, non rivista | pagina FRED della serie |
+| EBP (mensile) | nessuna, ristimato ogni volta | il mese t − 1 (esce «after 10:00 a.m. on the fourth business day of each month»: luglio 2026 → file del 2026-08-06); serie di oggi, l'intera storia può cambiare a ogni aggiornamento | pagina Fed «Updating the Recession Risk and the Excess Bond Premium» |
+| curva GSW (giornaliera) | nessuna | l'ultima osservazione con data ≤ t − 11 giorni (il file esce «on Tuesday for the period up to the Friday of the previous week»: caso peggiore 11 giorni; **11 giorni fissi, deciso il 01-10, ADR-066**) | pagina Fed `data/nominal-yield-curve.htm` |
+| DTB3 (giornaliera) | — (tasso di mercato, non rivisto) | il valore del giorno dell'osservazione GSW usata: H.15 pubblicato ogni giorno lavorativo alle 16:15 con i dati del giorno prima (ADR-067) | pagina Fed H.15 |
+| S&P 500 | — | chiusura del giorno | — |
+| USRECM | — | solo per classificare gli eventi a posteriori; le date NBER sono annunciate con mesi di ritardo e non entrano in nessun segnale | NBER |
+
+**Conseguenze.** Senza la chiave ALFRED (ADR-064) PERMIT e ICSA restano alla serie di oggi con i ritardi della tabella:
+per il 1973-1999 (PERMIT) e il 1973-2009 (ICSA) è comunque l'unica strada, e la pre-registrazione lo dichiara come
+limite. Il ritardo di 11 giorni sulla curva è prudente e costa fino a due settimane di anticipo: alternativa, il
+calendario esplicito «venerdì prima dell'ultimo martedì ≤ t» (4-10 giorni). Decisione dell'utente.
+
+**Verifica.** Letto: `Last-Modified` dei file EBP (2026-08-06) e GSW (2026-09-29); ultima data di ogni serie letta con il
+lettore nuovo; le pagine ALFRED e Census citate; la pagina FRED di WTISPLC («Last Updated: September 2, 2026»).
+
+## ADR-064 — 2026-09-30 — Test F: la chiave ALFRED manca; bloccante per la fermata 2, nessun ripiego
+
+**Fatto.** Il `.env` di edge-lab non ha la riga `FRED_API_KEY` (letti i soli nomi delle variabili del file) *(Nota della versione pubblica: tolto l'elenco dei nomi delle variabili d'ambiente.)*.
+`api.fred("PERMIT", al_giorno="2010-01-29")` si ferma con `ConfigError: FRED_API_KEY non impostata` prima di qualunque
+richiesta; la chiamata diretta all'API senza chiave risponde 400 «Variable api_key is not set».
+
+**Decisione.** Le versioni storiche non si sostituiscono con i dati di oggi in silenzio. **Bloccante per la fermata 2**
+per i segnali 3 (PERMIT dal 1999-08-17) e 4 (ICSA dal 2009-05-28): senza chiave quei periodi userebbero la serie di oggi,
+e il risultato andrebbe etichettato «senza versioni storiche» in ogni tabella. **Cosa serve**: una chiave gratuita da
+`fred.stlouisfed.org/docs/api/api_key.html` (account FRED), riga `FRED_API_KEY=` nel `.env` (ambiente > `.env`, mai nel
+repo: `.env.example` ha il nome vuoto). Il codice è pronto e testato con rete finta (`market-data/tests/test_fred.py`);
+la prima chiamata vera ad ALFRED si fa quando la chiave c'è, e va verificata leggendo la risposta (formato, `count`).
+
+**Aggiornamento del 01-10-2026: non più bloccante.** La chiave è nel `.env` (riga `FRED_API_KEY=` presente, 32 caratteri;
+valore mai letto né stampato). Chiamata reale `api.fred("PERMIT", al_giorno="2010-06-15")` fatta dall'utente: la versione
+storica torna con ultima osservazione 2010-04 = 610 contro 637 della serie di oggi; la chiave non compare nel grezzo
+(`fred/manifest/grezzo.jsonl`, endpoint `alfred/PERMIT`). Il controllo pre-commit riconosce la chiave FRED (commit
+`cfa1cdf`). Per la fermata 2 le versioni a ogni fine mese (PERMIT dal 1999-08-31, ICSA dal 2009-05-31) si scaricano una
+volta nel grezzo e si rileggono da lì.
+
+**Verifica.** Letto: `grep -o "^FRED_API_KEY=" .env` (solo il nome), il manifest del grezzo `fred/` (endpoint
+`alfred/PERMIT` presente), `git log` per `cfa1cdf`.
+
+## ADR-065 — 2026-09-30 — market-data: `api.fred()`, `api.ebp()`, `api.gsw()` e il grezzo `fred/` (specchio di market-data ADR 008)
+
+**Decisione.** Un solo lettore, in market-data (`market_data/fred.py`, funzioni in `api.py`): FRED senza chiave, ALFRED
+con `FRED_API_KEY`, EBP e curva GSW dai file della Fed; livello grezzo per fornitore (`store/raw.py` prende il fornitore,
+`fred/raw/<giorno>/…` e `fred/manifest/grezzo.jsonl`), `api_key` fra i segreti mai scritti, riscarico al massimo una volta
+al giorno e mai una sovrascrittura, versioni ALFRED immutabili. Solo `urllib`: nessuna dipendenza nuova. Nessun altro
+lettore FRED: `backtest/drawdown_alpha/dati.py` resta il debito registrato, non si tocca. Dettagli, fonti e prima data
+letta di ogni serie in `market-data/docs/adr/008-fred-alfred-ebp-gsw.md`.
+
+**Verifica.** Letto: il log di `bash test.sh` del 30-09 (ALL SUITES PASSED, exit 0, 54 s; market-data 146 passed in 42 s;
+la prima esecuzione, 63 s, aveva `test_adr_citati` rosso perché ADR-060 era citata e non ancora scritta), l'uscita della prova
+con chiamate reali (PERMIT dal 1960-01-01, ICSA dal 1967-01-07, WTISPLC dal 1946-01-01, EBP dal 1973-01-01, GSW dal
+1961-06-14), il manifest `fred/manifest/grezzo.jsonl` (9 righe, nessuna chiave).
+
+## ADR-066 — 2026-10-01 — Test F: decisioni dell'utente sulla fermata 1 (recessioni, eventi, Russell, ritardo GSW, falsi eventi)
+
+**Decisioni dell'utente, vincolanti, prese prima di qualunque calcolo.**
+1. **Inizio della recessione = mese del picco NBER** (USRECM): il 2000 è dentro, **6 ribassi da recessione per il verdetto,
+   servono almeno 4 colpiti** (2/3). Robustezza descrittiva: recessione dal mese dopo il picco (USREC, 5 eventi).
+2. **Regola degli eventi** come proposta in ADR-060. 1980-02 e 1980-11 restano due eventi nel verdetto e lo stesso segnale
+   può contare per entrambi; **robustezza descrittiva con i due fusi**: massimo = il primo (1980-02-13), finestra unica dal
+   1978-02-13 alla data del −10% del secondo evento (unione delle due finestre), fondo = il minimo dei due.
+3. **Russell 2000 tolto** dal Test F: dalla pre-registrazione e dalle ADR dove era una robustezza (ADR-061 aggiornata).
+4. Tasso a 3 mesi: **DTB3 per il tasso di oggi, forward dalla curva GSW** (formula e ritardo in ADR-067); la versione tutta
+   GSW resta come confronto descrittivo.
+5. **Ritardo sulla curva GSW: 11 giorni fissi.**
+6. **Falsi eventi**: 1000 serie, episodi non sovrapposti, date di inizio uniformi fra le fini mese 1975-01 → 2025-12,
+   finestre lunghe come quelle degli eventi reali, **seme fisso 20261001** scritto nella pre-registrazione.
+
+**Conseguenze.** Pre-registrazione aggiornata nelle sezioni toccate (datate 01-10); da qui le regole non cambiano. La
+fermata 2 (`backtest/drawdown_alpha/test_f.py`) calcola tutto come scritto e produce un referto in bozza in `drafts/`, non
+committato finché l'utente non lo rivede. Il registro dei verdetti non si tocca.
+
+## ADR-067 — 2026-10-01 — Test F, segnale 2: tasso a 3 mesi dal buono DTB3 convertito a capitalizzazione continua; ritardo di DTB3
+
+**Contesto.** ADR-066 punto 4. La curva GSW è in rendimenti zero-coupon a capitalizzazione continua (riga «Zero-coupon
+yield, Continuously Compounded, SVENYXX» dell'intestazione di `feds200628.csv`, letta). DTB3 (FRED, H.15) è «3-Month
+Treasury Bill Secondary Market Rate, Discount Basis»: un tasso di sconto su base 360, non un rendimento.
+
+**Decisione: la conversione.** Prezzo dal tasso di sconto d (per cento), buono a 13 settimane = 91 giorni:
+P = 1 − (d/100)·91/360 (TreasuryDirect, «Understanding pricing and interest rates»: «Price = Face value (1 – (discount
+rate x time)/360)», con l'esempio del buono a 26 settimane su 182 giorni). Rendimento zero-coupon a capitalizzazione
+continua su base 365, nella stessa convenzione della curva: **y3m = (365/91)·ln(1/P)**, in per cento. Non si passa per il
+rendimento «investment rate» (semplice, (1/P − 1)·365/91): la conversione va diretta al continuo, che è ciò che la curva
+riporta. Il forward a 3 mesi fra 18 mesi resta quello di ADR-062; **ntfs = f − y3m**, acceso se < 0. DTB3 si prende nel
+giorno dell'osservazione GSW usata (ultimo valore entro 7 giorni prima, altrimenti il segnale non è disponibile).
+Implementazione: `dtb3_continuo()` in `backtest/drawdown_alpha/test_f.py`.
+
+**Ritardo di pubblicazione di DTB3.** L'H.15 «is posted daily Monday through Friday at 4:15pm» con i dati del giorno
+lavorativo precedente (pagina `federalreserve.gov/releases/h15/`, letta); FRED aggiorna DTB3 lo stesso giorno (pagina
+della serie: «Last Updated: Sep 30, 2026 3:16 PM CDT»; il 30-09 l'ultima osservazione letta era del 2026-09-28). Ritardo
+di 1-2 giorni lavorativi, coperto dagli 11 giorni del ritardo sulla curva: il valore DTB3 del giorno dell'osservazione
+GSW è sempre già pubblicato alla fine del mese.
+
+**Limiti.** 91 giorni è la scadenza nominale del buono a 13 settimane, non quella effettiva del titolo quotato quel
+giorno; la quotazione H.15 è il denaro del mercato secondario. Il paper prende anche il tasso a breve dalla curva lisciata
+(Reprise 2022): la versione tutta GSW (y(0,25)) è il confronto descrittivo.
+
+I numeri 068, 069 e 070 non sono assegnati in questa versione: la pre-registrazione del Russell li cita per errore (errata del 22-09) e una voce con quei numeri ne cambierebbe il senso.
+
+## ADR-071 — 2026-10-04 — Test F: correzione di un errore di lettura della curva GSW (riga `NA` nei festivi → ultimo giorno valido precedente)
+
+**Contesto.** Preparando il Test G (fermata 1) è risultato che il composito a 5 mancava in 23 delle 432 fini mese del
+periodo 1990-2025, sempre per il segnale dei tassi. Causa: `segnale_ntfs` (`backtest/drawdown_alpha/test_f.py`)
+prendeva l'ultima riga del file GSW con data ≤ t − 11 giorni (ADR-063) senza guardare se fosse valida, e il file della
+Fed ha una riga anche nei giorni festivi, con `NA` al posto dei parametri (verificato su 1992-01-20, 2008-02-18,
+2020-01-20, 2025-06-19). In quei mesi il segnale risultava mancante e il composito con lui. Non era una regola
+pre-registrata: la pre-registrazione dice «l'ultima osservazione con data ≤ t − 11 giorni», e una riga `NA` non è
+un'osservazione. È un errore di lettura.
+
+**I mesi toccati.** 30 fini mese fra il 1973-02 e il 2025-12 (il referto contava 605 fini mese con il composito su
+635): 1975-02, 1978-01, 1980-02, 1981-04, 1986-01, 1986-02, 1987-04 e, nel periodo del Test G, **i 23**: 1992-01,
+1992-04, 1992-12, 1993-01, 1993-04, 1995-03, 1997-01, 1997-02, 2003-01, 2003-02, 2003-04, 2008-02, 2014-01, 2014-02,
+2014-04, 2019-04, 2020-01, 2023-06, 2024-06, 2025-01, 2025-02, 2025-04, 2025-06. In più il 2026-06, fuori dal periodo.
+
+**Decisione (dell'utente, 04-10-2026: «per la curva, ultimo giorno valido precedente»).** `test_f.riga_gsw`: l'ultima
+riga **valida** (BETA0 presente) con data ≤ t − 11 giorni; **mai una riga successiva**; se la riga valida è più vecchia
+di **7 giorni** rispetto a t − 11 (`MAX_GIORNI_CURVA`, lo stesso limite già usato per DTB3 in ADR-067) il segnale resta
+mancante, fail-closed. Nei 31 casi la riga usata è più vecchia di 1-4 giorni. Il DTB3 resta quello del giorno della
+riga usata (ADR-067). La versione tutta GSW (y(0,25)) passa per la stessa funzione ed è corretta insieme. Le altre
+letture della curva: la 10 anni − 3 mesi del confronto usa GS10 e TB3MS mensili da FRED, non il file GSW, e non ha il
+difetto. Test: `tests/test_f_curva.py`.
+
+**Effetto misurato sul Test F** (uscita di `test_f.py` prima e dopo, stessi dati del 04-10-2026): fini mese con il
+composito da 605 a **635** (nessuna mancante); eventi colpiti **6/6, invariati**, con le stesse date di prima
+accensione; falsi allarmi **4, invariati**, non giudicabili da 2 a 1; episodi da 24 a 23 (i due del 2025 si fondono);
+falsi allarmi severi **7 e 9, invariati**; quota dei falsi eventi sotto il reale **0,885, invariata**; criteri (a)
+vero, (b) vero, (c) falso. **Il verdetto resta INCONCLUSIVO.** Cambia una riga dello stato attuale: il composito della
+fine mese 2026-06-30, prima mancante, è 3 (acceso per quel solo mese), quindi «spento dal 2026-07» e non «dal 2025-11».
+
+**Conseguenze.** Il referto chiuso `backtest/drawdown_alpha/2026-10-01_referto_test_f.md` non è riscritto: ha in fondo una nota datata
+04-10-2026 con la tabella prima/dopo. La pre-registrazione del Test F non cambia. Il registro dei verdetti non si
+tocca. Il Test G usa il composito corretto.
+
+## ADR-072 — 2026-10-04 — Test G (scadenza delle put spread): dati, strumento e prezzo Black-Scholes con dividendo al 2%
+
+**Contesto.** Seguito del Test F: comprare put spread sull'S&P 500 protegge il portafoglio a un costo accettabile, con
+quale scadenza (3, 6, 9, 12 mesi) e con quale regola di ingresso. Non ci sono quotazioni di opzioni nell'archivio: i
+prezzi sono stimati. Pre-registrazione `backtest/drawdown_alpha/2026-10-04_preregistrazione_test_g.md`, approvata
+dall'utente il 04-10-2026 prima di qualunque rendimento.
+
+**Decisione.** Dati: chiusure di `GSPC.INDX` (`eventi_f.chiusure()`), `VIXCLS` e `DTB3` con `api.fred()`; periodo
+1990-01-02 → 2025-12-31 (9.067 sedute). Strumento: put comprata con strike 0,95 × la chiusura del giorno di ingresso,
+put venduta a 0,75 ×, non arrotondati, tenute fino a scadenza. Prezzo Black-Scholes: volatilità VIX/100 per la comprata
+e (VIX + 5)/100 per la venduta, per tutte le scadenze, inclinazione attaccata allo strike; tasso
+`test_f.dtb3_continuo(DTB3)` (ADR-067) per tutte le scadenze; tempo = giorni di calendario / 365; scadenza = N mesi di
+calendario, seduta precedente se non è una seduta; valore a scadenza sulla chiusura. **Dividendi: q = 2% continuo nel
+prezzo delle put (scelta principale, decisione dell'utente); q = 0 sensibilità descrittiva; il portafoglio resta senza
+dividendi.** Sensibilità descrittive di inclinazione: 0 e +10 punti. Buchi: nelle sedute senza VIX (3) o senza DTB3
+(75) l'ultimo valore noto prima della seduta, mai in avanti, non più vecchio di 7 giorni (età massima osservata: 1 e 3
+giorni). Codice: `backtest/drawdown_alpha/test_g_dati.py`; test `tests/test_g_prezzi.py` (valori di manuale con e
+senza dividendo, parità put-call, limiti).
+
+**Verifica.** Prezzo di apertura di prova del 2008-09-02 a 12 mesi calcolato passo per passo: 58,1780 punti indice
+(4,5538% della chiusura) con q = 2%, uguale alla funzione del codice; 52,0141 con q = 0.
+
+**Limiti.** Prezzi stimati, non di mercato: le put vere sotto stress costano di più. VIX a 30 giorni usato per
+scadenze fino a 12 mesi; inclinazione fissa; dividendo fisso; tasso a 3 mesi per tutte le scadenze; nessun costo di
+transazione.
+
+## ADR-073 — 2026-10-04 — Test G: due versioni di budget, due verdetti indipendenti, 32 combinazioni e 160 serie guardate
+
+**Contesto.** La specifica iniziale («premio 3% per operazione, tetto 6% l'anno», verdetto sulla sola cella regola 3 ×
+12 mesi) rendeva le scadenze corte non confrontabili: a 3 mesi il tetto lasciava scoperta metà dell'anno. L'utente ha
+deciso il 04-10-2026, prima dei risultati, due versioni di budget, ciascuna con il suo verdetto.
+
+**Decisione.** *Versione A (budget annuo uguale)*: premio per operazione = 6% × mesi/12, massimo 3% (3 mesi 1,5%; 6, 9
+e 12 mesi 3%; a 9 mesi quindi al più 4% l'anno, dichiarato); tetto 6% **sui 360 giorni precedenti**, nuova operazione
+compresa (360 e non 365 perché i rinnovi trimestrali non slittino). Cella del verdetto: **regola 3 × 12 mesi**.
+*Versione B (premio fisso)*: 3% per operazione a tutte le scadenze, nessun tetto. Cella del verdetto: **regola 3 × 3
+mesi**. In entrambe: premio in percentuale del valore corrente del portafoglio, pagato vendendo quote dell'indice; una
+sola operazione aperta alla volta; nessun raddoppio; incasso a scadenza reinvestito nell'indice; spread aperto valutato
+ogni giorno a modello; nessun limite alla parte coperta. **Soglie uguali per i due verdetti**: REGGE se la riduzione
+media dei tre ribassi peggiori è ≥ 1/3 e il costo ≤ 1,5 punti di rendimento annuo; NON REGGE se la riduzione è < 1/5 o
+il costo > 3 punti; INCONCLUSIVO altrimenti. I due verdetti non si fondono. Le altre 30 combinazioni (4 regole × 4
+scadenze × 2 versioni, meno le due celle) sono descrittive, con il premio annuo effettivamente speso accanto.
+
+**Conto dichiarato prima dei risultati.** 32 combinazioni; sensibilità su tutte le 32, una variazione alla volta:
+inclinazione 0 e +10 (64 serie), spread aperto al valore intrinseco (32), q = 0 (32): **160 serie guardate**. Il
+referto scrive che i verdetti sono due e il totale guardato, e verifica con i numeri la coincidenza attesa fra la cella
+A e la cella regola 3 × 12 mesi di B (stesso premio, tetto che non dovrebbe mai bloccare).
+
+**Conseguenze.** La vecchia scelta «due operazioni per anno solare» è superata. La simulazione si scrive solo ora.
+
+## ADR-074 — 2026-10-04 — Test G: regole di ingresso, composito corretto (ADR-071), misure e riduzione massima teorica
+
+**Contesto.** Le quattro regole della specifica (sempre accesa; composito del Test F ≥ 3; composito ≥ 3 e VIX sotto la
+mediana a 12 mesi; Faber) vanno tradotte in ingressi senza sguardo in avanti, e le misure vanno definite prima dei
+numeri.
+
+**Decisione: ingressi.** Segnali mensili letti all'ultimo giorno del mese t, ingresso alla chiusura della prima seduta
+di t + 1, se non c'è uno spread aperto e il tetto lo permette (432 letture, 1989-12 → 2025-11). Regola 1: si apre in
+ogni seduta senza spread aperto (rinnovo nella seduta di scadenza). Regola 2: `composito5` di `test_f.calcola_mesi`
+≥ 3, **con la lettura della curva corretta da ADR-071: 0 letture mancanti su 432** (erano 23); dove mancasse comunque,
+fail-closed. Regola 3: in più, ultimo VIX noto a fine mese strettamente sotto la mediana delle chiusure giornaliere dei
+12 mesi di calendario fino a t; la finestra è intera dal 1990-12-31, quindi **la regola 3 entra dal 1991-01-02**.
+Regola 4: `test_f.faber`.
+
+**Decisione: misure.** Portafoglio 100 nell'indice dal 1990-01-02 al 2025-12-31. Tre ribassi peggiori = i tre episodi
+più profondi del portafoglio senza protezione (`episodi.py`); con protezione, valore al fondo / valore al picco sulle
+stesse date; riduzione media = media semplice delle tre; costo = differenza dei rendimenti annui composti; premio annuo
+effettivamente speso; guadagno delle put sui 10 eventi della lista A del Test F con massimo dal 1990.
+
+**Riduzione massima teorica, calcolata prima di ogni simulazione** (richiesta dell'utente; solo prezzi di apertura alla
+seduta del massimo, q = 2%): parte coperta = premio / costo dello spread; guadagno massimo = 20% × parte coperta;
+riduzione massima = guadagno massimo / profondità. Media dei tre ribassi (2000-03-24, 2007-10-09, 2020-02-19): versione
+A 55,7% a 3 mesi, 62,7% a 6, 49,5% a 9, **43,7% a 12 (cella del verdetto)**; versione B **111,5% a 3 mesi (cella del
+verdetto)**, poi come A. Nessun tetto è sotto un terzo: REGGE non è escluso per costruzione in nessuna delle due celle.
+La parte coperta supera il 100% in 15 casi su 24 (fino al 306%): nessun limite.
+
+**Limiti.** Il tetto teorico vale per una sola operazione aperta al massimo e pagata per intero; non limita la somma di
+più operazioni nello stesso ribasso e non è un risultato. Il composito eredita i limiti del Test F (EBP ristimato) e le
+sue soglie sono state fissate sugli stessi anni. Ciascun verdetto poggia su tre ribassi e su una storia di 36 anni.

@@ -18,8 +18,8 @@ What is here:
 - **the research infrastructure** around it: an EDGAR client with a disk cache, a point-in-time XBRL layer, a data
   layer with a single typed entry point for prices, Fed series and SEC bulk filings (`market-data/`), an LLM
   extraction package that enriches and never decides (`edgar_llm/`), and the statistics tools (`tools/`);
-- **three published studies** (`backtest/`), each with its pre-registration, addenda, decision records, code,
-  aggregate results and an English summary page;
+- **the published studies** (`backtest/`): three on stock events and two on index drawdowns, each with its
+  pre-registration, addenda, decision records, code, aggregate results and an English summary page;
 - **the method**: how a study is pre-registered, what happens when the data invalidates a backtest, and how coding
   agents were used and kept honest ([`docs/method/`](docs/method/)).
 
@@ -76,6 +76,21 @@ Two opposite stories tested with the same machinery. "Healthy IPOs crushed below
 negative against peers. "IPOs that never traded below the offer price keep winning" **DOES NOT HOLD**: the median
 strong IPO lost to comparable companies over the following year, and the positive mean was carried by a few very large
 winners (t 1.07).
+
+### Drawdown track — early warning signals (Test F) and put spreads (Test G)
+
+[`backtest/drawdown_alpha/STUDY.md`](backtest/drawdown_alpha/STUDY.md)
+
+Two tests on one question: can a long-only S&P 500 investor see a deep drawdown coming, or insure against it cheaply?
+
+- **Test F** combines five macro warnings from the literature: credit premium, near-term forward spread, building
+  permits, jobless claims and oil. It uses point-in-time vintages where they exist. The composite fires before all
+  six recession drawdowns of 1973-2025, but it is on 26% of the time, and random series with the same time switched
+  on do as well. **INCONCLUSIVE.**
+- **Test G** buys S&P 500 put spreads when those signals fire, priced with Black-Scholes on VIX, over 1990-2025. Both
+  pre-registered budget versions **DO NOT HOLD**: the protection cuts the three worst drawdowns by 12% and 8%,
+  against a required third. The protection is cheap because it buys little. The one descriptive cell that clears
+  the bar does so only by holding spreads on up to 358% of the portfolio.
 
 **What is not in this repo.** The studies that did find an edge, and everything built to use them, are in a private
 version of this repository. What is published here is what was tested and could not be confirmed.
@@ -285,6 +300,7 @@ What needs more than the fixtures:
 | download or update the price archive (`market-data/`) | a paid EODHD key; the data live outside the repository and are not redistributable |
 | Fed series and SEC bulk readers (`market-data/`) | network access for FRED, a free FRED key for ALFRED vintages only; the two SEC bulk zips are downloaded by hand |
 | regenerate the E2 and E3 verdicts | the licensed EODHD archive, plus EDGAR downloads |
+| regenerate the Test F and G verdicts | the licensed EODHD archive for the index closes; FRED, the Fed's EBP and GSW files, and a free FRED key for ALFRED vintages |
 | regenerate the insider re-test | the Form 4 corpus and XBRL from EDGAR (public) and a Yahoo price panel, not redistributed |
 | the Fama-French factors | `python data/ff/fetch.py` (Kenneth R. French Data Library) |
 
